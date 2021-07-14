@@ -7747,9 +7747,9 @@ table tbody .border-bottom-info td {
             transform: rotate(180deg); }
 
 body[themebg-pattern="theme1"] {
-  background-color: #448aff; }
+  background-color: #c45149; }
 body[themebg-pattern="theme2"] {
-  background-color: #b71c1c; }
+  background-color: #c45149; }
 body[themebg-pattern="theme3"] {
   background-color: #4CAF50; }
 body[themebg-pattern="theme4"] {
@@ -7761,7 +7761,7 @@ body[themebg-pattern="theme6"] {
 
 .pcoded .pcoded-navbar .pcoded-header[header-theme="theme1"] {
   color: #fff; }
-  .pcoded .pcoded-navbar .pcoded-header[header-theme="theme1"] .sidebar_toggle a {
+  .pcoded .pcoded-navbar .pcoded-header[header-theme="theme2"] .sidebar_toggle a {
     background: transparent;
     color: #fff;
     border-color: #fff; }

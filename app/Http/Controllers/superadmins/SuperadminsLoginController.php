@@ -10,13 +10,15 @@ class SuperadminsLoginController extends Controller
 {
     use AuthenticatesUsers;
 
+    /*
     public function showLoginForm()
     {
         return view('superadmins.login');
     }
+    */
     
     
-   //protected $loginView = "superadmins.login";
+   protected $loginView = "superadmins.login";
 
     protected $guard = 'superadmins';
 
