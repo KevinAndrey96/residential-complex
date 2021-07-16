@@ -18,19 +18,19 @@
             {{csrf_field()}}
             <div class="form-group">
                 <label for="name">Nombre: </label>
-                <input class="form-control" type="text" name="name" id="name">
+                <input class="form-control" type="text" name="name" id="name" required>
             </div>
             <div class="form-group">
                 <label for="phone">Teléfono: </label>
-                <input class="form-control" type="number" name="phone" id="phone">
+                <input class="form-control" type="number" name="phone" id="phone" required>
             </div>
             <div class="form-group">
                 <label for="email">Email: </label>
-                <input class="form-control" type="email" name="email" id="email">
+                <input class="form-control" type="email" name="email" id="email" required>
             </div>
             <div class="form-group">
                 <label for="document_number">Número de documento: </label>
-                <input class="form-control" type="text" name="document_number" id="document_number">
+                <input class="form-control" type="text" name="document_number" id="document_number" required>
             </div>
             <div class="form-group">
                 <label for="role">Rol: </label>
@@ -41,7 +41,7 @@
             </div> 
             <div class="form-group">
                 <label for="password">Contraseña: </label>
-                <input class="form-control" type="password" name="password" id="password">
+                <input class="form-control" type="password" name="password" id="password" required>
             </div>
             <input class="btn btn-secondary" style="width:300px, background-color:#B74438 !important; float:right"type="submit" value="Agregar">
         </form>

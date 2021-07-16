@@ -3,30 +3,28 @@
 namespace App\Http\Controllers\Adminreceps;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
+use App\UseCases\Contracts\StoreAdminrecepsUseCaseInterface;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use App\Models\Adminrecep;
 
 class AdminrecepsStoreController extends Controller
 {
-    public function store(Request $request)
+    private StoreAdminrecepsUseCaseInterface $storeAdminrecepsUseCase;
+
+    public function __construct(
+        StoreAdminrecepsUseCaseInterface $storeAdminrecepsUseCase
+    ) {
+        $this->storeAdminrecepsUseCase = $storeAdminrecepsUseCase;
+    }
+
+    /**
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function __invoke(Request $request): RedirectResponse
     {
-        $adminrecep = new Adminrecep;
-        $adminrecep->name = $request->name;
-        $adminrecep->phone = $request->phone;
-        $adminrecep->email = $request->email;
-        $adminrecep->document = $request->document_number;
-        $adminrecep->role = $request->role;
-        $adminrecep->password = Hash::make($request->password);
-        $adminrecep->save();
-        $user = Adminrecep::where('email', 'like', $request->email)->first(); 
-        
-        if ($request->role == 'Administrator') {
-            $user->assignRole('Administrator');
-        } else {
-            $user->assignRole('Receptionist');
-        }
-        
+        $this->storeAdminrecepsUseCase->handle($request);
+
         return redirect()->back()->with('adminrecepSuccess', 'Administrador Registrado');
     }
 }

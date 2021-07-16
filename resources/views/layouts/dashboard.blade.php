@@ -40,7 +40,7 @@
   </head>
 
 
-  
+
   <!-- Pre-loader end -->
   <div id="pcoded" class="pcoded">
       <div class="pcoded-overlay-box"></div>
@@ -62,7 +62,7 @@
                               </div>
                           </div>
                       </div>
-                      
+
                       <div style="margin: 0px auto;">
                       <a href="index.html">
                           <img style="width:90px; border-radius: 5%;" class="img-fluid img-responsive center-block" src="/assets/images/logo.png" alt="Theme-Logo" />
@@ -72,7 +72,7 @@
                           <i class="ti-more"></i>
                       </a>
                   </div>
-                
+
                   <div class="navbar-container container-fluid">
                       <ul class="nav-left">
                           <li>
@@ -170,7 +170,7 @@
                                     </a>
                                       <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
-                                        
+
                                       </form>
                                   </li>
                               </ul>
@@ -192,7 +192,7 @@
                                       <span id="more-details">{{ Auth::user()->name }}<i class="fa fa-caret-down"></i></span>
                                   </div>
                               </div>
-        
+
                               <div class="main-menu-content">
                                   <ul>
                                       <li class="more-details">
@@ -203,84 +203,99 @@
                                   </ul>
                               </div>
                           </div>
-                          
-                          
+
+
                           <div class="pcoded-navigation-label" data-i18n="nav.category.navigation">Menú</div>
                           <ul class="pcoded-item pcoded-left-item">
-                              <li class="pcoded-hasmenu">
-                                  <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                      <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
-                                      <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Administradores</span>
-                                      <span class="pcoded-mcaret"></span>
-                                  </a>
-                                  <ul class="pcoded-submenu">
-                                      <li class=" ">
-                                          <a href="accordion.html" class="waves-effect waves-dark">
-                                              <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                              <span class="pcoded-mtext" data-i18n="nav.basic-components.alert"><a href="/adminrecep">Ver</a></span>
-                                              <span class="pcoded-mcaret"></span>
-                                          </a>
-                                      </li>
-                                      <li class=" ">
-                                          <a href="breadcrumb.html" class="waves-effect waves-dark">
-                                              <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                              <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">
-                                                <a href="/adminrecep/create">Crear</a>
-                                              </span>
-                                              <span class="pcoded-mcaret"></span>
-                                          </a>
-                                      </li>
-                                  </ul>
-                              </li>
-                              <li class="pcoded-hasmenu">
+                            <li class="pcoded-hasmenu ">
                                 <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                    <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
-                                    <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Permisos</span>
+                                    <span class="pcoded-micon"><i class="ti-direction-alt"></i><b>M</b></span>
+                                    <span class="pcoded-mtext" data-i18n="nav.menu-levels.main">Administradores</span>
                                     <span class="pcoded-mcaret"></span>
                                 </a>
-                                <!--
                                 <ul class="pcoded-submenu">
-                                    <li class=" ">
-                                        <a href="accordion.html" class="waves-effect waves-dark">
+                                    <li class="">
+                                        <a href="/adminrecep" class="waves-effect waves-dark">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                            <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Ver</span>
+                                            <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-21">Ver</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
-                                    <li class=" ">
-                                        <a href="breadcrumb.html" class="waves-effect waves-dark">
+                                    <li class="">
+                                        <a href="/adminrecep/create" class="waves-effect waves-dark">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                            <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Crear</span>
+                                            <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-21">Crear</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
-                                </ul>-->
+                                </ul>
                             </li>
-                            <li class="pcoded-hasmenu">
+                        </ul>
+
+
+                          <ul class="pcoded-item pcoded-left-item">
+                            <li class="pcoded-hasmenu ">
                                 <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                    <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
-                                    <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Configuraciones</span>
+                                    <span class="pcoded-micon"><i class="ti-direction-alt"></i><b>M</b></span>
+                                    <span class="pcoded-mtext" data-i18n="nav.menu-levels.main">Roles y Permisos</span>
                                     <span class="pcoded-mcaret"></span>
                                 </a>
-                                <!--
                                 <ul class="pcoded-submenu">
-                                    <li class=" ">
-                                        <a href="accordion.html" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                            <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Ver</span>
+                                    <li class="pcoded-hasmenu ">
+                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                            <span class="pcoded-micon"><i class="ti-direction-alt"></i></span>
+                                            <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-22.main">Roles</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
+                                        <ul class="pcoded-submenu">
+                                            <li class="">
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                    <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-22.menu-level-31">Ver</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="/role/create" class="waves-effect waves-dark">
+                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                    <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-22.menu-level-31">Crear</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </li>
-                                    <li class=" ">
-                                        <a href="breadcrumb.html" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                            <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Crear</span>
+
+
+                                </ul>
+                                <ul class="pcoded-submenu">
+                                    <li class="pcoded-hasmenu ">
+                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                            <span class="pcoded-micon"><i class="ti-direction-alt"></i></span>
+                                            <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-22.main">Permisos</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
+                                        <ul class="pcoded-submenu">
+                                            <li class="">
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                    <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-22.menu-level-31">Ver</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                    <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-22.menu-level-31">Crear</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </li>
-                                </ul>-->
+
+
+                                </ul>
                             </li>
-                          </ul>
+                        </ul>
                         </div>
                     </nav>
                   <div class="pcoded-content">
@@ -316,7 +331,7 @@
                                     <!-- Page-body start -->
 
                                     @yield('content')
-                                    
+
                                     <!-- Page-body end -->
                                 </div>
                                 <!--<div id="styleSelector"> </div>-->
@@ -371,7 +386,7 @@
     </div>
     <![endif]-->
     <!-- Warning Section Ends -->
-    
+
     <!-- Required Jquery -->
     <script type="text/javascript" src="/js/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/js/jquery-ui/jquery-ui.min.js "></script>
@@ -402,7 +417,7 @@
     <!-- custom js -->
     <script type="text/javascript" src="/dash/pages/dashboard/custom-dashboard.js"></script>
     <script type="text/javascript" src="/js/script.js "></script>
-    
+
     <!--Datatables-->
 
     <!-- Page level plugins -->
@@ -411,7 +426,7 @@
 
     <!-- Page level custom scripts -->
     <script src="/dash/js/demo/datatables-demo.js"></script>
-    
+
     <script>
         $(document).ready(function() {
             $('#datatable').DataTable( {
@@ -428,10 +443,11 @@
 
                     }
                 },
-                "bDestroy": true
-                
+                "bDestroy": true,
+                responsive: true
 
-            } );
+
+            } ).responsive.recalc();
         } );
 
     </script>

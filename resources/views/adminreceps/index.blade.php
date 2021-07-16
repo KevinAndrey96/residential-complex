@@ -10,7 +10,7 @@
     <div class="card-body container-fluid">
         <div class="row justify-content-center" >
             <div class="col-auto mt-5">
-                <table class="table table-bordered table-responsive text-center" id="datatable"  width="100%" cellspacing="0">
+                <table class="table-responsive datatable" id="datatable">
                     <thead class="thead-light">
                         <tr>
                             <th style="text-align: center; padding:10px;">Id</th>
@@ -20,7 +20,7 @@
                             <th style="text-align: center; padding:10px;">Documento</th>
                             <th style="text-align: center; padding:10px;">Rol</th>
                             <th style="text-align: center; padding:10px;">Acción</th>
-                            
+
                     </tr>
                     </thead>
                     <tbody>
@@ -34,7 +34,7 @@
                                 <td style="text-align: center; padding:10px">
                                 @if ($adminrecep->role == 'Administrator')
                                     Administrador
-                                @else 
+                                @else
                                     Recepcionista
                                 @endif
                                 </td>
@@ -52,7 +52,7 @@
                                         </form>
                                     </div>
                                 </td>
-                            
+
                             </tr>
 
 
