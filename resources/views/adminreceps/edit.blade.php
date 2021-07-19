@@ -45,13 +45,13 @@
                     <option value="Administrator">Administrador</option>
                     <option value="Receptionist">Recepcionista</option>
                 </select>
-            </div> 
+            </div>
             <div class="form-group">
                 <label for="password">Contraseña: </label>
                 <input class="form-control" type="password" name="password" id="password">
             </div>
             <input type="hidden" name="id" value="{{ $id }}">
-            <input class="btn btn-secondary" style="width:300px, background-color:#B74438 !important; float:right" type="submit" value="Modificar">
+            <input class="btn btn-secondary" style="width:100px; background-color:#B74438 !important; float:right" type="submit" value="Modificar">
         </form>
     </div>
 </div>

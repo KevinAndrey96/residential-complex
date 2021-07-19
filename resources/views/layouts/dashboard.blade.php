@@ -249,7 +249,7 @@
                                         </a>
                                         <ul class="pcoded-submenu">
                                             <li class="">
-                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                <a href="/role" class="waves-effect waves-dark">
                                                     <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                     <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-22.menu-level-31">Ver</span>
                                                     <span class="pcoded-mcaret"></span>
@@ -283,7 +283,7 @@
                                                 </a>
                                             </li>
                                             <li class="">
-                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                <a href="/permission/create" class="waves-effect waves-dark">
                                                     <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                     <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-22.menu-level-31">Crear</span>
                                                     <span class="pcoded-mcaret"></span>
@@ -295,6 +295,32 @@
 
                                 </ul>
                             </li>
+                        </ul>
+                        <ul class="pcoded-item pcoded-left-item">
+                            <li class="pcoded-hasmenu ">
+                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                    <span class="pcoded-micon"><i class="ti-direction-alt"></i><b>M</b></span>
+                                    <span class="pcoded-mtext" data-i18n="nav.menu-levels.main">Configuraciones</span>
+                                    <span class="pcoded-mcaret"></span>
+                                </a>
+                                <ul class="pcoded-submenu">
+                                    <li class="">
+                                        <a href="/setting" class="waves-effect waves-dark">
+                                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                            <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-21">Ver</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a href="/setting/create" class="waves-effect waves-dark">
+                                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                            <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-21">Crear</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            <li>
                         </ul>
                         </div>
                     </nav>
@@ -424,33 +450,36 @@
     <script src="/js/datatables/datatables/js/jquery.dataTables.min.js"></script>
     <script src="/js/datatables/datatables/js/dataTables.bootstrap4.min.js"></script>
 
-    <!-- Page level custom scripts -->
+
+
+<!-- Page level custom scripts -->
     <script src="/dash/js/demo/datatables-demo.js"></script>
 
-    <script>
-        $(document).ready(function() {
-            $('#datatable').DataTable( {
-                "language": {
-                    "lengthMenu": " Mostar _MENU_ registros por página",
-                    "zeroRecords": "Nada encontrado - disculpa  ",
-                    "info": "Mostrando la página _PAGE_ de _PAGES_",
-                    "infoEmpty": "No records available",
-                    "infoFiltered": "(filtrado de _MAX_ registros totales)",
-                    "search" : "Buscar:",
-                    "paginate" : {
-                        "next" : "Siguiente",
-                        "previous": "Anterior"
+<script>
+    $(document).ready(function() {
+        $('#datatable').DataTable( {
+            "language": {
+                "lengthMenu": " Mostar _MENU_ registros por página",
+                "zeroRecords": "Nada encontrado - disculpa  ",
+                "info": "Mostrando la página _PAGE_ de _PAGES_",
+                "infoEmpty": "No records available",
+                "infoFiltered": "(filtrado de _MAX_ registros totales)",
+                "search" : "Buscar:",
+                "paginate" : {
+                    "next" : "Siguiente",
+                    "previous": "Anterior"
 
-                    }
-                },
-                "bDestroy": true,
-                responsive: true
+                }
+            },
+            "bDestroy": true,
+            responsive: true
 
 
-            } ).responsive.recalc();
-        } );
+        } ).responsive.recalc();
+    } );
 
-    </script>
+</script>
+
 </body>
 
 </html>

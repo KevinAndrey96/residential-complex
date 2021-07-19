@@ -10,7 +10,7 @@
     <div class="card-body container-fluid">
         <div class="row justify-content-center" >
             <div class="col-auto mt-5">
-                <table class="table-responsive datatable" id="datatable">
+                <table class="table table-bordered table-responsive datatable" id="datatable">
                     <thead class="thead-light">
                         <tr>
                             <th style="text-align: center; padding:10px;">Id</th>
@@ -21,17 +21,17 @@
                             <th style="text-align: center; padding:10px;">Rol</th>
                             <th style="text-align: center; padding:10px;">Acción</th>
 
-                    </tr>
+                        </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="justify-content-center text-center">
                         @foreach($adminreceps as $adminrecep)
                             <tr>
-                                <td style="text-align: center; padding:10px">{{$adminrecep->id}}</td>
-                                <td style="text-align: center; padding:10px">{{$adminrecep->name}}</td>
-                                <td style="text-align: center; padding:10px">{{$adminrecep->phone}}</td>
-                                <td style="text-align: center; padding:10px">{{$adminrecep->email}}</td>
-                                <td style="text-align: center; padding:10px">{{$adminrecep->document}}</td>
-                                <td style="text-align: center; padding:10px">
+                                <td style="text-align: center; padding:10px;">{{$adminrecep->id}}</td>
+                                <td style="text-align: center; padding:10px;">{{$adminrecep->name}}</td>
+                                <td style="text-align: center; padding:10px;">{{$adminrecep->phone}}</td>
+                                <td style="text-align: center; padding:10px;">{{$adminrecep->email}}</td>
+                                <td style="text-align: center; padding:10px;">{{$adminrecep->document}}</td>
+                                <td style="text-align: center; padding:10px;">
                                 @if ($adminrecep->role == 'Administrator')
                                     Administrador
                                 @else

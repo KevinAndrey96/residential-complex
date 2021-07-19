@@ -6,7 +6,7 @@ return [
 
         /*
          * When using the "HasPermissions" trait from this package, we need to know which
-         * Eloquent model should be used to retrieve your permissions. Of course, it
+         * Eloquent model should be used to retrieve your permission. Of course, it
          * is often just the "Permission" model but you may use whatever you like.
          *
          * The model you want to use as a Permission model needs to implement the
@@ -40,15 +40,15 @@ return [
 
         /*
          * When using the "HasPermissions" trait from this package, we need to know which
-         * table should be used to retrieve your permissions. We have chosen a basic
+         * table should be used to retrieve your permission. We have chosen a basic
          * default value but you may easily change it to any table you like.
          */
 
-        'permissions' => 'permissions',
+        'permission' => 'permission',
 
         /*
          * When using the "HasPermissions" trait from this package, we need to know which
-         * table should be used to retrieve your models permissions. We have chosen a
+         * table should be used to retrieve your models permission. We have chosen a
          * basic default value but you may easily change it to any table you like.
          */
 
@@ -64,7 +64,7 @@ return [
 
         /*
          * When using the "HasRoles" trait from this package, we need to know which
-         * table should be used to retrieve your roles permissions. We have chosen a
+         * table should be used to retrieve your roles permission. We have chosen a
          * basic default value but you may easily change it to any table you like.
          */
 
@@ -109,14 +109,14 @@ return [
     'cache' => [
 
         /*
-         * By default all permissions are cached for 24 hours to speed up performance.
-         * When permissions or roles are updated the cache is flushed automatically.
+         * By default all permission are cached for 24 hours to speed up performance.
+         * When permission or roles are updated the cache is flushed automatically.
          */
 
         'expiration_time' => \DateInterval::createFromDateString('24 hours'),
 
         /*
-         * The cache key used to store all permissions.
+         * The cache key used to store all permission.
          */
 
         'key' => 'spatie.permission.cache',
@@ -126,7 +126,7 @@ return [
          * instance to the check, this key determines what attribute on the
          * Permissions model is used to cache against.
          *
-         * Ideally, this should match your preferred way of checking permissions, eg:
+         * Ideally, this should match your preferred way of checking permission, eg:
          * `$user->can('view-posts')` would be 'name'.
          */
 

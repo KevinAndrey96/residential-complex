@@ -31,3 +31,18 @@ Route::post('/adminrecep/update', [App\Http\Controllers\Adminreceps\AdminrecepsU
 Route::post('/adminrecep/delete', [App\Http\Controllers\Adminreceps\AdminrecepsDeleteController::class, 'delete'])->middleware('auth');
 Route::get('/role/create', [App\Http\Controllers\Roles\RolesCreateController::class, 'create'])->middleware('auth');
 Route::post('/role/store', [App\Http\Controllers\Roles\RolesStoreController::class, 'store'])->middleware('auth');
+Route::post('/role/edit', [App\Http\Controllers\Roles\RolesStoreController::class, 'store'])->middleware('auth');
+Route::post('/rol/delete', [App\Http\Controllers\Roles\RolesStoreController::class, 'store'])->middleware('auth');
+Route::get('/role', [App\Http\Controllers\Roles\RolesIndexController::class, 'index'])->middleware('auth');
+/* PERMISSIONS */
+Route::get('/permission/create', [App\Http\Controllers\Permissions\PermissionsCreateController::class, 'create'])->middleware('auth');
+Route::post('/permission/store', [App\Http\Controllers\Permissions\PermissionsStoreController::class, 'store'])->middleware('auth');
+
+/* Setting */
+Route::get('/setting/create', [App\Http\Controllers\Settings\SettingsCreateController::class, 'create'])->middleware('auth');
+Route::post('/setting/store', [App\Http\Controllers\Settings\SettingsStoreController::class, 'store'])->middleware('auth');
+Route::get('/setting', [App\Http\Controllers\Settings\SettingsIndexController::class, 'index'])->middleware('auth');
+Route::post('/setting/edit', [App\Http\Controllers\Settings\SettingsEditController::class, 'edit'])->middleware('auth');
+Route::post('/setting/update', [App\Http\Controllers\Settings\SettingsUpdateController::class, 'update'])->middleware('auth');
+Route::post('/setting/delete', [App\Http\Controllers\Settings\SettingsDeleteController::class, 'delete'])->middleware('auth');
+
