@@ -24,15 +24,16 @@
                         </tr>
                     </thead>
                     <tbody class="justify-content-center text-center">
-                        @foreach($adminreceps as $adminrecep)
+                        @foreach($users as $user)
+                            @if($user->adminrecep->document && $user->adminrecep->role)
                             <tr>
-                                <td style="text-align: center; padding:10px;">{{$adminrecep->id}}</td>
-                                <td style="text-align: center; padding:10px;">{{$adminrecep->name}}</td>
-                                <td style="text-align: center; padding:10px;">{{$adminrecep->phone}}</td>
-                                <td style="text-align: center; padding:10px;">{{$adminrecep->email}}</td>
-                                <td style="text-align: center; padding:10px;">{{$adminrecep->document}}</td>
+                                <td style="text-align: center; padding:10px;">{{$user->id}}</td>
+                                <td style="text-align: center; padding:10px;">{{$user->name}}</td>
+                                <td style="text-align: center; padding:10px;">{{$user->phone}}</td>
+                                <td style="text-align: center; padding:10px;">{{$user->email}}</td>
+                                <td style="text-align: center; padding:10px;">{{$user->adminrecep->document}}</td>
                                 <td style="text-align: center; padding:10px;">
-                                @if ($adminrecep->role == 'Administrator')
+                                @if ($user->adminrecep->role == 'Administrator')
                                     Administrador
                                 @else
                                     Recepcionista
@@ -42,12 +43,12 @@
                                     <div class="btn-group">
                                         <form method="POST" action="/adminrecep/edit">
                                             @csrf
-                                            <input type="hidden" name="id" value={{ $adminrecep->id }}>
+                                            <input type="hidden" name="id" value={{ $user->id }}>
                                             <input style="margin:3px; width:50%;" class="btn btn-warning btn-block" type="submit" value ="Editar">
                                         </form>
                                         <form method="POST" action="/adminrecep/delete">
                                             @csrf
-                                            <input type="hidden" name="id" value={{ $adminrecep->id }}>
+                                            <input type="hidden" name="id" value={{ $user->id }}>
                                             <input style="margin:3px; width:50%;" class="btn btn-danger btn-block" type="submit" onclick="return confirm('¿Esta seguro que quiere borrar este usuario?');" value ="Eliminar">
                                         </form>
                                     </div>
@@ -55,7 +56,7 @@
 
                             </tr>
 
-
+                            @endif
                         @endforeach
                     </tbody>
                 </table>

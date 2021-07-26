@@ -14,15 +14,17 @@ class Adminrecep extends Model
     use HasFactory;
     use HasRoles;
     protected $guard_name = 'web';
+    public $timestamps = false;
     protected $table = 'adminreceps';
 
     protected $fillable = [
-        'name',
-        'phone',
-        'email',
         'document',
-        'password',
+        'role',
+        'user_id'
+
     ];
 
-
+    public function user(){
+        return $this->belongsTo('App\Models\User');
+    }
 }

@@ -332,7 +332,19 @@
                                   <div class="col-md-8">
                                       <div class="page-header-title">
                                           <h5 class="m-b-10">Porto Americas</h5>
-                                          <p class="m-b-0">Bienvenido Administrador</p>
+                                          <p class="m-b-0">
+                                            @hasrole('Administrator')
+                                                Bienvenido Administrador
+                                              @endrole
+
+                                              @hasrole('Receptionist')
+                                                Bienvenido Recepcionista
+                                              @endrole
+
+
+
+
+                                          </p>
                                       </div>
                                   </div>
                                   <div class="col-md-4">

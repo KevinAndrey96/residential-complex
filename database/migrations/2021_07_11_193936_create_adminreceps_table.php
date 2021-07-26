@@ -15,15 +15,10 @@ class CreateAdminrecepsTable extends Migration
     {
         Schema::create('adminreceps', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('phone');
-            $table->string('email')->unique();
+            $table->unsignedBigInteger('user_id')->unique();
             $table->string('document')->unique();
             $table->string('role');
-            $table->string('password');
-            $table->timestamp('email_verified_at')->nullable();
-            $table->rememberToken();
-            $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

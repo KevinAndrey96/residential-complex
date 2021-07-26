@@ -23,6 +23,7 @@ class AdminrecepsStoreController extends Controller
      */
     public function __invoke(Request $request): RedirectResponse
     {
+
         $this->storeAdminrecepsUseCase->handle($request);
 
         return redirect()->back()->with('adminrecepSuccess', 'Administrador Registrado');

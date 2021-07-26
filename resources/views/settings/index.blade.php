@@ -10,7 +10,7 @@
     <div class="card-body container-fluid">
         <div class="row justify-content-center" >
             <div class="col-auto mt-5">
-                <table class="table table-bordered table-responsive" id="datatable" width="100%" cellspacing="0">
+                <table class="table table-bordered table-responsive display responsive no-wrap" id="datatable" width="100%" cellspacing="0">
                     <thead class="thead-light">
                         <tr>
                             <th style="text-align: center; padding:10px;">Nombre</th>

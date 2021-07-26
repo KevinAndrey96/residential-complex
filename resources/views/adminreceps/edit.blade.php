@@ -14,29 +14,30 @@
       Editar Adiministradores - Recepcionistas
     </div>
     <div class="card-body">
+
         <form action="{{ url('/adminrecep/update') }}" method="POST" enctype="multipart/form-data">
             {{csrf_field()}}
             <div class="form-group">
                 <label for="name">Nombre: </label>
-                <input class="form-control" type="text" name="name" id="name" value="{{ $adminrecep->name }}">
+                <input class="form-control" type="text" name="name" id="name" value="{{ $user->name }}">
             </div>
             <div class="form-group">
                 <label for="phone">Teléfono: </label>
-                <input class="form-control" type="number" name="phone" id="phone" value="{{ $adminrecep->phone }}">
+                <input class="form-control" type="number" name="phone" id="phone" value="{{ $user->phone }}">
             </div>
             <div class="form-group">
                 <label for="email">Email: </label>
-                <input class="form-control" type="email" name="email" id="email" value="{{ $adminrecep->email }}">
+                <input class="form-control" type="email" name="email" id="email" value="{{ $user->email }}">
             </div>
             <div class="form-group">
                 <label for="document_number">Número de documento: </label>
-                <input class="form-control" type="text" name="document" id="document" value="{{ $adminrecep->document }}">
+                <input class="form-control" type="text" name="document" id="document" value="{{ $user->adminrecep->document }}">
             </div>
             <div class="form-group">
                 <label for="role">Rol: </label>
                 <select class="form-control" name="role" id="role">
-                    <option value="{{ $adminrecep->role  }}" selected disabled>
-                        @if ($adminrecep->role == "Administrator")
+                    <option value="{{ $user->adminrecep->role  }}" selected disabled>
+                        @if ($user->adminrecep->role == "Administrator")
                             Administrador
                         @else
                             Recepcionista
