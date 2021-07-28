@@ -11,6 +11,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 /**
  * @method static where(string $string, string $string1, mixed $id)
+ * @method static find(mixed $input)
  */
 class User extends Authenticatable
 {
@@ -26,6 +27,7 @@ class User extends Authenticatable
         'name',
         'phone',
         'email',
+        'role',
         'password',
     ];
     protected $table = 'users';
@@ -56,5 +58,10 @@ class User extends Authenticatable
         return $this->hasOne(Adminrecep::class)->withDefault([
             'name' => 'test'
         ]);
+    }
+
+    public function resident(){
+        return $this->hasOne(Resident::class);
+
     }
 }

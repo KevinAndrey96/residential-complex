@@ -13,10 +13,10 @@ class AdminrecepsUpdateController extends Controller
     public function update(Request $request)
     {
         if ($request->input('password') == null) {
-            $user = request()->except(['_token','role','password','document','id']);
+            $user = request()->except(['_token','password','document','id']);
             User::where('id','=',$request->input('id'))->update($user);
             $obuser =  User::where('id','=',$request->input('id'))->first();
-            $adminrecep = request()->except(['_token','password','name','phone','email','id']);
+            $adminrecep = request()->except(['_token','password','name','phone','email','role','id']);
             Adminrecep::where('user_id', '=', $request->id)->update($adminrecep);
             $obuser->roles()->detach();
             if ($request->input('role') == 'Administrator') {
@@ -28,11 +28,11 @@ class AdminrecepsUpdateController extends Controller
             return redirect('/adminrecep');
 
         } else {
-            $user = request()->except(['_token','role','document','id']);
+            $user = request()->except(['_token','document','id']);
             $user['password'] = Hash::make($request->input('password'));
             User::where('id','=',$request->input('id'))->update($user);
             $obuser =  User::where('id','=',$request->input('id'))->first();
-            $adminrecep = request()->except(['_token','password','name','phone','email','id']);
+            $adminrecep = request()->except(['_token','password','name','phone','email','role','id']);
             Adminrecep::where('user_id', '=', $request->id)->update($adminrecep);
             $obuser->roles()->detach();
             if ($request->input('role') == 'Administrator') {

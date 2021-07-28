@@ -25,7 +25,7 @@
                     </thead>
                     <tbody class="justify-content-center text-center">
                         @foreach($users as $user)
-                            @if($user->adminrecep->document && $user->adminrecep->role)
+                            @if($user->adminrecep->document && $user->role)
                             <tr>
                                 <td style="text-align: center; padding:10px;">{{$user->id}}</td>
                                 <td style="text-align: center; padding:10px;">{{$user->name}}</td>
@@ -33,7 +33,7 @@
                                 <td style="text-align: center; padding:10px;">{{$user->email}}</td>
                                 <td style="text-align: center; padding:10px;">{{$user->adminrecep->document}}</td>
                                 <td style="text-align: center; padding:10px;">
-                                @if ($user->adminrecep->role == 'Administrator')
+                                @if ($user->role == 'Administrator')
                                     Administrador
                                 @else
                                     Recepcionista

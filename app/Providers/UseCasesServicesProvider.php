@@ -2,7 +2,11 @@
 
 namespace App\Providers;
 
+use App\UseCases\Contracts\Residents\ChangeStatusResidentsUseCaseInterface;
+use App\UseCases\Contracts\Residents\StoreResidentsUseCaseInterface;
 use App\UseCases\Contracts\StoreAdminrecepsUseCaseInterface;
+use App\UseCases\Residents\ChangeStatusResidentsUseCase;
+use App\UseCases\Residents\StoreResidentsUseCase;
 use App\UseCases\StoreAdminrecepsUseCase;
 use Illuminate\Support\ServiceProvider;
 
@@ -15,7 +19,11 @@ class UseCasesServicesProvider extends ServiceProvider
 {
     /** @var array */
     protected array $classes = [
-        StoreAdminrecepsUseCaseInterface::class => StoreAdminrecepsUseCase::class
+        StoreAdminrecepsUseCaseInterface::class => StoreAdminrecepsUseCase::class,
+        StoreResidentsUseCaseInterface::class => StoreResidentsUseCase::class,
+        ChangeStatusResidentsUseCaseInterface::class => ChangeStatusResidentsUseCase::class
+
+
     ];
 
     /**

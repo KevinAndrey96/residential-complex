@@ -37,6 +37,7 @@
       <!-- Style.css -->
       <link rel="stylesheet" type="text/css" href="/dash/style.css">
       <link href="/js/datatables/datatables/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
   </head>
 
 
@@ -182,6 +183,7 @@
 
           <div class="pcoded-main-container">
               <div class="pcoded-wrapper">
+                  @hasrole('Superadmin')
                   <nav class="pcoded-navbar">
                       <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
                       <div class="pcoded-inner-navbar main-menu">
@@ -324,6 +326,63 @@
                         </ul>
                         </div>
                     </nav>
+                  @endhasrole
+                  @hasrole('Administrator')
+                  <nav class="pcoded-navbar">
+                      <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
+                      <div class="pcoded-inner-navbar main-menu">
+                          <div class="">
+                              <div class="main-menu-header">
+                                  <img class="img-80 img-radius" src="/assets/images/1-old.jpg" alt="User-Profile-Image">
+                                  <div class="user-details">
+                                      <span id="more-details">{{ Auth::user()->name }}<i class="fa fa-caret-down"></i></span>
+                                  </div>
+                              </div>
+
+                              <div class="main-menu-content">
+                                  <ul>
+                                      <li class="more-details">
+                                          <a href="user-profile.html"><i class="ti-user"></i>Ver perfil</a>
+                                          <a href="#!"><i class="ti-settings"></i>Configuraciones</a>
+                                          <a href="auth-normal-sign-in.html"><i class="ti-layout-sidebar-left"></i>Cerrar sesión</a>
+                                      </li>
+                                  </ul>
+                              </div>
+                          </div>
+
+
+                          <div class="pcoded-navigation-label" data-i18n="nav.category.navigation">Menú</div>
+                          <ul class="pcoded-item pcoded-left-item">
+                              <li class="pcoded-hasmenu ">
+                                  <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                      <span class="pcoded-micon"><i class="ti-direction-alt"></i><b>M</b></span>
+                                      <span class="pcoded-mtext" data-i18n="nav.menu-levels.main">Residentes</span>
+                                      <span class="pcoded-mcaret"></span>
+                                  </a>
+                                  <ul class="pcoded-submenu">
+                                      <li class="">
+                                          <a href="/residents" class="waves-effect waves-dark">
+                                              <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                              <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-21">Ver</span>
+                                              <span class="pcoded-mcaret"></span>
+                                          </a>
+                                      </li>
+                                      <li class="">
+                                          <a href="/residents/create" class="waves-effect waves-dark">
+                                              <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                              <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-21">Crear</span>
+                                              <span class="pcoded-mcaret"></span>
+                                          </a>
+                                      </li>
+                                  </ul>
+                              </li>
+                          </ul>
+
+                      </div>
+                  </nav>
+
+
+                  @endhasrole
                   <div class="pcoded-content">
                       <!-- Page-header start -->
                       <div class="page-header">
@@ -333,13 +392,22 @@
                                       <div class="page-header-title">
                                           <h5 class="m-b-10">Porto Americas</h5>
                                           <p class="m-b-0">
-                                            @hasrole('Administrator')
+                                            @hasrole('Superadmin')
+                                              Bienvenido Super Administrador
+                                              @endrole
+
+                                              @hasrole('Administrator')
                                                 Bienvenido Administrador
                                               @endrole
 
                                               @hasrole('Receptionist')
                                                 Bienvenido Recepcionista
                                               @endrole
+
+                                              @hasrole('Resident')
+                                                Bienvenido Residente
+                                              @endrole
+
 
 
 
@@ -491,7 +559,15 @@
     } );
 
 </script>
-
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+<!--<script>
+    $(function() {
+        $('#toggle-two').bootstrapToggle({
+            on: 'Enabled',
+            off: 'Disabled'
+        });
+    })
+</script>-->
 </body>
 
 </html>

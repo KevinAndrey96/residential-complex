@@ -46,3 +46,9 @@ Route::post('/setting/edit', [App\Http\Controllers\Settings\SettingsEditControll
 Route::post('/setting/update', [App\Http\Controllers\Settings\SettingsUpdateController::class, 'update'])->middleware('auth');
 Route::post('/setting/delete', [App\Http\Controllers\Settings\SettingsDeleteController::class, 'delete'])->middleware('auth');
 
+/* Residents */
+
+Route::get('/residents/create', [App\Http\Controllers\Residents\ResidentsCreateController::class, 'create'])->middleware('auth');
+Route::post('/residents/store', [App\Http\Controllers\Residents\ResidentsStoreController::class, 'store'])->middleware('auth');
+Route::get('/residents', [App\Http\Controllers\Residents\ResidentsIndexController::class, 'index'])->middleware('auth');
+Route::post('/changeStatusResident', [App\Http\Controllers\Residents\ResidentsChangeStatusController::class, 'changeStatus'])->middleware('auth');

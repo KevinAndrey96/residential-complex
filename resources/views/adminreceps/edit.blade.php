@@ -36,8 +36,8 @@
             <div class="form-group">
                 <label for="role">Rol: </label>
                 <select class="form-control" name="role" id="role">
-                    <option value="{{ $user->adminrecep->role  }}" selected disabled>
-                        @if ($user->adminrecep->role == "Administrator")
+                    <option value="{{ $user->role  }}" selected disabled>
+                        @if ($user->role == "Administrator")
                             Administrador
                         @else
                             Recepcionista

@@ -19,7 +19,6 @@ class Adminrecep extends Model
 
     protected $fillable = [
         'document',
-        'role',
         'user_id'
 
     ];

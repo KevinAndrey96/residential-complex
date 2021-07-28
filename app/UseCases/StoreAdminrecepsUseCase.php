@@ -8,8 +8,7 @@ use App\Models\User;
 use App\UseCases\Contracts\StoreAdminrecepsUseCaseInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
+
 
 /**
  * Class CreateStoryUseCase
@@ -35,17 +34,16 @@ class StoreAdminrecepsUseCase implements StoreAdminrecepsUseCaseInterface
      */
     public function handle(Request $request):void
     {
-
         $user =  new User();
         $user->name = $request->name;
         $user->phone = $request->phone;
         $user->email = $request->email;
+        $user->role = $request->role;
         $user->password = Hash::make($request->password);
         $user->save();
         $user = User::where('email', 'like', $request->email)->first();
         $adminrecep = new Adminrecep();
-        $adminrecep->document = $request->document_number;
-        $adminrecep->role = $request->role;
+        $adminrecep->document = $request->document;
         $adminrecep->user_id = $user->id;
         $adminrecep->save();
 

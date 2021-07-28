@@ -29,8 +29,8 @@
                 <input class="form-control" type="email" name="email" id="email" required>
             </div>
             <div class="form-group">
-                <label for="document_number">Número de documento: </label>
-                <input class="form-control" type="text" name="document_number" id="document_number" required>
+                <label for="document">Número de documento: </label>
+                <input class="form-control" type="text" name="document" id="document" required>
             </div>
             <div class="form-group">
                 <label for="role">Rol: </label>

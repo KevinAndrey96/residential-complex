@@ -1,0 +1,38 @@
+<?php
+
+namespace App\UseCases\Residents;
+
+use App\Models\Resident;
+use App\Models\User;
+use App\UseCases\Contracts\Residents\StoreResidentsUseCaseInterface;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+
+/**
+ * Class StoreResidentsUseCase
+ * @package App\UseCases\Residents
+ */
+class StoreResidentsUseCase implements StoreResidentsUseCaseInterface
+{
+    public function handle(Request $request):void
+    {
+
+        $user =  new User();
+        $user->name = $request->name;
+        $user->phone = $request->phone;
+        $user->email = $request->email;
+        $user->role = $request->role;
+        $user->password = Hash::make($request->phone);
+        $user->save();
+        $user = User::where('email', 'like', $request->email)->first();
+        $resident = new Resident();
+        $resident->tower = $request->tower;
+        $resident->apt = $request->apt;
+        $resident->status = $request->status;
+        $resident->user_id = $user->id;
+        $resident->save();
+        $user->assignRole('Resident');
+
+
+    }
+}
