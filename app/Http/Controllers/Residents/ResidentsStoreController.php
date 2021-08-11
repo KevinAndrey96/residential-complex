@@ -20,8 +20,13 @@ class ResidentsStoreController extends Controller
 
     public function store(Request $request)
     {
-        $this->storeResidentsUseCase->handle($request);
-        return redirect()->back()->with('residentSuccess', 'Residente Registrado');
+        $occupied = $this->storeResidentsUseCase->handle($request);
+
+        if ($occupied) {
+            return redirect('/residents')->with('residentFail', 'Apartamento ya en uso');
+        }
+
+        return redirect('/residents')->with('residentSuccess', 'Residente Registrado');
     }
 
 }

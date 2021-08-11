@@ -376,12 +376,88 @@
                                       </li>
                                   </ul>
                               </li>
+                              <li class="pcoded-hasmenu ">
+                                  <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                      <span class="pcoded-micon"><i class="ti-direction-alt"></i><b>M</b></span>
+                                      <span class="pcoded-mtext" data-i18n="nav.menu-levels.main">Servicios</span>
+                                      <span class="pcoded-mcaret"></span>
+                                  </a>
+                                  <ul class="pcoded-submenu">
+                                      <li class="">
+                                          <a href="/services" class="waves-effect waves-dark">
+                                              <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                              <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-21">Ver</span>
+                                              <span class="pcoded-mcaret"></span>
+                                          </a>
+                                      </li>
+                                      <li class="">
+                                          <a href="/services/create" class="waves-effect waves-dark">
+                                              <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                              <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-21">Crear</span>
+                                              <span class="pcoded-mcaret"></span>
+                                          </a>
+                                      </li>
+                                  </ul>
+                              </li>
                           </ul>
 
                       </div>
                   </nav>
+                  @endhasrole
+
+                  @hasrole('Resident')
+                  <nav class="pcoded-navbar">
+                      <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
+                      <div class="pcoded-inner-navbar main-menu">
+                          <div class="">
+                              <div class="main-menu-header">
+                                  <img class="img-80 img-radius" src="/assets/images/1-old.jpg" alt="User-Profile-Image">
+                                  <div class="user-details">
+                                      <span id="more-details">{{ Auth::user()->name }}<i class="fa fa-caret-down"></i></span>
+                                  </div>
+                              </div>
+
+                              <div class="main-menu-content">
+                                  <ul>
+                                      <li class="more-details">
+                                          <a href="user-profile.html"><i class="ti-user"></i>Ver perfil</a>
+                                          <a href="#!"><i class="ti-settings"></i>Configuraciones</a>
+                                          <a href="auth-normal-sign-in.html"><i class="ti-layout-sidebar-left"></i>Cerrar sesión</a>
+                                      </li>
+                                  </ul>
+                              </div>
+                          </div>
 
 
+                          <div class="pcoded-navigation-label" data-i18n="nav.category.navigation">Menú</div>
+                          <ul class="pcoded-item pcoded-left-item">
+                              <li class="pcoded-hasmenu ">
+                                  <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                      <span class="pcoded-micon"><i class="ti-direction-alt"></i><b>M</b></span>
+                                      <span class="pcoded-mtext" data-i18n="nav.menu-levels.main">Reservas</span>
+                                      <span class="pcoded-mcaret"></span>
+                                  </a>
+                                  <ul class="pcoded-submenu">
+                                      <li class="">
+                                          <a href="/bookings" class="waves-effect waves-dark">
+                                              <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                              <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-21">Mis reservas</span>
+                                              <span class="pcoded-mcaret"></span>
+                                          </a>
+                                      </li>
+                                      <li class="">
+                                          <a href="/bookings/create" class="waves-effect waves-dark">
+                                              <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                              <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-21">Crear</span>
+                                              <span class="pcoded-mcaret"></span>
+                                          </a>
+                                      </li>
+                                  </ul>
+                              </li>
+                          </ul>
+
+                      </div>
+                  </nav>
                   @endhasrole
                   <div class="pcoded-content">
                       <!-- Page-header start -->

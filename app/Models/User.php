@@ -60,8 +60,14 @@ class User extends Authenticatable
         ]);
     }
 
-    public function resident(){
+    public function resident()
+    {
         return $this->hasOne(Resident::class);
-
     }
+
+    public function booking()
+    {
+        return $this->hasOne(Booking::class);
+    }
+
 }

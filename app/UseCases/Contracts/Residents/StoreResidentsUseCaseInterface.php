@@ -10,5 +10,5 @@ use Illuminate\Http\Request;
  */
 interface StoreResidentsUseCaseInterface
 {
-    public function handle(Request $request):void;
+    public function handle(Request $request):bool;
 }

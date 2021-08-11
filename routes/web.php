@@ -47,8 +47,24 @@ Route::post('/setting/update', [App\Http\Controllers\Settings\SettingsUpdateCont
 Route::post('/setting/delete', [App\Http\Controllers\Settings\SettingsDeleteController::class, 'delete'])->middleware('auth');
 
 /* Residents */
-
 Route::get('/residents/create', [App\Http\Controllers\Residents\ResidentsCreateController::class, 'create'])->middleware('auth');
 Route::post('/residents/store', [App\Http\Controllers\Residents\ResidentsStoreController::class, 'store'])->middleware('auth');
 Route::get('/residents', [App\Http\Controllers\Residents\ResidentsIndexController::class, 'index'])->middleware('auth');
 Route::post('/changeStatusResident', [App\Http\Controllers\Residents\ResidentsChangeStatusController::class, 'changeStatus'])->middleware('auth');
+Route::post('/residents/edit', [App\Http\Controllers\Residents\ResidentsEditController::class, 'edit'])->middleware('auth');
+Route::post('/residents/update', [App\Http\Controllers\Residents\ResidentsUpdateController::class, 'update'])->middleware('auth');
+Route::post('/residents/delete', [App\Http\Controllers\Residents\ResidentsDeleteController::class, 'delete'])->middleware('auth');
+
+
+/* Services */
+Route::get('/services/create', [App\Http\Controllers\Services\ServicesCreateController::class, 'create'])->middleware('auth');
+Route::post('/services/store', [App\Http\Controllers\Services\ServicesStoreController::class, 'store'])->middleware('auth');
+Route::get('/services', [App\Http\Controllers\Services\ServicesIndexController::class, 'index'])->middleware('auth');
+Route::post('/services/edit', [App\Http\Controllers\Services\ServicesEditController::class, 'edit'])->middleware('auth');
+Route::post('/services/update', [App\Http\Controllers\Services\ServicesUpdateController::class, 'update'])->middleware('auth');
+Route::post('/services/delete', [App\Http\Controllers\Services\ServicesDeleteController::class, 'delete'])->middleware('auth');
+
+/* Booking */
+Route::get('/bookings/create', [App\Http\Controllers\Bookings\BookingsCreateController::class, 'create'])->middleware('auth');
+Route::post('/bookings/schedule', [App\Http\Controllers\Bookings\BookingsScheduleController::class, 'schedule'])->middleware('auth');
+Route::post('/bookings/store', [App\Http\Controllers\Bookings\BookingsStoreController::class, 'store'])->middleware('auth');

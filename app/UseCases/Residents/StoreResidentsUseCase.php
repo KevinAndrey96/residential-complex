@@ -14,9 +14,16 @@ use Illuminate\Support\Facades\Hash;
  */
 class StoreResidentsUseCase implements StoreResidentsUseCaseInterface
 {
-    public function handle(Request $request):void
+    public function handle(Request $request):bool
     {
-
+        $users = User::all();
+        foreach ($users as $user) {
+            if ($user->role == 'Resident') {
+                if ($user->resident->tower == $request->input('tower') && $user->resident->apt == $request->input('apt')) {
+                    return true;
+                }
+            }
+        }
         $user =  new User();
         $user->name = $request->name;
         $user->phone = $request->phone;
@@ -32,6 +39,7 @@ class StoreResidentsUseCase implements StoreResidentsUseCaseInterface
         $resident->user_id = $user->id;
         $resident->save();
         $user->assignRole('Resident');
+        return false;
 
 
     }
