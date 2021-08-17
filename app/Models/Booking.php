@@ -14,19 +14,19 @@ class Booking extends Model
         'date',
         'day',
         'hour',
+        'state',
         'user_id',
         'service_id'
-
     ];
 
     public function user()
     {
-        $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function service()
     {
-        $this->belongsTo(Service::class);
+        return $this->belongsTo(Service::class, 'service_id');
     }
 
 }

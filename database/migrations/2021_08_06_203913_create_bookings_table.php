@@ -18,6 +18,7 @@ class CreateBookingsTable extends Migration
             $table->string('quantity');
             $table->date('date');
             $table->string('day');
+            $table->string('state');
             $table->time('hour');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('service_id');

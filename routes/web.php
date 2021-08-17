@@ -68,3 +68,6 @@ Route::post('/services/delete', [App\Http\Controllers\Services\ServicesDeleteCon
 Route::get('/bookings/create', [App\Http\Controllers\Bookings\BookingsCreateController::class, 'create'])->middleware('auth');
 Route::post('/bookings/schedule', [App\Http\Controllers\Bookings\BookingsScheduleController::class, 'schedule'])->middleware('auth');
 Route::post('/bookings/store', [App\Http\Controllers\Bookings\BookingsStoreController::class, 'store'])->middleware('auth');
+Route::get('/bookings', [App\Http\Controllers\Bookings\BookingsIndexController::class, 'index'])->middleware('auth');
+Route::post('/detailBooking', [App\Http\Controllers\Bookings\BookingsDetailBookingController::class, 'detailBooking'])->middleware('auth');
+Route::post('/booking/cancel', [App\Http\Controllers\Bookings\BookingsCancelController::class, 'cancel'])->middleware('auth');

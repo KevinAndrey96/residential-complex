@@ -23,6 +23,7 @@
                     <label for="date"> Seleccione la fecha en la cual hará uso del servicio de {{ $service->title }}</label>
                     <input class="form-control" type="date" name="date" id="date" required>
                 </div>
+                <input type="hidden" name="state" id="state" value="Reservada">
                 <input type="hidden" name="service_id" id="service_id" value="{{ $service->id }}">
                 <input class="btn btn-secondary" style="width:100px; background-color:#B74438 !important; float:right"type="submit" value="Reservar">
             </form>

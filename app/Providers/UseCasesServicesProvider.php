@@ -3,8 +3,10 @@
 namespace App\Providers;
 
 use App\UseCases\Bookings\CreateBookingsUseCase;
+use App\UseCases\Bookings\IndexBookingsUseCase;
 use App\UseCases\Bookings\StoreBookingsUseCase;
 use App\UseCases\Contracts\Bookings\CreateBookingsUseCaseInterface;
+use App\UseCases\Contracts\Bookings\IndexBookingsUseCaseInterface;
 use App\UseCases\Contracts\Bookings\StoreBookingsUseCaseInterface;
 use App\UseCases\Contracts\Residents\ChangeStatusResidentsUseCaseInterface;
 use App\UseCases\Contracts\Residents\DeleteResidentsUseCaseInterface;
@@ -51,7 +53,8 @@ class UseCasesServicesProvider extends ServiceProvider
         UpdateServiceUseCaseInterface::class => UpdateServiceUseCase::class,
         DeleteServiceUseCaseInterface::class => DeleteServiceUseCase::class,
         CreateBookingsUseCaseInterface::class => CreateBookingsUseCase::class,
-        StoreBookingsUseCaseInterface::class => StoreBookingsUseCase::class
+        StoreBookingsUseCaseInterface::class => StoreBookingsUseCase::class,
+        IndexBookingsUseCaseInterface::class => IndexBookingsUseCase::class
     ];
 
     /**

@@ -399,6 +399,22 @@
                                       </li>
                                   </ul>
                               </li>
+                              <li class="pcoded-hasmenu ">
+                                  <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                      <span class="pcoded-micon"><i class="ti-direction-alt"></i><b>M</b></span>
+                                      <span class="pcoded-mtext" data-i18n="nav.menu-levels.main">Reservaciones</span>
+                                      <span class="pcoded-mcaret"></span>
+                                  </a>
+                                  <ul class="pcoded-submenu">
+                                      <li class="">
+                                          <a href="/bookings" class="waves-effect waves-dark">
+                                              <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                              <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-21">Ver</span>
+                                              <span class="pcoded-mcaret"></span>
+                                          </a>
+                                      </li>
+                                  </ul>
+                              </li>
                           </ul>
 
                       </div>
@@ -628,9 +644,8 @@
                 }
             },
             "bDestroy": true,
-            responsive: true
-
-
+            responsive: true,
+            "aaSorting": []
         } ).responsive.recalc();
     } );
 

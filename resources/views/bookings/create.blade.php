@@ -9,9 +9,37 @@
         @endif
     </div>
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        @if(Session::has('bookingFail'))
+        @if(Session::has('dayFail'))
             <div class="alert alert-danger" role="alert">
-                {{ Session::get('bookingFail') }}
+                {{ Session::get('dayFail') }}
+            </div>
+        @endif
+    </div>
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        @if(Session::has('dateFail'))
+            <div class="alert alert-danger" role="alert">
+                {{ Session::get('dateFail') }}
+            </div>
+        @endif
+    </div>
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        @if(Session::has('quantityFail'))
+            <div class="alert alert-danger" role="alert">
+                {{ Session::get('quantityFail') }}
+            </div>
+        @endif
+    </div>
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        @if(Session::has('personsFail'))
+            <div class="alert alert-danger" role="alert">
+                {{ Session::get('personsFail') }}
+            </div>
+        @endif
+    </div>
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        @if(Session::has('limitPerDayFail'))
+            <div class="alert alert-danger" role="alert">
+                {{ Session::get('limitPerDayFail') }}
             </div>
         @endif
     </div>
@@ -20,7 +48,7 @@
             Servicios de clubhouse
         </div>
         <div class="card-body container-fluid">
-            <div class="row justify-content-center" >
+            <div class="justify-content-center" >
                 @if(Auth::user()->resident->status == 'Deshabilitado')
                     <div class="col-auto mt-5">
                         <h3 style="color:#ff0000">
@@ -45,8 +73,8 @@
                         <tbody>
                             @foreach ($services as $service )
                                 <tr>
-                                    <td style="text-align: center; padding:10px;">
-                                    <img class="img-thumbnail" style="width: 200px;" onError="this.onerror=null;this.src='/assets/images/imagen-fallo.jpg';" src="{{$service->gallery}}">
+                                    <td>
+                                        <img class="" style="width: 150px; border-radius: 5%;"  onError="this.onerror=null;this.src='/assets/images/imagen-fallo.jpg';" src="{{$service->gallery}}">
                                     </td>
                                     <td style="text-align: center; padding:10px;">{{ $service->title }}</td>
                                     <td style="text-align: center; padding:10px;">{{ $service->description }}</td>
@@ -76,7 +104,7 @@
                                             <form method="POST" action="/bookings/schedule">
                                                 @csrf
                                                 <input type="hidden" name="service_id" value="{{ $service->id }}">
-                                                <input style="margin:3px; width:50%;" class="btn btn-success btn-block" type="submit" value ="Reservar">
+                                                <input style="padding-right: 45%; width:50%; text-align: center;" class="btn btn-success btn-block" type="submit" value ="Reservar">
                                             </form>
                                         </div>
                                         @endif

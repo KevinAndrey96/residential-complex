@@ -8,5 +8,5 @@ use Illuminate\Http\Request;
 
 interface StoreBookingsUseCaseInterface
 {
-    public function handle(Request $request):bool;
+    public function handle(Request $request):array;
 }

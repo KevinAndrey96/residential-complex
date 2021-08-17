@@ -19,8 +19,6 @@ class ResidentsEditController extends Controller
     public function edit(Request $request)
     {
         $user = $this->editResidentsUseCase->handle($request);
-
         return view('residents.edit', compact('user'));
-
     }
 }

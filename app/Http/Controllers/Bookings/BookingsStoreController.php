@@ -12,6 +12,7 @@ use DateTime;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
+use function PHPUnit\Framework\isNull;
 
 class BookingsStoreController extends Controller
 {
@@ -24,12 +25,7 @@ class BookingsStoreController extends Controller
 
     public function store(Request $request)
     {
-        $correct = $this->storeBookingsUseCase->handle($request);
-
-        if ($correct) {
-            return redirect('bookings/create')->with('bookingSuccess', 'Reservación hecha');
-        }
-
-        return redirect('bookings/create')->with('bookingFail', 'No se pudo hacer la reservación');
+        $alert = $this->storeBookingsUseCase->handle($request);
+        return redirect('bookings/create')->with($alert[0],$alert[1]);
     }
 }
