@@ -69,5 +69,13 @@ Route::get('/bookings/create', [App\Http\Controllers\Bookings\BookingsCreateCont
 Route::post('/bookings/schedule', [App\Http\Controllers\Bookings\BookingsScheduleController::class, 'schedule'])->middleware('auth');
 Route::post('/bookings/store', [App\Http\Controllers\Bookings\BookingsStoreController::class, 'store'])->middleware('auth');
 Route::get('/bookings', [App\Http\Controllers\Bookings\BookingsIndexController::class, 'index'])->middleware('auth');
-Route::post('/detailBooking', [App\Http\Controllers\Bookings\BookingsDetailBookingController::class, 'detailBooking'])->middleware('auth');
+Route::get('/detailBooking/{service}', [App\Http\Controllers\Bookings\BookingsDetailBookingController::class, 'detailBooking'])->middleware('auth');
 Route::post('/booking/cancel', [App\Http\Controllers\Bookings\BookingsCancelController::class, 'cancel'])->middleware('auth');
+Route::post('/bookings/changeState', [App\Http\Controllers\Bookings\BookingsChangeStateController::class, 'changeState'])->middleware('auth');
+Route::get('/bookings/changeState', [App\Http\Controllers\Bookings\BookingsChangeStateController::class, 'changeState'])->middleware('auth');
+
+
+// Extra information
+Route::get('/preinformation', [App\Http\Controllers\Extrainfo\PreinfoChangeStateController::class, 'preinfo'])->middleware('auth');
+Route::post('/extrainfo/create', [App\Http\Controllers\Extrainfo\ExtrainfoCreateController::class, 'create'])->middleware('auth');
+

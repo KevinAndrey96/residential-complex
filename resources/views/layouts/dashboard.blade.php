@@ -470,6 +470,13 @@
                                       </li>
                                   </ul>
                               </li>
+                              <li class="pcoded-hasmenu ">
+                                  <a href="/preinformation">
+                                      <span class="pcoded-micon"><i class="ti-direction-alt"></i><b>M</b></span>
+                                      <span class="pcoded-mtext" data-i18n="nav.menu-levels.main">Información extra</span>
+                                      <span class="pcoded-mcaret"></span>
+                                  </a>
+                              </li>
                           </ul>
 
                       </div>

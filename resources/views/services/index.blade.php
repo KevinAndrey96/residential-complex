@@ -12,7 +12,7 @@
             Servicios
         </div>
         <div class="card-body container-fluid">
-            <div class="row justify-content-center" >
+            <div class="justify-content-center" >
                 <div class="col-auto mt-5">
                     <table class="table table-bordered table-responsive datatable" id="datatable">
                         <thead class="thead-light">

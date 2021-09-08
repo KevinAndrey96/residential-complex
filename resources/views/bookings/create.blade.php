@@ -64,6 +64,8 @@
                             <th style="text-align: center; padding:10px;">Título</th>
                             <th style="text-align: center; padding:10px;">Descripción</th>
                             <th style="text-align: center; padding:10px;">Capacidad</th>
+                            <th style="text-align: center; padding:10px;">Inicio</th>
+                            <th style="text-align: center; padding:10px;">Cierre</th>
                             <th style="text-align: center; padding:10px;">Franja</th>
                             <th style="text-align: center; padding:10px;">Días hábiles</th>
                             <th style="text-align: center; padding:10px;">Estado</th>
@@ -79,6 +81,8 @@
                                     <td style="text-align: center; padding:10px;">{{ $service->title }}</td>
                                     <td style="text-align: center; padding:10px;">{{ $service->description }}</td>
                                     <td style="text-align: center; padding:10px;">{{ $service->capacity }} personas</td>
+                                    <td style="text-align: center; padding:10px;">{{ $service->start }}</td>
+                                    <td style="text-align: center; padding:10px;">{{ $service->final }}</td>
                                     <td style="text-align: center; padding:10px;">{{ $service->strip }} minutos</td>
                                     <td style="text-align: center; padding:10px;">
                                         <ul>

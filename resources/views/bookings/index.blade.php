@@ -1,20 +1,6 @@
 @extends('layouts.dashboard')
 @section('content')
 
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        @if(Session::has('cancelSuccess'))
-            <div class="alert alert-success" role="alert">
-                {{ Session::get('cancelSuccess') }}
-            </div>
-        @endif
-    </div>
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        @if(Session::has('cancelFail'))
-            <div class="alert alert-danger" role="alert">
-                {{ Session::get('cancelFail') }}
-            </div>
-        @endif
-    </div>
 
     <div class="card">
         <div class="card-header">
@@ -37,11 +23,7 @@
                                 @foreach($services as $service)
                                     <tr>
                                         <td style="text-align: center">
-                                            <form method="post" action="/detailBooking">
-                                                @csrf
-                                                <input type="hidden" name="service_id" id="service_id" value="{{ $service->id }}">
-                                                <input style="width:40%; padding: 15px; margin:0px; background-color:#B74438 !important;" type="submit" class="btn-danger" value="{{ $service->title }}">
-                                            </form>
+                                            <a style="width:40%; padding: 15px; margin:0px; background-color:#B74438 !important;"  class="btn btn-danger" href="/detailBooking/{{$service->id}}">{{ $service->title }}</a>
                                         </td>
                                     </tr>
                                 @endforeach

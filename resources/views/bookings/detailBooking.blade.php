@@ -1,6 +1,19 @@
 @extends('layouts.dashboard')
 @section('content')
-
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        @if(Session::has('cancelSuccess'))
+            <div class="alert alert-success" role="alert">
+                {{ Session::get('cancelSuccess') }}
+            </div>
+        @endif
+    </div>
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        @if(Session::has('cancelFail'))
+            <div class="alert alert-danger" role="alert">
+                {{ Session::get('cancelFail') }}
+            </div>
+        @endif
+    </div>
     <div class="card">
         <div class="card-header">
             Reservaciones hechas
@@ -58,7 +71,19 @@
                                         </td>
                                         <td style="text-align: center; padding:10px;">{{ $booking->date }}</td>
                                         <td style="text-align: center; padding:10px;">{{ $booking->hour }}</td>
-                                        <td style="text-align: center; padding:10px;">{{ $booking->state }}</td>
+                                        <td style="text-align: center; padding:10px;">
+                                            @if ($booking->state == 'Reservada')
+                                                <p style="background-color:#51C70E; color:white; padding:5px; border-radius: 5px;">{{ $booking->state }}</p>
+                                            @elseif ($booking->state == 'Tomada')
+                                                <p style="background-color:#2084D8; color:white; padding:5px; border-radius: 5px;">{{ $booking->state }}</p>
+                                            @elseif ($booking->state == 'Cancelada')
+                                                <p style="background-color:#C70E0E; color:white; padding:5px; border-radius: 5px;">{{ $booking->state }}</p>
+                                            @elseif ($booking->state == 'Perdida')
+                                                <p style="background-color:#2D4152; color:white; padding:5px; border-radius: 5px;">{{ $booking->state }}</p>
+                                            @elseif ($booking->state == 'En espera')
+                                                <p style="background-color:#EFBD02; color:white; padding:5px; border-radius: 5px;">{{ $booking->state }}</p>
+                                            @endif
+                                        </td>
                                         @hasrole('Resident')
                                         <td>
                                             @if ($booking->state == 'Reservada')
@@ -74,22 +99,50 @@
                                         @endhasrole
                                         @hasrole('Administrator')
                                         <td style="text-align: center; padding:10px;">
+                                            @if ( $booking->state == 'Reservada' || $booking->state == 'En espera' )
                                             <div style="margin:0px auto" class="">
-                                            <select class="form-control-sm" name="state" id="state" onchange="">
+                                            <select class="form-control-sm" name="state{{ $booking->id }}" id="state{{ $booking->id }}"  onchange="getState({{ $booking->id }})">
+                                                <option value="Tomada" selected disabled></option>
+                                                <option value="En espera">En espera</option>
                                                 <option value="Tomada">Tomada</option>
-                                                <option value="Perdida">Perdida</option>
+
                                             </select>
                                             </div>
+                                                @endif
                                         </td>
                                         @endhasrole
                                     </tr>
                                 @endforeach
                                 </tbody>
                             </table>
+                            <form method="post" action="/bookings/changeState" id="form-state">
+                                @csrf
+                                <input type="hidden" name="newState" id="newState">
+                                <input type="hidden" name="bookingID" id="bookingID">
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        function getState(id)
+        {
+
+            stateSelect = document.getElementById('state'+id);
+            newState = document.getElementById('newState');
+            bookingID = document.getElementById('bookingID');
+            form = document.getElementById('form-state');
+            newState.value = stateSelect.value;
+            bookingID.value = id;
+            form.submit();
+            console.log(newState.value);
+
+        }
+    </script>
+
+
+
 @endsection

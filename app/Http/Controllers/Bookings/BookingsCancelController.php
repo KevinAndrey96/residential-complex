@@ -4,30 +4,22 @@ namespace App\Http\Controllers\Bookings;
 
 use App\Http\Controllers\Controller;
 use App\Models\Booking;
+use App\UseCases\Contracts\Bookings\CancelBookingsUseCaseInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
 class BookingsCancelController extends Controller
 {
+    private CancelBookingsUseCaseInterface $cancelBookingsUseCase;
+
+    public function __construct(CancelBookingsUseCaseInterface $cancelBookingsUseCase)
+    {
+        $this->cancelBookingsUseCase = $cancelBookingsUseCase;
+    }
+
     public function cancel(Request $request)
     {
-
-        $booking = Booking::find($request->input('booking_id'));
-        $dateTimeString = $booking->date.' '.$booking->hour;
-        $dateTime = Carbon::createFromFormat('Y-m-d H:i:s', $dateTimeString, 'America/Bogota');
-        $dateTimeNow = Carbon::now();
-        $hours = $dateTimeNow->diffInHours($dateTime);
-
-        if ($hours > 6) {
-            $booking->state = 'Cancelada';
-            $booking->save();
-
-            return redirect('/bookings')->with('cancelSuccess', 'Reservación cancelada');
-        }
-
-        return redirect('/bookings')
-                        ->with('cancelFail', 'No se pudo cancelar la reservación, recuerde que puede cancelar
-                                como maximo 6 horas antes de la fecha fijada');
-
+        $alert = $this->cancelBookingsUseCase->handle($request);
+        return redirect('/detailBooking/'.$alert[2]->service_id)->with($alert[0], $alert[1]);
     }
 }
