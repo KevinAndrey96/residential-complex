@@ -18,7 +18,7 @@
                     <label for="quantity">Número de residentes en el apartamento: </label>
                     <input class="form-control" type="number" name="quantity" id="quantity" min="1" required>
                 </div>
-                <h4>Que medio de transporte usa?</h4>
+                <h4>¿Que medio de transporte usa?</h4><p>Si no tiene ninguno de los medios de transporte aquí mencionados por favor saltarse este paso</p>
                 <br/>
                 <div class="form-group">
                     <input type="checkbox" name="moto" id="moto" onclick="showInput()">
@@ -33,19 +33,19 @@
                     <label for="bicicleta">Bicicleta</label>
                 </div>
                 <div class="form-group"  id="divquantitymoto" style="display: none">
-                    <label for="quantity-moto">Cuántas motocicletas tiene en el parqueadero?</label>
+                    <label for="quantity-moto">¿Cuántas motocicletas tiene en el parqueadero?</label>
                     <input class="form-control" type="number" name="quantity_moto" id="quantity_moto" disabled="disabled" min="1" required>
                 </div>
                 <div class="form-group"  id="divquantitycarro" style="display: none">
-                    <label for="quantity-carro">Cuántas automoviles tiene en el parqueadero?</label>
+                    <label for="quantity-carro">¿Cuántos automoviles tiene en el parqueadero?</label>
                     <input class="form-control" type="number" name="quantity_carro" id="quantity_carro" disabled="disabled" min="1" required>
                 </div>
                 <div class="form-group"  id="divquantitybici" style="display: none">
-                    <label for="quantity-bici">Cúantas bicicletas tiene en el bicicletero?</label>
+                    <label for="quantity-bici">¿Cúantas bicicletas tiene en el bicicletero?</label>
                     <input class="form-control" type="number" name="quantity_bici" id="quantity_bici" disabled="disabled" min="1" required>
                 </div>
 
-                <h4>Que tipo de mascota tiene?</h4>
+                <h4>¿Que tipo de mascota tiene?</h4><p>Si no tiene mascotas por favor saltarse este paso</p>
                 <br/>
                 <div class="form-group">
                     <input type="checkbox" name="perro" id="perro" onclick="showInput()">
@@ -60,15 +60,15 @@
                     <label for="otro">Otro</label>
                 </div>
                 <div class="form-group"  id="divquantityperro" style="display: none">
-                    <label for="quantity-perro">Cuántos perros tiene en el apartamento?</label>
+                    <label for="quantity-perro">¿Cuántos perros tiene en el apartamento?</label>
                     <input class="form-control" type="number" name="quantity_perro" id="quantity_perro" disabled="disabled" min="1"  required>
                 </div>
                 <div class="form-group"  id="divquantitygato" style="display: none">
-                    <label for="quantity-gato">Cuántos gatos tiene en el apartamento?</label>
+                    <label for="quantity-gato">¿Cuántos gatos tiene en el apartamento?</label>
                     <input class="form-control" type="number" name="quantity_gato" id="quantity_gato" disabled="disabled" min="1"  required>
                 </div>
                 <div class="form-group"  id="divquantityotro" style="display: none">
-                    <label for="quantity-otro">Cúantas mascotas no comunes tiene en el apartamento?</label>
+                    <label for="quantity-otro">¿Cúantas mascotas no comunes tiene en el apartamento?</label>
                     <input class="form-control" type="number" name="quantity_otro" id="quantity_otro" disabled="disabled" min="1" required>
                 </div>
                 <input type="submit" style="background-color:#B74438 !important; float:right; padding:10px;" class="btn-danger" value="Siguiente">

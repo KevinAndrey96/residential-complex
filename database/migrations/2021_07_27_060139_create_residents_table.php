@@ -18,7 +18,7 @@ class CreateResidentsTable extends Migration
             $table->integer('tower');
             $table->integer('apt');
             $table->string('status')->nullable();
-            $table->unsignedBigInteger('user_id')->unique();
+            $table->unsignedBigInteger( 'user_id')->unique();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });

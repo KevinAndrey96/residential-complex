@@ -18,7 +18,8 @@ class Pet extends Model
         'card',
         'dangerous',
         'plaque',
-        'species'
+        'species',
+        'user_id'
 
     ];
 

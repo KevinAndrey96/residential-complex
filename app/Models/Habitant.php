@@ -16,7 +16,7 @@ class Habitant extends Model
         'document',
         'occupation',
         'kinship',
-        'resident_id'
+        'user_id'
 
     ];
 

@@ -9,7 +9,6 @@ class ExtrainfoCreateController extends Controller
 {
     public function create(Request $request)
     {
-
         $firstdata = $request;
         return view('extrainfo.create', compact('firstdata'));
     }

@@ -24,7 +24,17 @@ class Extra extends Model
         'depositnum',
         'cardnum',
         'dateadmission',
-        'resident_id'
+        'user_id',
+        'howcontribute',
+        'themes',
+        'name_invoice',
+        'phone_invoice',
+        'address_invoice',
+        'razon_realestate',
+        'nit_realestate',
+        'name_realestate',
+        'email_realestate',
+        'phone_realestate'
     ];
 
     public function resident()

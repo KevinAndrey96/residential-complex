@@ -36,7 +36,7 @@
                     </div>
                     <input type="hidden" name="status" value="Habilitado">
                     <input type="hidden" name="role" value="Resident">
-                <input class="btn btn-secondary" style="width:100px; background-color:#B74438 !important; float:right"type="submit" value="Agregar">
+                <input class="btn btn-secondary" style="width:100px; background-color:#B74438 !important; float:right" type="submit" value="Agregar">
             </form>
         </div>
     </div>

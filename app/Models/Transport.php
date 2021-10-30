@@ -16,9 +16,12 @@ class Transport extends Model
         'type',
         'color',
         'parkingnum',
-        'own',
-        'resident_id'
-
+        'owner',
+        'ownparking',
+        'numserie',
+        'bicyclerack',
+        'bicycleperiod',
+        'user_id'
     ];
 
     public function resident()

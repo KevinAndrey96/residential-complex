@@ -21,9 +21,9 @@ class CreateHabitantsTable extends Migration
             $table->string('document');
             $table->string('occupation');
             $table->string('kinship');
-            $table->unsignedBigInteger('resident_id')->unique();
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
-            $table->foreign('resident_id')->references('id')->on('residents');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

@@ -15,15 +15,19 @@ class CreateTransportsTable extends Migration
     {
         Schema::create('transports', function (Blueprint $table) {
             $table->id();
-            $table->string('brand');
-            $table->string('model');
-            $table->string('plaque');
-            $table->string('type');
-            $table->string('color');
-            $table->string('parkingnum');
-            $table->string('own');
-            $table->unsignedBigInteger('resident_id');
-            $table->foreign('resident_id')->references('id')->on('transports');
+            $table->string('brand')->nullable();
+            $table->string('model')->nullable();
+            $table->string('plaque')->nullable();
+            $table->string('type')->nullable();
+            $table->string('color')->nullable();
+            $table->string('parkingnum')->nullable();
+            $table->string('ownparking')->nullable();
+            $table->string('owner')->nullable();
+            $table->string('numserie')->nullable();
+            $table->string('bicyclerack')->nullable();
+            $table->integer('bicycleperiod')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

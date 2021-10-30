@@ -19,7 +19,7 @@
       <!-- Favicon icon -->
 
       <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
-      <!-- Google font-->     
+      <!-- Google font-->
       <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
       <!-- Required Fremwork -->
       <link rel="stylesheet" type="text/css" href="/dash/bootstrap.min.css">
@@ -63,7 +63,7 @@
                       <div class="circle"></div>
                   </div>
               </div>
-            
+
               <div class="spinner-layer spinner-yellow">
                   <div class="circle-clipper left">
                       <div class="circle"></div>
@@ -75,7 +75,7 @@
                       <div class="circle"></div>
                   </div>
               </div>
-            
+
               <div class="spinner-layer spinner-green">
                   <div class="circle-clipper left">
                       <div class="circle"></div>
@@ -99,7 +99,7 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="text-center">
-                            <img src="/assets/images/logo.png" alt="logo.png" style="width:60px; height:30; border-radius: 5px; margin: 10px;">
+                            <img src="/assets/images/logo.png" alt="logo.png" style="width:90px; height:30; border-radius: 5px; margin: 10px;">
                         </div>
                         <div class="auth-box card">
                             <div class="card-block">
@@ -148,7 +148,7 @@
                             </div>
                         </div>
                         <div style="clear: both;"></div>
-                        
+
                         <div class=" form-group row mb-0" style="margin:20px;">
                             <div class="col-md-4 offset-md-4">
                                 <center>
@@ -158,7 +158,7 @@
                                 </center>
                             </div>
                         </div>
-                        
+
                         <div class="form-group row " style="margin-top: 6px;">
                             <div class="col-md-6 offset-md-3 text-center">
                                 @if (Route::has('password.request'))
@@ -166,7 +166,7 @@
                                         {{ __('Olvidaste tu contraseña?') }}
                                     </a>
                                 @endif
-                            
+
                             </div>
                         </div>
                     </div>
@@ -215,7 +215,7 @@
                 <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
                     <img src="/assets/images/browser/ie.png" alt="">
                     <div>IE (9 & above)</div>
-                </a>            
+                </a>
             </li>
         </ul>
     </div>

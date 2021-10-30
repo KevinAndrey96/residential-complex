@@ -29,6 +29,7 @@ class User extends Authenticatable
         'email',
         'role',
         'password',
+        'extrainfo'
     ];
     protected $table = 'users';
 

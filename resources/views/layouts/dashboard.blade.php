@@ -53,6 +53,7 @@
                           <i class="ti-menu"></i>
                       </a>
                       <div class="mobile-search waves-effect waves-light">
+
                           <div class="header-search">
                               <div class="main-search morphsearch-search">
                                   <div class="input-group">
@@ -62,11 +63,12 @@
                                   </div>
                               </div>
                           </div>
+
                       </div>
 
                       <div style="margin: 0px auto;">
                       <a href="index.html">
-                          <img style="width:90px; border-radius: 5%;" class="img-fluid img-responsive center-block" src="/assets/images/logo.png" alt="Theme-Logo" />
+                          <img style="width:80px; border-radius: 5%;" class="img-fluid img-responsive center-block" src="/assets/images/logo.png" alt="Theme-Logo" />
                       </a>
                       </div>
                       <a class="mobile-options waves-effect waves-light">
@@ -84,21 +86,23 @@
                                   <div class="input-group">
                                       <span class="input-group-addon search-close"><i class="ti-close"></i></span>
                                       <input type="text" class="form-control">
-                                      <span class="input-group-addon search-btn"><i class="ti-search"></i></span>
+                                      <!--<span class="input-group-addon search-btn"><i class="ti-search"></i></span>-->
                                   </div>
                               </div>
                           </li>
+                          <!--
                           <li>
                               <a href="#!" onclick="javascript:toggleFullScreen()" class="waves-effect waves-light">
                                   <i class="ti-fullscreen"></i>
                               </a>
                           </li>
+                          -->
                       </ul>
                       <ul class="nav-right">
                           <li class="header-notification">
                               <a href="#!" class="waves-effect waves-light">
-                                  <i class="ti-bell"></i>
-                                  <span class="badge bg-c-red"></span>
+                                 <!--<i class="ti-bell"></i>-->
+                                  <!--<span class="badge bg-c-red"></span>-->
                               </a>
                               <ul class="show-notification">
                                   <li>
@@ -107,7 +111,7 @@
                                   </li>
                                   <li class="waves-effect waves-light">
                                       <div class="media">
-                                          <img class="d-flex align-self-center img-radius" src="/assets/images/1-old.jpg" alt="Generic placeholder image">
+                                          <img class="d-flex align-self-center img-radius" src="/assets/images/persona.png" alt="Generic placeholder image">
                                           <div class="media-body">
                                               <h5 class="notification-user">{{ Auth::user()->name }}</h5>
                                               <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
@@ -117,7 +121,7 @@
                                   </li>
                                   <li class="waves-effect waves-light">
                                       <div class="media">
-                                          <img class="d-flex align-self-center img-radius" src="/assets/images/1-old.jpg" alt="Generic placeholder image">
+                                          <img class="d-flex align-self-center img-radius" src="/assets/images/persona.png" alt="Generic placeholder image">
                                           <div class="media-body">
                                               <h5 class="notification-user">Joseph William</h5>
                                               <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
@@ -127,7 +131,7 @@
                                   </li>
                                   <li class="waves-effect waves-light">
                                       <div class="media">
-                                          <img class="d-flex align-self-center img-radius" src="/assets/images/1-old.jpg" alt="Generic placeholder image">
+                                          <img class="d-flex align-self-center img-radius" src="/assets/images/persona.png" alt="Generic placeholder image">
                                           <div class="media-body">
                                               <h5 class="notification-user">Sara Soudein</h5>
                                               <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
@@ -139,31 +143,12 @@
                           </li>
                           <li class="user-profile header-notification">
                               <a href="#!" class="waves-effect waves-light">
-                                  <img src="/assets/images/1-old.jpg" class="img-radius" alt="User-Profile-Image">
+                                  <img src="/assets/images/persona.png" class="img-radius" alt="User-Profile-Image">
                                   <span>{{ Auth::user()->name }}</span>
                                   <i class="ti-angle-down"></i>
                               </a>
                               <ul class="show-notification profile-notification">
-                                  <li class="waves-effect waves-light">
-                                      <a href="#!">
-                                          <i class="ti-settings"></i> Configuraciones
-                                      </a>
-                                  </li>
-                                  <li class="waves-effect waves-light">
-                                      <a href="user-profile.html">
-                                          <i class="ti-user"></i> Perfil
-                                      </a>
-                                  </li>
-                                  <li class="waves-effect waves-light">
-                                      <a href="email-inbox.html">
-                                          <i class="ti-email"></i> Mis mensajes
-                                      </a>
-                                  </li>
-                                  <li class="waves-effect waves-light">
-                                      <a href="auth-lock-screen.html">
-                                          <i class="ti-lock"></i> Bloquear pantalla
-                                      </a>
-                                  </li>
+
                                   <li class="waves-effect waves-light">
                                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
@@ -189,7 +174,7 @@
                       <div class="pcoded-inner-navbar main-menu">
                           <div class="">
                               <div class="main-menu-header">
-                                  <img class="img-80 img-radius" src="/assets/images/1-old.jpg" alt="User-Profile-Image">
+                                  <img class="img-80 img-radius" src="/assets/images/persona.png" alt="User-Profile-Image">
                                   <div class="user-details">
                                       <span id="more-details">{{ Auth::user()->name }}<i class="fa fa-caret-down"></i></span>
                                   </div>
@@ -198,9 +183,10 @@
                               <div class="main-menu-content">
                                   <ul>
                                       <li class="more-details">
-                                          <a href="user-profile.html"><i class="ti-user"></i>Ver perfil</a>
-                                          <a href="#!"><i class="ti-settings"></i>Configuraciones</a>
-                                          <a href="auth-normal-sign-in.html"><i class="ti-layout-sidebar-left"></i>Cerrar sesión</a>
+                                          <!--<a href="user-profile.html"><i class="ti-user"></i>Ver perfil</a>-->
+                                          <!--<a href="#!"><i class="ti-settings"></i>Configuraciones</a>-->
+                                          <a href="auth-normal-sign-in.html" onclick="event.preventDefault();
+                                          document.getElementById('logout-form').submit();"><i class="ti-layout-sidebar-left"></i>Cerrar sesión</a>
                                       </li>
                                   </ul>
                               </div>
@@ -235,7 +221,7 @@
                         </ul>
 
 
-                          <ul class="pcoded-item pcoded-left-item">
+                          <!--<ul class="pcoded-item pcoded-left-item">
                             <li class="pcoded-hasmenu ">
                                 <a href="javascript:void(0)" class="waves-effect waves-dark">
                                     <span class="pcoded-micon"><i class="ti-direction-alt"></i><b>M</b></span>
@@ -269,6 +255,7 @@
 
 
                                 </ul>
+
                                 <ul class="pcoded-submenu">
                                     <li class="pcoded-hasmenu ">
                                         <a href="javascript:void(0)" class="waves-effect waves-dark">
@@ -297,7 +284,7 @@
 
                                 </ul>
                             </li>
-                        </ul>
+                        </ul>-->
                         <ul class="pcoded-item pcoded-left-item">
                             <li class="pcoded-hasmenu ">
                                 <a href="javascript:void(0)" class="waves-effect waves-dark">
@@ -333,7 +320,7 @@
                       <div class="pcoded-inner-navbar main-menu">
                           <div class="">
                               <div class="main-menu-header">
-                                  <img class="img-80 img-radius" src="/assets/images/1-old.jpg" alt="User-Profile-Image">
+                                  <img class="img-80 img-radius" src="/assets/images/persona.png" alt="User-Profile-Image">
                                   <div class="user-details">
                                       <span id="more-details">{{ Auth::user()->name }}<i class="fa fa-caret-down"></i></span>
                                   </div>
@@ -342,9 +329,10 @@
                               <div class="main-menu-content">
                                   <ul>
                                       <li class="more-details">
-                                          <a href="user-profile.html"><i class="ti-user"></i>Ver perfil</a>
-                                          <a href="#!"><i class="ti-settings"></i>Configuraciones</a>
-                                          <a href="auth-normal-sign-in.html"><i class="ti-layout-sidebar-left"></i>Cerrar sesión</a>
+                                          <!--<a href="user-profile.html"><i class="ti-user"></i>Ver perfil</a>-->
+                                          <!--<a href="#!"><i class="ti-settings"></i>Configuraciones</a>-->
+                                          <a href="auth-normal-sign-in.html" onclick="event.preventDefault();
+                                          document.getElementById('logout-form').submit();"><i class="ti-layout-sidebar-left"></i>Cerrar sesión</a>
                                       </li>
                                   </ul>
                               </div>
@@ -427,7 +415,7 @@
                       <div class="pcoded-inner-navbar main-menu">
                           <div class="">
                               <div class="main-menu-header">
-                                  <img class="img-80 img-radius" src="/assets/images/1-old.jpg" alt="User-Profile-Image">
+                                  <img class="img-80 img-radius" src="/assets/images/persona.png" alt="User-Profile-Image">
                                   <div class="user-details">
                                       <span id="more-details">{{ Auth::user()->name }}<i class="fa fa-caret-down"></i></span>
                                   </div>
@@ -436,9 +424,10 @@
                               <div class="main-menu-content">
                                   <ul>
                                       <li class="more-details">
-                                          <a href="user-profile.html"><i class="ti-user"></i>Ver perfil</a>
-                                          <a href="#!"><i class="ti-settings"></i>Configuraciones</a>
-                                          <a href="auth-normal-sign-in.html"><i class="ti-layout-sidebar-left"></i>Cerrar sesión</a>
+                                          <!--<a href="user-profile.html"><i class="ti-user"></i>Ver perfil</a>-->
+                                          <!--<a href="#!"><i class="ti-settings"></i>Configuraciones</a>-->
+                                          <a href="auth-normal-sign-in.html" onclick="event.preventDefault();
+                                          document.getElementById('logout-form').submit();"><i class="ti-layout-sidebar-left"></i>Cerrar sesión</a>
                                       </li>
                                   </ul>
                               </div>
@@ -470,6 +459,7 @@
                                       </li>
                                   </ul>
                               </li>
+                              @if (Auth::user()->extrainfo != 1)
                               <li class="pcoded-hasmenu ">
                                   <a href="/preinformation">
                                       <span class="pcoded-micon"><i class="ti-direction-alt"></i><b>M</b></span>
@@ -477,6 +467,7 @@
                                       <span class="pcoded-mcaret"></span>
                                   </a>
                               </li>
+                                  @endif
                           </ul>
 
                       </div>
@@ -653,9 +644,49 @@
             "bDestroy": true,
             responsive: true,
             "aaSorting": []
-        } ).responsive.recalc();
+        } );
+    } );
+    $(document).ready(function() {
+        $('#datatable1').DataTable( {
+            "language": {
+                "lengthMenu": " Mostar _MENU_ registros por página",
+                "zeroRecords": "Nada encontrado - disculpa  ",
+                "info": "Mostrando la página _PAGE_ de _PAGES_",
+                "infoEmpty": "No records available",
+                "infoFiltered": "(filtrado de _MAX_ registros totales)",
+                "search" : "Buscar:",
+                "paginate" : {
+                    "next" : "Siguiente",
+                    "previous": "Anterior"
+
+                }
+            },
+            "bDestroy": true,
+            responsive: true,
+            "aaSorting": []
+        } );
     } );
 
+    $(document).ready(function() {
+        $('#datatable2').DataTable( {
+            "language": {
+                "lengthMenu": " Mostar _MENU_ registros por página",
+                "zeroRecords": "Nada encontrado - disculpa  ",
+                "info": "Mostrando la página _PAGE_ de _PAGES_",
+                "infoEmpty": "No records available",
+                "infoFiltered": "(filtrado de _MAX_ registros totales)",
+                "search" : "Buscar:",
+                "paginate" : {
+                    "next" : "Siguiente",
+                    "previous": "Anterior"
+
+                }
+            },
+            "bDestroy": true,
+            responsive: true,
+            "aaSorting": []
+        } );
+    } );
 </script>
 <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 <!--<script>

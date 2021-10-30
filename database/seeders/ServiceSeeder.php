@@ -69,6 +69,24 @@ class ServiceSeeder extends Seeder
         $service2->saturday= 1;
         $service2->sunday= 0;
         $service2->save();
+
+        $service3 = new Service();
+        $service3->title = 'Cancha de futbol sintetica';
+        $service3->description = 'Cancha de futbol sintetica mediana';
+        $service3->capacity = 14;
+        $service3->strip = '60';
+        $service3->start = '10:00:00';
+        $service3->final = '20:00:00';
+        $service3->state = 1;
+        $service3->gallery = 'https://proyectostipo.dnp.gov.co/media/k2/items/cache/910084c4eb3461ee8947cd42bdd4b146_XL.jpg';
+        $service3->monday = 0;
+        $service3->tuesday = 0;
+        $service3->wednesday = 1;
+        $service3->thursday= 1;
+        $service3->friday= 1;
+        $service3->saturday= 1;
+        $service3->sunday= 1;
+        $service3->save();
     }
 
 

@@ -35,7 +35,8 @@
         <div class="card-body container-fluid">
             <div class="row justify-content-center" >
                 <div class="col-auto mt-5">
-                    <table class="table table-bordered table-responsive datatable" id="datatable">
+                    <div style="width: 100% !important;">
+                        <table class="table table-bordered table-responsive datatable justify-content-center text-center" id="datatable">
                         <thead class="thead-light">
                         <tr>
                             <th style="text-align: center; padding:10px;">Id</th>
@@ -77,6 +78,7 @@
                                                 @endif
                                             </div>
                                                 <div class="btn-group">
+                                                    <a href="/extrainfo/index/{{$user->id}}" style="margin:3px; width:50%; color:white;" class="btn btn-primary btn-block">Detalle</a>
                                                     <form method="POST" action="/residents/edit">
                                                         @csrf
                                                         <input type="hidden" name="id" value={{ $user->id }}>
@@ -87,6 +89,7 @@
                                                         <input type="hidden" name="id" value={{ $user->id }}>
                                                         <input style="margin:3px; width:50%;" class="btn btn-danger btn-block" type="submit" onclick="return confirm('Si borra el residente el apartamento de este se reseteara y no tendrá dueño, esta seguro?');" value ="Eliminar">
                                                     </form>
+
                                                 </div>
 
                                         </td>
@@ -95,11 +98,12 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <form id="form-status" name="form-status" method="post" action="/changeStatusResident">
+                    </div>
+                        <form id="form-status" name="form-status" method="post" action="/changeStatusResident">
                         @csrf
-                        <input type="hidden" name="id" id="id">
-                        <input type="hidden" name="status" id="status">
-                    </form>
+                            <input type="hidden" name="id" id="id">
+                            <input type="hidden" name="status" id="status">
+                        </form>
                 </div>
             </div>
         </div>

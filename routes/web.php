@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
@@ -78,4 +78,21 @@ Route::get('/bookings/changeState', [App\Http\Controllers\Bookings\BookingsChang
 // Extra information
 Route::get('/preinformation', [App\Http\Controllers\Extrainfo\PreinfoChangeStateController::class, 'preinfo'])->middleware('auth');
 Route::post('/extrainfo/create', [App\Http\Controllers\Extrainfo\ExtrainfoCreateController::class, 'create'])->middleware('auth');
+Route::post('/extrainfo/store', [App\Http\Controllers\Extrainfo\ExtrainfoStoreController::class, 'store'])->middleware('auth');
+Route::get('/extrainfo/index/{id}', [App\Http\Controllers\Extrainfo\ExtrainfoIndexController::class, 'index'])->middleware('auth');
+
+//Habitants
+Route::get('/habitants/create/{id}', [App\Http\Controllers\Habitants\HabitantsCreateController::class, 'create'])->middleware('auth');
+Route::post('/habitants/store', [App\Http\Controllers\Habitants\HabitantsStoreController::class, 'store'])->middleware('auth');
+Route::get('/habitants/delete/{id}', [App\Http\Controllers\Habitants\HabitantsDeleteController::class, 'delete'])->middleware('auth');
+
+//Transports
+Route::get('/transports/create/{id}', [App\Http\Controllers\Transports\TransportsCreateController::class, 'create'])->middleware('auth');
+Route::post('/transports/store', [App\Http\Controllers\Transports\TransportsStoreController::class, 'store'])->middleware('auth');
+Route::get('/transports/delete/{id}', [App\Http\Controllers\Transports\TransportsDeleteController::class, 'delete'])->middleware('auth');
+
+//Pets
+Route::get('/pets/create/{id}', [App\Http\Controllers\Pets\PetsCreateController::class, 'create'])->middleware('auth');
+Route::post('/pets/store', [App\Http\Controllers\Pets\PetsStoreController::class, 'store'])->middleware('auth');
+Route::get('/pets/delete/{id}', [App\Http\Controllers\Pets\PetsDeleteController::class, 'delete'])->middleware('auth');
 
