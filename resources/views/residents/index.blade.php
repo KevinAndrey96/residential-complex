@@ -1,33 +1,32 @@
 @extends('layouts.dashboard')
 @section('content')
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+
         @if(Session::has('usedApt'))
             <div class="alert alert-success" role="alert">
                 {{ Session::get('usedApt') }}
             </div>
         @endif
-    </div>
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        @if (Session::has('formNotFilled'))
+            <div class="alert alert-danger" role="alert">
+                {{ Session::get('formNotFilled') }}
+            </div>
+        @endif
         @if(Session::has('updaresisuccess'))
             <div class="alert alert-success" role="alert">
                 {{ Session::get('updaresisuccess') }}
             </div>
         @endif
-    </div>
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
         @if(Session::has('residentSuccess'))
             <div class="alert alert-success" role="alert">
                 {{ Session::get('residentSuccess') }}
             </div>
         @endif
-    </div>
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
         @if(Session::has('residentFail'))
             <div class="alert alert-danger" role="alert">
                 {{ Session::get('residentFail') }}
             </div>
         @endif
-    </div>
+
     <div class="card">
         <div class="card-header">
             Residentes

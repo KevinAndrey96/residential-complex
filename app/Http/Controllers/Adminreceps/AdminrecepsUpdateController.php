@@ -24,9 +24,7 @@ class AdminrecepsUpdateController extends Controller
             } else {
                 $obuser->assignRole('Receptionist');
             }
-
             return redirect('/adminrecep');
-
         } else {
             $user = request()->except(['_token','document','id']);
             $user['password'] = Hash::make($request->input('password'));

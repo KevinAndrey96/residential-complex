@@ -11,7 +11,13 @@
 
 <div class="card">
     <div class="card-header">
-      Editar Adiministradores - Recepcionistas
+        @hasrole('Superadmin')
+        Editar Adiministradores - Recepcionistas
+        @endrole
+        @hasrole('Administrator')
+        Editar recepcionista
+        @endrole
+
     </div>
     <div class="card-body">
 
@@ -33,6 +39,7 @@
                 <label for="document_number">Número de documento: </label>
                 <input class="form-control" type="text" name="document" id="document" value="{{ $user->adminrecep->document }}">
             </div>
+            @hasrole('Superadmin')
             <div class="form-group">
                 <label for="role">Rol: </label>
                 <select class="form-control" name="role" id="role">
@@ -47,6 +54,7 @@
                     <option value="Receptionist">Recepcionista</option>
                 </select>
             </div>
+            @endrole
             <div class="form-group">
                 <label for="password">Contraseña: </label>
                 <input class="form-control" type="password" name="password" id="password">

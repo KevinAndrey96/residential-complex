@@ -71,4 +71,24 @@ class User extends Authenticatable
         return $this->hasOne(Booking::class);
     }
 
+    public function extra()
+    {
+        return $this->hasOne(Extra::class);
+    }
+
+    public function habitant()
+    {
+        return $this->hasMany(Habitant::class);
+    }
+
+    public function transport()
+    {
+        return $this->hasMany(Transport::class);
+    }
+
+    public function pet()
+    {
+        return $this->hasMany(Pet::class);
+    }
+
 }

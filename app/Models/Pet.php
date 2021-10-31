@@ -23,8 +23,8 @@ class Pet extends Model
 
     ];
 
-    public function resident()
+    public function user()
     {
-        return $this->belongsTo(Resident::class);
+        return $this->belongsTo(User::class);
     }
 }

@@ -37,8 +37,8 @@ class Extra extends Model
         'phone_realestate'
     ];
 
-    public function resident()
+    public function user()
     {
-        return $this->belongsTo(Resident::class);
+        return $this->belongsTo(User::class);
     }
 }

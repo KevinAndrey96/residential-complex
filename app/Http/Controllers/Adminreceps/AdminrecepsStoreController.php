@@ -25,6 +25,9 @@ class AdminrecepsStoreController extends Controller
     {
         $this->storeAdminrecepsUseCase->handle($request);
 
-        return redirect()->back()->with('adminrecepSuccess', 'Administrador Registrado');
+        if ($request->input('role') == 'Receptionist') {
+            return back()->with('adminrecepSuccess', 'Recepcionista registrado');
+        }
+        return redirect()->back()->with('adminrecepSuccess', 'Administrador registrado');
     }
 }

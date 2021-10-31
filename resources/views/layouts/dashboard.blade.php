@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Mega Able bootstrap admin template by codedthemes </title>
+    <title>Portoaméricas</title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesnt work if you view the page via file: -->
     <!--[if lt IE 10]>
@@ -68,7 +68,7 @@
 
                       <div style="margin: 0px auto;">
                       <a href="index.html">
-                          <img style="width:80px; border-radius: 5%;" class="img-fluid img-responsive center-block" src="/assets/images/logo.png" alt="Theme-Logo" />
+                          <img style="width:70px; border-radius: 5%;" class="img-fluid img-responsive center-block" src="/assets/images/logo.png" alt="Theme-Logo" />
                       </a>
                       </div>
                       <a class="mobile-options waves-effect waves-light">
@@ -367,6 +367,29 @@
                               <li class="pcoded-hasmenu ">
                                   <a href="javascript:void(0)" class="waves-effect waves-dark">
                                       <span class="pcoded-micon"><i class="ti-direction-alt"></i><b>M</b></span>
+                                      <span class="pcoded-mtext" data-i18n="nav.menu-levels.main">Recepcionistas</span>
+                                      <span class="pcoded-mcaret"></span>
+                                  </a>
+                                  <ul class="pcoded-submenu">
+                                      <li class="">
+                                          <a href="/adminrecep" class="waves-effect waves-dark">
+                                              <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                              <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-21">Ver</span>
+                                              <span class="pcoded-mcaret"></span>
+                                          </a>
+                                      </li>
+                                      <li class="">
+                                          <a href="/receptionists/create" class="waves-effect waves-dark">
+                                              <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                              <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-21">Crear</span>
+                                              <span class="pcoded-mcaret"></span>
+                                          </a>
+                                      </li>
+                                  </ul>
+                              </li>
+                              <li class="pcoded-hasmenu ">
+                                  <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                      <span class="pcoded-micon"><i class="ti-direction-alt"></i><b>M</b></span>
                                       <span class="pcoded-mtext" data-i18n="nav.menu-levels.main">Servicios</span>
                                       <span class="pcoded-mcaret"></span>
                                   </a>
@@ -459,7 +482,7 @@
                                       </li>
                                   </ul>
                               </li>
-                              @if (Auth::user()->extrainfo != 1)
+                              @if (Auth::user()->extrainfo == null)
                               <li class="pcoded-hasmenu ">
                                   <a href="/preinformation">
                                       <span class="pcoded-micon"><i class="ti-direction-alt"></i><b>M</b></span>
@@ -596,7 +619,7 @@
     <!-- modernizr js -->
     <script type="text/javascript" src="/js/modernizr/modernizr.js "></script>
     <!-- slimscroll js -->
-    <script type="text/javascript" src="/js/SmoothScroll.js"></script>
+    <!--<script type="text/javascript" src="/js/SmoothScroll.js"></script>-->
     <script src="/js/jquery.mCustomScrollbar.concat.min.js "></script>
     <!-- Chart js -->
     <script type="text/javascript" src="/js/chart.js/Chart.js"></script>
@@ -623,7 +646,7 @@
 
 
 <!-- Page level custom scripts -->
-    <script src="/dash/js/demo/datatables-demo.js"></script>
+    <script src="/js/datatables/datatables/js/datatables-demo.js"></script>
 
 <script>
     $(document).ready(function() {

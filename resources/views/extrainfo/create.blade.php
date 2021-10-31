@@ -639,13 +639,13 @@
             var inputother = document.getElementById('other');
             var checkother = document.getElementById('checkother');
 
-            if(checkother.checked == true) {
+            if (checkother.checked == true) {
                 divother.style.display = 'block';
                 inputother.disabled = false;
             } else {
                 divother.style.display = 'none';
-                inputother.value = null;
-                inputother.disabled = true;
+                inputother.value = '';
+                //inputother.disabled = true;
             }
         }
     </script>

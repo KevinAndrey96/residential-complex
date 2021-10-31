@@ -21,6 +21,7 @@ class ExtrainfoIndexController extends Controller
 
             $residentData = Extra::where('user_id', '=', $id)->first();
 
+             //return var_dump($residentData->themes);
             if ($residentData->themes !== null) {
                 $themes = explode('/', $residentData->themes);
                 for ($i = 0; $i < sizeof($themes); $i++) {
@@ -44,6 +45,6 @@ class ExtrainfoIndexController extends Controller
 
             return view('extrainfo.index', compact('residentData', 'themes', 'user', 'habitants', 'transports', 'pets'));
         }
-        return redirect('/residents');
+        return redirect('/residents')->with('formNotFilled', 'Este residente no ha llenado el formato de actualización');
         }
 }

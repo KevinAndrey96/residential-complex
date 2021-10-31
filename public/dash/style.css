@@ -53,7 +53,7 @@ a {
       font-size: 14px; } }
   a:focus, a:hover {
     text-decoration: none;
-    color: #448aff; }
+    color: #5737F9; }
 
 h4 {
   font-size: 1.375rem; }
@@ -201,7 +201,7 @@ b, strong {
       position: relative; }
       .card .card-header h5:after {
         content: "";
-        background-color: #448aff;
+        background-color: #5737F9;
         position: absolute;
         left: -20px;
         top: 0;
@@ -8413,7 +8413,7 @@ body[themebg-pattern="theme6"] {
 .pcoded[theme-layout="vertical"][vertical-nav-type="fullpage"] .pcoded-main-container, .pcoded[theme-layout="vertical"][vnavigation-view="view3"] .pcoded-main-container {
   position: static; }
 .pcoded .pcoded-header[header-theme="theme1"] {
-  background: #448aff; }
+  background: #5F75F3; }
   .pcoded .pcoded-header[header-theme="theme1"] .input-group-addon,
   .pcoded .pcoded-header[header-theme="theme1"] a {
     color: #fff; }

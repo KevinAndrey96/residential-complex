@@ -43,7 +43,7 @@
                 <label for="password">Contraseña: </label>
                 <input class="form-control" type="password" name="password" id="password" required>
             </div>
-            <input class="btn btn-secondary" style="width:100px; background-color:#B74438 !important; float:right"type="submit" value="Agregar">
+            <input class="btn btn-danger" style="width:100px; background-color:#B74438 !important; float:right"type="submit" value="Agregar">
         </form>
     </div>
 </div>

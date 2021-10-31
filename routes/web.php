@@ -96,3 +96,5 @@ Route::get('/pets/create/{id}', [App\Http\Controllers\Pets\PetsCreateController:
 Route::post('/pets/store', [App\Http\Controllers\Pets\PetsStoreController::class, 'store'])->middleware('auth');
 Route::get('/pets/delete/{id}', [App\Http\Controllers\Pets\PetsDeleteController::class, 'delete'])->middleware('auth');
 
+//Receptionists
+Route::get('/receptionists/create', [App\Http\Controllers\Receptionists\ReceptionistsCreateController::class, 'create'])->middleware('auth');

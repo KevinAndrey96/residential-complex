@@ -24,9 +24,9 @@ class Transport extends Model
         'user_id'
     ];
 
-    public function resident()
+    public function user()
     {
-        return $this->belongsTo(Resident::class);
+        return $this->belongsTo(User::class);
     }
 
 }
