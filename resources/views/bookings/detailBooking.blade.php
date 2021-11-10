@@ -27,7 +27,7 @@
                                 <thead>
                                 <tr>
                                     <th style="text-align: center; padding:10px;">Número de reserva</th>
-                                    @hasrole('Administrator')
+                                    @hasanyrole('Administrator|Receptionist')
                                     <th style="text-align: center; padding:10px;">Residente</th>
                                     @endhasrole
                                     <th style="text-align: center; padding:10px;">Cantidad de personas</th>
@@ -38,7 +38,7 @@
                                     @hasrole('Resident')
                                     <th style="text-align: center; padding:10px;">Acción</th>
                                     @endhasrole
-                                    @hasrole('Administrator')
+                                    @hasanyrole('Administrator|Receptionist')
                                     <th style="text-align: center; padding:10px;">Cambiar estado</th>
                                     @endhasrole
 
@@ -48,7 +48,7 @@
                                 @foreach($bookings as $booking)
                                     <tr>
                                         <td style="text-align: center; padding:10px;"> {{ $booking->id }}</td>
-                                        @hasrole('Administrator')''
+                                        @hasanyrole('Administrator|Receptionist')
                                         <td style="text-align: center; padding:10px;"> {{ $booking->user->name }}</td>
                                         @endhasrole
                                         <td style="text-align: center; padding:10px;">{{ $booking->quantity }}</td>
@@ -97,7 +97,7 @@
                                             @endif
                                         </td>
                                         @endhasrole
-                                        @hasrole('Administrator')
+                                        @hasanyrole('Administrator|Receptionist')
                                         <td style="text-align: center; padding:10px;">
                                             @if ( $booking->state == 'Reservada' || $booking->state == 'En espera' )
                                             <div style="margin:0px auto" class="">

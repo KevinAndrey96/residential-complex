@@ -34,8 +34,11 @@
       <link rel="stylesheet" type="text/css" href="/dash/jquery.mCustomScrollbar.css">
         <!-- am chart export.css -->
         <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
-      <!-- Style.css -->
-      <link rel="stylesheet" type="text/css" href="/dash/style.css">
+
+    <!-- Magnific popup-->
+    <link rel="stylesheet" type="text/css" href="/dash/vendor/Magnific-Popup-master/dist/magnific-popup.css">
+    <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="/dash/style.css">
       <link href="/js/datatables/datatables/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
   </head>
@@ -148,7 +151,15 @@
                                   <i class="ti-angle-down"></i>
                               </a>
                               <ul class="show-notification profile-notification">
+                                  <li class="waves-effect waves-light">
+                                      <a href="/user/passwordEdit/{{ Auth::user()->id }}">
+                                          <i class="ti-unlock"></i> Cambiar contraseña
+                                      </a>
+                                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                          @csrf
 
+                                      </form>
+                                  </li>
                                   <li class="waves-effect waves-light">
                                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
@@ -159,6 +170,7 @@
 
                                       </form>
                                   </li>
+
                               </ul>
                           </li>
                       </ul>
@@ -285,7 +297,7 @@
                                 </ul>
                             </li>
                         </ul>-->
-                        <ul class="pcoded-item pcoded-left-item">
+                        <!--<ul class="pcoded-item pcoded-left-item">
                             <li class="pcoded-hasmenu ">
                                 <a href="javascript:void(0)" class="waves-effect waves-dark">
                                     <span class="pcoded-micon"><i class="ti-direction-alt"></i><b>M</b></span>
@@ -310,7 +322,7 @@
                                 </ul>
 
                             <li>
-                        </ul>
+                        </ul>-->
                         </div>
                     </nav>
                   @endhasrole
@@ -431,7 +443,55 @@
                       </div>
                   </nav>
                   @endhasrole
+                  @hasrole('Receptionist')
+                  <nav class="pcoded-navbar">
+                      <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
+                      <div class="pcoded-inner-navbar main-menu">
+                          <div class="">
+                              <div class="main-menu-header">
+                                  <img class="img-80 img-radius" src="/assets/images/persona.png" alt="User-Profile-Image">
+                                  <div class="user-details">
+                                      <span id="more-details">{{ Auth::user()->name }}<i class="fa fa-caret-down"></i></span>
+                                  </div>
+                              </div>
 
+                              <div class="main-menu-content">
+                                  <ul>
+                                      <li class="more-details">
+                                          <!--<a href="user-profile.html"><i class="ti-user"></i>Ver perfil</a>-->
+                                          <!--<a href="#!"><i class="ti-settings"></i>Configuraciones</a>-->
+                                          <a href="auth-normal-sign-in.html" onclick="event.preventDefault();
+                                          document.getElementById('logout-form').submit();"><i class="ti-layout-sidebar-left"></i>Cerrar sesión</a>
+                                      </li>
+                                  </ul>
+                              </div>
+                          </div>
+
+
+                          <div class="pcoded-navigation-label" data-i18n="nav.category.navigation">Menú</div>
+                          <ul class="pcoded-item pcoded-left-item">
+                              <li class="pcoded-hasmenu ">
+                                  <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                      <span class="pcoded-micon"><i class="ti-direction-alt"></i><b>M</b></span>
+                                      <span class="pcoded-mtext" data-i18n="nav.menu-levels.main">Reservaciones</span>
+                                      <span class="pcoded-mcaret"></span>
+                                  </a>
+                                  <ul class="pcoded-submenu">
+                                      <li class="">
+                                          <a href="/bookings" class="waves-effect waves-dark">
+                                              <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                              <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-21">Ver</span>
+                                              <span class="pcoded-mcaret"></span>
+                                          </a>
+                                      </li>
+                                  </ul>
+                              </li>
+                          </ul>
+
+                      </div>
+                  </nav>
+
+                  @endhasrole
                   @hasrole('Resident')
                   <nav class="pcoded-navbar">
                       <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
@@ -476,7 +536,7 @@
                                       <li class="">
                                           <a href="/bookings/create" class="waves-effect waves-dark">
                                               <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                              <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-21">Crear</span>
+                                              <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-21">Reservar servicio</span>
                                               <span class="pcoded-mcaret"></span>
                                           </a>
                                       </li>
@@ -647,7 +707,7 @@
 
 <!-- Page level custom scripts -->
     <script src="/js/datatables/datatables/js/datatables-demo.js"></script>
-
+<script src="https://kit.fontawesome.com/a53ddba772.js" crossorigin="anonymous"></script>
 <script>
     $(document).ready(function() {
         $('#datatable').DataTable( {
@@ -712,6 +772,15 @@
     } );
 </script>
 <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+
+<script scr="/dash/vendor/Magnific-Popup-master/dist/jquery.magnific-popup.min.js"></script>
+<script src="/dash/vendor/Magnific-Popup-master/dist/jquery.magnific-popup.js"></script>
+<script type="text/javascript">
+    $('.service').magnificPopup({
+        type : 'image'
+    });
+
+</script>
 <!--<script>
     $(function() {
         $('#toggle-two').bootstrapToggle({

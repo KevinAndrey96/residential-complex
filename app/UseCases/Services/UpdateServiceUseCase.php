@@ -7,6 +7,8 @@ use App\Models\Service;
 use App\Models\User;
 use App\UseCases\Contracts\Services\UpdateServiceUseCaseInterface;
 use Illuminate\Http\Request;
+use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Storage;
 
 class UpdateServiceUseCase implements UpdateServiceUseCaseInterface
 {
@@ -85,6 +87,27 @@ class UpdateServiceUseCase implements UpdateServiceUseCaseInterface
         } else {
             $dataService['sunday'] = 0;
         }
+
+        if ($request->hasFile('gallery')) {
+            $dataService['gallery'] = $request->gallery->store('public/service_images');
+            $image_name = substr($dataService['gallery'], 22);
+            $client = new Client();
+            $url = "portal.portoamericas.com/upload.php";
+
+            $response = $client->request('POST', $url, [
+                'multipart' => [
+                    [
+                        'name' => 'image',
+                        'contents' => fopen(Storage::disk('public')->getDriver()->getAdapter()->getPathPrefix().'/service_images/'.$image_name, 'r'),
+                    ],
+                    [
+                        'name'=>'path',
+                        'contents' => 'service_images'
+                    ]
+                ]
+            ]);
+        }
         Service::find($request->input('service_id'))->update($dataService);
+        unlink(storage_path('app/public/service_images/'.$image_name));
     }
 }

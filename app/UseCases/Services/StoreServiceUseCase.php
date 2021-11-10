@@ -4,7 +4,11 @@ namespace App\UseCases\Services;
 
 use App\Models\Service;
 use App\UseCases\Contracts\Services\StoreServiceUseCaseInterface;
+use Httpful\Mime;
 use Illuminate\Http\Request;
+use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class StoreServiceUseCase implements StoreServiceUseCaseInterface
 {
@@ -57,6 +61,30 @@ class StoreServiceUseCase implements StoreServiceUseCaseInterface
         } else {
             $service->sunday = false;
         };
+        if ($request->hasFile('gallery')) {
+            $service->gallery = $request->gallery->store('public/service_images');
+
+
+            $image_name = substr($service->gallery, 22);
+
+            $client = new Client();
+            $url = "portal.portoamericas.com/upload.php";
+
+            print(Storage::disk('public')->getDriver()->getAdapter()->getPathPrefix().'/service_images/'.$request->file('gallery')->getClientOriginalName());
+            $response = $client->request('POST', $url, [
+               'multipart' => [
+                    [
+                        'name' => 'image',
+                        'contents' => fopen(Storage::disk('public')->getDriver()->getAdapter()->getPathPrefix().'/service_images/'.$image_name, 'r'),
+                    ],
+                   [
+                        'name'=>'path',
+                        'contents' => 'service_images'
+                   ]
+               ]
+            ]);
+        }
         $service->save();
+        unlink(storage_path('app/public/service_images/'.$image_name));
     }
 }

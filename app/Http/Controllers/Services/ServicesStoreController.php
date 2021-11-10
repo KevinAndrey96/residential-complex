@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Services;
 use App\Http\Controllers\Controller;
 use App\UseCases\Contracts\Services\StoreServiceUseCaseInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ServicesStoreController extends Controller
 {

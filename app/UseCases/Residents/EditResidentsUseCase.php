@@ -11,9 +11,9 @@ use Illuminate\Http\Request;
 class EditResidentsUseCase implements EditResidentsUseCaseInterface
 {
 
-    public function handle(Request $request):User
+    public function handle($id):User
     {
-        return User::find($request->input('id'));
+        return User::find($id);
     }
 
 }

@@ -50,11 +50,7 @@
                                 </td>
                                 <td style="text-align: center; padding:10px;">
                                     <div class="btn-group">
-                                        <form method="POST" action="/adminrecep/edit">
-                                            @csrf
-                                            <input type="hidden" name="id" value={{ $user->id }}>
-                                            <input style="margin:3px; width:50%;" class="btn btn-warning btn-block" type="submit" value ="Editar">
-                                        </form>
+                                        <a style="margin:3px; width:50%; color:white;" class="btn btn-warning btn-block" href="/adminrecep/edit/{{$user->id}}">Editar</a>
                                         <form method="POST" action="/adminrecep/delete">
                                             @csrf
                                             <input type="hidden" name="id" value={{ $user->id }}>
@@ -79,11 +75,7 @@
                                 <td style="text-align: center; padding:10px;">{{$user->adminrecep->document}}</td>
                                 <td style="text-align: center; padding:10px;">
                                     <div class="btn-group">
-                                        <form method="POST" action="/adminrecep/edit">
-                                            @csrf
-                                            <input type="hidden" name="id" value={{ $user->id }}>
-                                            <input style="margin:3px; width:50%;" class="btn btn-warning btn-block" type="submit" value ="Editar">
-                                        </form>
+                                        <a style="margin:3px; width:50%; color:white;" class="btn btn-warning btn-block" href="/adminrecep/edit/{{$user->id}}">Editar</a>
                                         <form method="POST" action="/adminrecep/delete">
                                             @csrf
                                             <input type="hidden" name="id" value={{ $user->id }}>

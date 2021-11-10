@@ -4,12 +4,15 @@
 namespace App\UseCases\Bookings;
 
 
+use App\Mail\GeneralMail;
 use App\Models\Booking;
 use App\Models\Service;
 use App\UseCases\Contracts\Bookings\StoreBookingsUseCaseInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+
 
 class StoreBookingsUseCase implements StoreBookingsUseCaseInterface
 {
@@ -82,6 +85,11 @@ class StoreBookingsUseCase implements StoreBookingsUseCaseInterface
                             $descFail = 'Reservación hecha';
                             $alert[0] = $nameFail;
                             $alert[1] = $descFail;
+                            $subject = "Reservación de servicio";
+                            $text = 'Sr o Sra '.Auth::user()->name.' se ha reservado el servicio de '.$service->name.' para el dia '.$request->date.
+                                    ' a las '.$request->hour. ', tenga en cuenta que la maxima cantidad de personas que puede llevar es '.$request->input('quantity').
+                                    ', porfavor llegar tiempo o si no perdera el servicio.';
+                            Mail::to(Auth::user()->email)->send(new GeneralMail($subject, $text));
                             return $alert;
                         }
                     }

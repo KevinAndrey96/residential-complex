@@ -9,9 +9,8 @@ use App\Models\Adminrecep;
 
 class AdminrecepsEditController extends Controller
 {
-    public function edit(Request $request)
+    public function edit($id)
     {
-        $id = $request->id;
         $user = User::find($id);
         return view('adminreceps.edit', compact('user', 'id'));
     }

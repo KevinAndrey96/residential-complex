@@ -20,6 +20,7 @@ class BookingsCreateController extends Controller
     public function create()
     {
         $services = $this->createBookingsUseCase->handle();
+        //return $services[0];
         return view('bookings.create', compact('services'));
     }
 }

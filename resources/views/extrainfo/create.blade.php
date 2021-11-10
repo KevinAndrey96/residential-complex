@@ -490,7 +490,7 @@
                                 <label for="contribute">Si</label>
                             </div>
                             <div>
-                                <input type="radio" name="contribute" id="contributeno" value="false" onclick="showinputcontribute()" checked>
+                                <input type="radio" name="contribute" id="contributeno" value="false" onclick="showinputcontribute()">
                                 <label for="contribute">No</label>
                             </div>
                         </div>

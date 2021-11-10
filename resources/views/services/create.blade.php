@@ -41,7 +41,7 @@
 
                 <div class="form-group">
                     <label for="gallery">Galería de fotos</label>
-                    <input class="form-control" type="file" name="gallery" id="gallery">
+                    <input class="form-control" type="file" name="gallery" id="gallery" required>
                 </div>
                 <p><h4>Días hábiles</h4></p>
                 <div class="form-group">

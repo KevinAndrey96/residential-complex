@@ -32,10 +32,11 @@
             Residentes
         </div>
         <div class="card-body container-fluid">
-            <div class="row justify-content-center" >
+            <div class="justify-content-center" >
+                <div style="width: 100%; padding-left: -10px;">
                 <div class="col-auto mt-5">
-                    <div style="width: 100% !important;">
-                        <table class="table table-bordered table-responsive datatable justify-content-center text-center" id="datatable">
+                    <div class="table-responsive">
+                        <table id="datatable" class="table table-striped table-hover dt-responsive display nowrap" width="100%" cellspacing="0">
                         <thead class="thead-light">
                         <tr>
                             <th style="text-align: center; padding:10px;">Id</th>
@@ -57,7 +58,8 @@
                                         <td style="text-align: center; padding:10px;">{{ $user->email }}</td>
                                         <td style="text-align: center; padding:10px;">{{ $user->resident->tower }}</td>
                                         <td style="text-align: center; padding:10px;">{{ $user->resident->apt }}</td>
-                                        <td style="text-align: center; padding:10px;" class="">
+                                        <td style="text-align: center;">
+
                                             <div id="endis" style="display: block; margin:3px;" >
                                                 @if($user->resident->status == 'Habilitado')
                                                     <input type="checkbox" data-onstyle="success"
@@ -76,21 +78,18 @@
                                                            onchange="getStatus({{$user->id}})">
                                                 @endif
                                             </div>
-                                                <div class="btn-group">
-                                                    <a href="/extrainfo/index/{{$user->id}}" style="margin:3px; width:50%; color:white;" class="btn btn-primary btn-block">Detalle</a>
-                                                    <form method="POST" action="/residents/edit">
-                                                        @csrf
-                                                        <input type="hidden" name="id" value={{ $user->id }}>
-                                                        <input style="margin:3px; width:50%;" class="btn btn-warning btn-block" type="submit" value ="Editar">
-                                                    </form>
+
+
+                                            <div class="row justify-content-center">
+                                                <a href="/extrainfo/index/{{$user->id}}" style="margin:3px; width:13px !important;" alt="Información extra" class="btn btn-primary  form-control"><i class="fas fa-book-reader"></i></a>
+                                                <a href="/residents/edit/{{$user->id}}" style="margin:3px; width:13px !important;" alt="Editar" class="btn btn-warning form-control"><i class="far fa-edit"></i></a>
                                                     <form method="POST" action="/residents/delete">
                                                         @csrf
                                                         <input type="hidden" name="id" value={{ $user->id }}>
-                                                        <input style="margin:3px; width:50%;" class="btn btn-danger btn-block" type="submit" onclick="return confirm('Si borra el residente el apartamento de este se reseteara y no tendrá dueño, esta seguro?');" value ="Eliminar">
+                                                        <button style="margin:3px; width:13px !important;" class="btn btn-danger form-control" title="Borrar" type="submit" onclick="return confirm('Si borra el residente el apartamento de este se reseteara y no tendrá dueño, esta seguro?');"><i class="fas fa-exclamation-triangle"></i></button>
+
                                                     </form>
-
                                                 </div>
-
                                         </td>
                                     </tr>
                                 @endif
@@ -103,6 +102,7 @@
                             <input type="hidden" name="id" id="id">
                             <input type="hidden" name="status" id="status">
                         </form>
+                </div>
                 </div>
             </div>
         </div>

@@ -76,7 +76,9 @@
                             @foreach ($services as $service )
                                 <tr>
                                     <td>
-                                        <img class="" style="width: 150px; border-radius: 5%;"  onError="this.onerror=null;this.src='/assets/images/imagen-fallo.jpg';" src="{{$service->gallery}}">
+                                        <a class="service" href="http://portal.portoamericas.com/storage/{{substr($service->gallery, 7)}}">
+                                            <img class="" style="width: 150px; border-radius: 5%;"  onError="this.onerror=null;this.src='/assets/images/imagen-fallo.jpg';" src="http://portal.portoamericas.com/storage/{{substr($service->gallery, 7)}}">
+                                        </a>
                                     </td>
                                     <td style="text-align: center; padding:10px;">{{ $service->title }}</td>
                                     <td style="text-align: center; padding:10px;">{{ $service->description }}</td>

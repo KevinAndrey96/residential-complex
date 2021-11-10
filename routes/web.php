@@ -15,6 +15,11 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
+
+    $user =  Auth::user();
+    if (isset($user)) {
+        return view('home');
+    }
     return view('auth.login');
 });
 
@@ -26,7 +31,7 @@ Route::get('superadmins/area', [App\Http\Controllers\Superadmins\SuperadminsLogi
 Route::get('/adminrecep/create', [App\Http\Controllers\Adminreceps\AdminrecepsCreateController::class, 'create'])->middleware('auth');
 Route::post('/adminrecep/store', App\Http\Controllers\Adminreceps\AdminrecepsStoreController::class)->middleware('auth');
 Route::get('/adminrecep', [App\Http\Controllers\Adminreceps\AdminrecepsIndexController::class, 'index'])->middleware('auth');
-Route::post('/adminrecep/edit', [App\Http\Controllers\Adminreceps\AdminrecepsEditController::class, 'edit'])->middleware('auth');
+Route::get('/adminrecep/edit/{id}', [App\Http\Controllers\Adminreceps\AdminrecepsEditController::class, 'edit'])->middleware('auth');
 Route::post('/adminrecep/update', [App\Http\Controllers\Adminreceps\AdminrecepsUpdateController::class, 'update'])->middleware('auth');
 Route::post('/adminrecep/delete', [App\Http\Controllers\Adminreceps\AdminrecepsDeleteController::class, 'delete'])->middleware('auth');
 Route::get('/role/create', [App\Http\Controllers\Roles\RolesCreateController::class, 'create'])->middleware('auth');
@@ -51,7 +56,7 @@ Route::get('/residents/create', [App\Http\Controllers\Residents\ResidentsCreateC
 Route::post('/residents/store', [App\Http\Controllers\Residents\ResidentsStoreController::class, 'store'])->middleware('auth');
 Route::get('/residents', [App\Http\Controllers\Residents\ResidentsIndexController::class, 'index'])->middleware('auth');
 Route::post('/changeStatusResident', [App\Http\Controllers\Residents\ResidentsChangeStatusController::class, 'changeStatus'])->middleware('auth');
-Route::post('/residents/edit', [App\Http\Controllers\Residents\ResidentsEditController::class, 'edit'])->middleware('auth');
+Route::get('/residents/edit/{id}', [App\Http\Controllers\Residents\ResidentsEditController::class, 'edit'])->middleware('auth');
 Route::post('/residents/update', [App\Http\Controllers\Residents\ResidentsUpdateController::class, 'update'])->middleware('auth');
 Route::post('/residents/delete', [App\Http\Controllers\Residents\ResidentsDeleteController::class, 'delete'])->middleware('auth');
 
@@ -98,3 +103,8 @@ Route::get('/pets/delete/{id}', [App\Http\Controllers\Pets\PetsDeleteController:
 
 //Receptionists
 Route::get('/receptionists/create', [App\Http\Controllers\Receptionists\ReceptionistsCreateController::class, 'create'])->middleware('auth');
+
+//CHANGE PASSWORD
+Route::get('/user/passwordEdit/{id}', [App\Http\Controllers\User\UserPasswordEditController::class, 'passwordEdit'])->middleware('auth');
+
+Route::post('/changePassword', [App\Http\Controllers\User\UserChangePasswordController::class, 'changePassword'])->middleware('auth');

@@ -19,10 +19,14 @@ class AdminrecepsUpdateController extends Controller
             $adminrecep = request()->except(['_token','password','name','phone','email','role','id']);
             Adminrecep::where('user_id', '=', $request->id)->update($adminrecep);
             $obuser->roles()->detach();
-            if ($request->input('role') == 'Administrator') {
-                $obuser->assignRole('Administrator');
-            } else {
-                $obuser->assignRole('Receptionist');
+            $inputRole = $request->input('role');
+
+            if(isset($inputRole)) {
+                if ($inputRole == 'Administrator') {
+                    $obuser->assignRole('Administrator');
+                } else {
+                    $obuser->assignRole('Receptionist');
+                }
             }
             return redirect('/adminrecep');
         } else {
@@ -33,10 +37,14 @@ class AdminrecepsUpdateController extends Controller
             $adminrecep = request()->except(['_token','password','name','phone','email','role','id']);
             Adminrecep::where('user_id', '=', $request->id)->update($adminrecep);
             $obuser->roles()->detach();
-            if ($request->input('role') == 'Administrator') {
-                $obuser->assignRole('Administrator');
-            } else {
-                $obuser->assignRole('Receptionist');
+            $inputRole = $request->input('role');
+
+            if (isset($inputRole)) {
+                if ($inputRole == 'Administrator') {
+                    $obuser->assignRole('Administrator');
+                } else {
+                    $obuser->assignRole('Receptionist');
+                }
             }
             return redirect('/adminrecep');
         }

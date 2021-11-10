@@ -9,13 +9,13 @@
     </div>
     <div class="card">
         <div class="card-header">
-            Crear Residentes
+            Crear residente
         </div>
         <div class="card-body">
             <form action="/residents/store" method="POST" enctype="multipart/form-data">
                 {{csrf_field()}}
                     <div class="form-group">
-                        <label for="name">Nombre: </label>
+                        <label for="name">Nombre completo: </label>
                         <input class="form-control" type="text" name="name" id="name" required>
                     </div>
                     <div class="form-group">
