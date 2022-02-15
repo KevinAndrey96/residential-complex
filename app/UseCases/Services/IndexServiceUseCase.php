@@ -14,7 +14,6 @@ class IndexServiceUseCase implements IndexServiceUseCaseInterface
     public function handle(Request $request): array|\Illuminate\Database\Eloquent\Collection
     {
       $services  = Service::all();
-
       return $services;
     }
 }

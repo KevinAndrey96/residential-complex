@@ -61,30 +61,31 @@ class StoreServiceUseCase implements StoreServiceUseCaseInterface
         } else {
             $service->sunday = false;
         };
+        $service->save();
         if ($request->hasFile('gallery')) {
-            $service->gallery = $request->gallery->store('public/service_images');
-
-
-            $image_name = substr($service->gallery, 22);
-
+            $pathName = Sprintf('service_images/%s.png', $service->id);
+            Storage::disk('public')->put($pathName, file_get_contents($request->file('gallery')));
             $client = new Client();
-            $url = "portal.portoamericas.com/upload.php";
-
-            print(Storage::disk('public')->getDriver()->getAdapter()->getPathPrefix().'/service_images/'.$request->file('gallery')->getClientOriginalName());
-            $response = $client->request('POST', $url, [
-               'multipart' => [
+            $url = "http://portal.portoamericas.com/upload.php";
+            $client->request('POST', $url, [
+                'multipart' => [
                     [
                         'name' => 'image',
-                        'contents' => fopen(Storage::disk('public')->getDriver()->getAdapter()->getPathPrefix().'/service_images/'.$image_name, 'r'),
+                        'contents' => fopen(
+                            Storage::disk('public')
+                                ->getDriver()
+                                ->getAdapter()
+                                ->getPathPrefix() . 'service_images/' . $service->id . '.png', 'r'),
                     ],
-                   [
-                        'name'=>'path',
+                    [
+                        'name' => 'path',
                         'contents' => 'service_images'
-                   ]
-               ]
+                    ]
+                ]
             ]);
         }
+        $service->gallery = '/storage/service_images/'.$service->id.'.png';
         $service->save();
-        unlink(storage_path('app/public/service_images/'.$image_name));
+        //unlink(storage_path('app/public/service_images/'.$service->id));
     }
 }

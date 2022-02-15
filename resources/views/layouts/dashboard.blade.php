@@ -17,7 +17,7 @@
       <meta name="keywords" content="bootstrap, bootstrap admin template, admin theme, admin dashboard, dashboard template, admin template, responsive" />
       <meta name="author" content="codedthemes" />
       <!-- Favicon icon -->
-      <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+      <link rel="icon" href="/assets/images/logo.ico" type="image/x-icon">
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
     <!-- waves.css -->
@@ -27,7 +27,7 @@
       <!-- waves.css -->
       <link rel="stylesheet" href="/dash/pages/waves/css/waves.min.css" type="text/css" media="all">
       <!-- themify icon -->
-      <link rel="stylesheet" type="text/css" href="/dash/icon/themify-icons/themify-icons.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
       <!-- Font Awesome -->
       <link rel="stylesheet" type="text/css" href="/dash/icon/font-awesome/css/font-awesome.min.css">
       <!-- scrollbar.css -->
@@ -70,7 +70,7 @@
                       </div>
 
                       <div style="margin: 0px auto;">
-                      <a href="index.html">
+                      <a href="/home">
                           <img style="width:70px; border-radius: 5%;" class="img-fluid img-responsive center-block" src="/assets/images/logo.png" alt="Theme-Logo" />
                       </a>
                       </div>

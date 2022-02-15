@@ -34,8 +34,8 @@
                                     @foreach( $services as $service)
                                     <tr>
                                         <td style="text-align: center; padding:10px;">
-                                            <a class="service" href="http://portal.portoamericas.com/storage/{{substr($service->gallery, 7)}}">
-                                                <img class="" style="width: 150px; border-radius: 5%;"  onError="this.onerror=null;this.src='/assets/images/imagen-fallo.jpg';" src="http://portal.portoamericas.com/storage/{{substr($service->gallery, 7)}}">
+                                            <a class="service" href="https://portal.portoamericas.com{{$service->gallery}}">
+                                                <img class="" style="width: 150px; border-radius: 5%;"  onError="this.onerror=null;this.src='/assets/images/imagen-fallo.jpg';" src="https://portal.portoamericas.com{{$service->gallery}}">
                                             </a></td>
                                         <td style="text-align: center; padding:10px;"> {{ $service->title }}</td>
                                         <td style="text-align: center; padding:10px;"> {{ $service->description }}</td>

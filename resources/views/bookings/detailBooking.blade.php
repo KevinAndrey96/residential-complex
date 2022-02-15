@@ -121,7 +121,9 @@
                                 <input type="hidden" name="bookingID" id="bookingID">
                             </form>
                         </div>
+
                     </div>
+                    <a style="float:right; color:white; margin-top:20px;" class="btn btn-danger" href="/updateBookingStates">Actualizar estados</a>
                 </div>
             </div>
         </div>

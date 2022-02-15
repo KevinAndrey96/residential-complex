@@ -106,5 +106,7 @@ Route::get('/receptionists/create', [App\Http\Controllers\Receptionists\Receptio
 
 //CHANGE PASSWORD
 Route::get('/user/passwordEdit/{id}', [App\Http\Controllers\User\UserPasswordEditController::class, 'passwordEdit'])->middleware('auth');
-
 Route::post('/changePassword', [App\Http\Controllers\User\UserChangePasswordController::class, 'changePassword'])->middleware('auth');
+
+//update booking states
+Route::get('/updateBookingStates', [App\Http\Controllers\Bookings\BookingsUpdateStatesController::class, 'updateStates'])->middleware('auth');

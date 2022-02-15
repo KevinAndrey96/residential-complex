@@ -9,105 +9,83 @@ use App\UseCases\Contracts\Services\UpdateServiceUseCaseInterface;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Storage;
+use mysql_xdevapi\Exception;
 
 class UpdateServiceUseCase implements UpdateServiceUseCaseInterface
 {
     public function handle(Request $request)
     {
-        $dataService = Request()->except('_token', 'user_id');
-
-        if (isset($dataService['state'])) {
-            if ($dataService['state'] == 'enable' ) {
-                $dataService['state'] = 1;
-            } else {
-                $dataService['state'] = 0;
-            }
-        }
-
-        if (isset($dataService['monday'])) {
-            if ($dataService['monday'] == 'true' ) {
-                $dataService['monday'] = 1;
-            } else {
-                $dataService['monday'] = 0;
-            }
+       $service = Service::where('title', 'like', $request->input('title'))->first();
+       $service->title = $request->input('title');
+       $service->description = $request->input('description');
+       $service->capacity = $request->input('capacity');
+       $service->strip = $request->input('strip');
+       $service->start = $request->input('start');
+       $service->final = $request->input('final');
+        if ($request->input('state') == 'enable') {
+            $service->state = true;
         } else {
-            $dataService['monday'] = 0;
-        }
-        if (isset($dataService['tuesday'])) {
-            if ($dataService['tuesday'] == 'true' ) {
-                $dataService['tuesday'] = 1;
-            } else {
-                $dataService['tuesday'] = 0;
-            }
+            $service->state = false;
+        };
+        if ($request->input('monday') == 'true') {
+            $service->monday = true;
         } else {
-            $dataService['tuesday'] = 0;
-        }
-        if (isset($dataService['wednesday'])) {
-            if ($dataService['wednesday'] == 'true' ) {
-                $dataService['wednesday'] = 1;
-            } else {
-                $dataService['wednesday'] = 0;
-            }
+            $service->monday = false;
+        };
+        if ($request->input('tuesday') == 'true') {
+            $service->tuesday = true;
         } else {
-            $dataService['wednesday'] = 0;
-        }
-        if (isset($dataService['thursday'])) {
-            if ($dataService['thursday'] == 'true' ) {
-                $dataService['thursday'] = 1;
-            } else {
-                $dataService['thursday'] = 0;
-            }
+            $service->tuesday = false;
+        };
+        if ($request->input('wednesday') == 'true') {
+            $service->wednesday = true;
         } else {
-            $dataService['thursday'] = 0;
-        }
-        if (isset($dataService['friday'])) {
-            if ($dataService['friday'] == 'true' ) {
-                $dataService['friday'] = 1;
-            } else {
-                $dataService['friday'] = 0;
-            }
+            $service->wednesday = false;
+        };
+        if ($request->input('thursday') == 'true') {
+            $service->thursday = true;
         } else {
-            $dataService['friday'] = 0;
-        }
-        if (isset($dataService['saturday'])) {
-            if ($dataService['saturday'] == 'true' ) {
-                $dataService['saturday'] = 1;
-            } else {
-                $dataService['saturday'] = 0;
-            }
+            $service->thursday = false;
+        };
+        if ($request->input('friday') == 'true') {
+            $service->friday = true;
         } else {
-            $dataService['saturday'] = 0;
-        }
-        if (isset($dataService['sunday'])) {
-            if ($dataService['sunday'] == 'true' ) {
-                $dataService['sunday'] = 1;
-            } else {
-                $dataService['sunday'] = 0;
-            }
+            $service->friday = false;
+        };
+        if ($request->input('saturday') == 'true') {
+            $service->saturday = true;
         } else {
-            $dataService['sunday'] = 0;
-        }
+            $service->saturday = false;
+        };
+        if ($request->input('sunday') == 'true') {
+            $service->sunday = true;
+        } else {
+            $service->sunday = false;
+        };
+        $service->save();
 
         if ($request->hasFile('gallery')) {
-            $dataService['gallery'] = $request->gallery->store('public/service_images');
-            $image_name = substr($dataService['gallery'], 22);
+            $pathName = Sprintf('service_images/%s.png', $service->id);
+            Storage::disk('public')->put($pathName, file_get_contents($request->file('gallery')));
             $client = new Client();
-            $url = "portal.portoamericas.com/upload.php";
-
-            $response = $client->request('POST', $url, [
+            $url = "https://portal.portoamericas.com/upload.php";
+            $client->request('POST', $url, [
                 'multipart' => [
                     [
                         'name' => 'image',
-                        'contents' => fopen(Storage::disk('public')->getDriver()->getAdapter()->getPathPrefix().'/service_images/'.$image_name, 'r'),
+                        'contents' => fopen(
+                            Storage::disk('public')
+                                ->getDriver()
+                                ->getAdapter()
+                                ->getPathPrefix() . 'service_images/' . $service->id . '.png', 'r'),
                     ],
                     [
-                        'name'=>'path',
+                        'name' => 'path',
                         'contents' => 'service_images'
                     ]
                 ]
             ]);
         }
-        Service::find($request->input('service_id'))->update($dataService);
-        unlink(storage_path('app/public/service_images/'.$image_name));
+
     }
 }
