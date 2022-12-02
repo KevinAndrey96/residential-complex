@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Portoaméricas</title>
+    <title>Porto Américas</title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesnt work if you view the page via file: -->
     <!--[if lt IE 10]>
@@ -42,21 +42,16 @@
       <link href="/js/datatables/datatables/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
   </head>
-
-
-
   <!-- Pre-loader end -->
   <div id="pcoded" class="pcoded">
-      <div class="pcoded-overlay-box"></div>
       <div class="pcoded-container navbar-wrapper">
-          <nav class="navbar header-navbar pcoded-header" header-theme="theme2">
+          <nav style="background-color: #e20613; padding: 5px 0px" class="navbar header-navbar pcoded-header" header-theme="theme2">
               <div class="navbar-wrapper">
                   <div class="navbar-logo">
                       <a class="mobile-menu waves-effect waves-light" id="mobile-collapse" href="#!">
                           <i class="ti-menu"></i>
                       </a>
                       <div class="mobile-search waves-effect waves-light">
-
                           <div class="header-search">
                               <div class="main-search morphsearch-search">
                                   <div class="input-group">
@@ -66,12 +61,10 @@
                                   </div>
                               </div>
                           </div>
-
                       </div>
-
-                      <div style="margin: 0px auto;">
+                      <div style="margin: 10px auto;">
                       <a href="/home">
-                          <img style="width:70px; border-radius: 5%;" class="img-fluid img-responsive center-block" src="/assets/images/logo.png" alt="Theme-Logo" />
+                          <img style="width: 95px;" class="img-fluid img-responsive center-block" src="/assets/images/logo_blanco_pa.png" alt="Theme-Logo" />
                       </a>
                       </div>
                       <a class="mobile-options waves-effect waves-light">
@@ -80,7 +73,7 @@
                   </div>
 
                   <div class="navbar-container container-fluid">
-                      <ul class="nav-left">
+                      <ul  class="nav-left">
                           <li>
                               <div class="sidebar_toggle"><a href="javascript:void(0)"><i class="ti-menu"></i></a></div>
                           </li>
@@ -101,7 +94,7 @@
                           </li>
                           -->
                       </ul>
-                      <ul class="nav-right">
+                      <ul  class="nav-right">
                           <li class="header-notification">
                               <a href="#!" class="waves-effect waves-light">
                                  <!--<i class="ti-bell"></i>-->
@@ -157,7 +150,6 @@
                                       </a>
                                       <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                           @csrf
-
                                       </form>
                                   </li>
                                   <li class="waves-effect waves-light">
@@ -167,10 +159,8 @@
                                     </a>
                                       <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
-
                                       </form>
                                   </li>
-
                               </ul>
                           </li>
                       </ul>
@@ -179,13 +169,13 @@
           </nav>
 
           <div class="pcoded-main-container">
-              <div class="pcoded-wrapper">
+              <div style="background-color: #181818;" class="">
                   @hasrole('Superadmin')
                   <nav class="pcoded-navbar">
                       <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
                       <div class="pcoded-inner-navbar main-menu">
                           <div class="">
-                              <div class="main-menu-header">
+                              <div style="background-color: white;" class="main-menu-header">
                                   <img class="img-80 img-radius" src="/assets/images/persona.png" alt="User-Profile-Image">
                                   <div class="user-details">
                                       <span id="more-details">{{ Auth::user()->name }}<i class="fa fa-caret-down"></i></span>
@@ -231,98 +221,6 @@
                                 </ul>
                             </li>
                         </ul>
-
-
-                          <!--<ul class="pcoded-item pcoded-left-item">
-                            <li class="pcoded-hasmenu ">
-                                <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                    <span class="pcoded-micon"><i class="ti-direction-alt"></i><b>M</b></span>
-                                    <span class="pcoded-mtext" data-i18n="nav.menu-levels.main">Roles y Permisos</span>
-                                    <span class="pcoded-mcaret"></span>
-                                </a>
-                                <ul class="pcoded-submenu">
-                                    <li class="pcoded-hasmenu ">
-                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon"><i class="ti-direction-alt"></i></span>
-                                            <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-22.main">Roles</span>
-                                            <span class="pcoded-mcaret"></span>
-                                        </a>
-                                        <ul class="pcoded-submenu">
-                                            <li class="">
-                                                <a href="/role" class="waves-effect waves-dark">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-22.menu-level-31">Ver</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class="">
-                                                <a href="/role/create" class="waves-effect waves-dark">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-22.menu-level-31">Crear</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-
-
-                                </ul>
-
-                                <ul class="pcoded-submenu">
-                                    <li class="pcoded-hasmenu ">
-                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon"><i class="ti-direction-alt"></i></span>
-                                            <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-22.main">Permisos</span>
-                                            <span class="pcoded-mcaret"></span>
-                                        </a>
-                                        <ul class="pcoded-submenu">
-                                            <li class="">
-                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-22.menu-level-31">Ver</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class="">
-                                                <a href="/permission/create" class="waves-effect waves-dark">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-22.menu-level-31">Crear</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-
-
-                                </ul>
-                            </li>
-                        </ul>-->
-                        <!--<ul class="pcoded-item pcoded-left-item">
-                            <li class="pcoded-hasmenu ">
-                                <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                    <span class="pcoded-micon"><i class="ti-direction-alt"></i><b>M</b></span>
-                                    <span class="pcoded-mtext" data-i18n="nav.menu-levels.main">Configuraciones</span>
-                                    <span class="pcoded-mcaret"></span>
-                                </a>
-                                <ul class="pcoded-submenu">
-                                    <li class="">
-                                        <a href="/setting" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                            <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-21">Ver</span>
-                                            <span class="pcoded-mcaret"></span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="/setting/create" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                            <span class="pcoded-mtext" data-i18n="nav.menu-levels.menu-level-21">Crear</span>
-                                            <span class="pcoded-mcaret"></span>
-                                        </a>
-                                    </li>
-                                </ul>
-
-                            <li>
-                        </ul>-->
                         </div>
                     </nav>
                   @endhasrole
@@ -331,7 +229,7 @@
                       <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
                       <div class="pcoded-inner-navbar main-menu">
                           <div class="">
-                              <div class="main-menu-header">
+                              <div style="background-color: white;" class="main-menu-header">
                                   <img class="img-80 img-radius" src="/assets/images/persona.png" alt="User-Profile-Image">
                                   <div class="user-details">
                                       <span id="more-details">{{ Auth::user()->name }}<i class="fa fa-caret-down"></i></span>
@@ -439,7 +337,6 @@
                                   </ul>
                               </li>
                           </ul>
-
                       </div>
                   </nav>
                   @endhasrole
@@ -448,7 +345,7 @@
                       <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
                       <div class="pcoded-inner-navbar main-menu">
                           <div class="">
-                              <div class="main-menu-header">
+                              <div style="background-color: white;" class="main-menu-header">
                                   <img class="img-80 img-radius" src="/assets/images/persona.png" alt="User-Profile-Image">
                                   <div class="user-details">
                                       <span id="more-details">{{ Auth::user()->name }}<i class="fa fa-caret-down"></i></span>
@@ -487,7 +384,6 @@
                                   </ul>
                               </li>
                           </ul>
-
                       </div>
                   </nav>
 
@@ -497,7 +393,7 @@
                       <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
                       <div class="pcoded-inner-navbar main-menu">
                           <div class="">
-                              <div class="main-menu-header">
+                              <div style="background-color: white;" class="main-menu-header">
                                   <img class="img-80 img-radius" src="/assets/images/persona.png" alt="User-Profile-Image">
                                   <div class="user-details">
                                       <span id="more-details">{{ Auth::user()->name }}<i class="fa fa-caret-down"></i></span>
@@ -556,14 +452,14 @@
                       </div>
                   </nav>
                   @endhasrole
-                  <div class="pcoded-content">
+                  <div style="background-color: darkgray;" class="pcoded-content">
                       <!-- Page-header start -->
                       <div class="page-header">
                           <div class="page-block">
                               <div class="row align-items-center">
-                                  <div class="col-md-8">
-                                      <div class="page-header-title">
-                                          <h5 class="m-b-10">PortoAméricas</h5>
+                                  <div class="col-md-12">
+                                      <div class="page-header-title text-center">
+                                          <h5 style="margin-bottom: -1px;">Porto Américas</h5>
                                           <p class="m-b-0">
                                             @hasrole('Superadmin')
                                               Bienvenido Super Administrador
@@ -580,24 +476,8 @@
                                               @hasrole('Resident')
                                                 Bienvenido Residente
                                               @endrole
-
-
-
-
-
                                           </p>
                                       </div>
-                                  </div>
-                                  <div class="col-md-4">
-                                        <!--
-                                        <ul class="breadcrumb-title">
-                                          <li class="breadcrumb-item">
-                                              <a href="index.html"> <i class="fa fa-home"></i> </a>
-                                          </li>
-                                          <li class="breadcrumb-item"><a href="#!">Dashboard</a>
-                                          </li>
-                                      </ul>
-                                        -->
                                   </div>
                               </div>
                           </div>

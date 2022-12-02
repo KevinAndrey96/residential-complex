@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-
     $user =  Auth::user();
     if (isset($user)) {
         return view('home');
@@ -60,7 +59,6 @@ Route::get('/residents/edit/{id}', [App\Http\Controllers\Residents\ResidentsEdit
 Route::post('/residents/update', [App\Http\Controllers\Residents\ResidentsUpdateController::class, 'update'])->middleware('auth');
 Route::post('/residents/delete', [App\Http\Controllers\Residents\ResidentsDeleteController::class, 'delete'])->middleware('auth');
 
-
 /* Services */
 Route::get('/services/create', [App\Http\Controllers\Services\ServicesCreateController::class, 'create'])->middleware('auth');
 Route::post('/services/store', [App\Http\Controllers\Services\ServicesStoreController::class, 'store'])->middleware('auth');
@@ -78,7 +76,6 @@ Route::get('/detailBooking/{service}', [App\Http\Controllers\Bookings\BookingsDe
 Route::post('/booking/cancel', [App\Http\Controllers\Bookings\BookingsCancelController::class, 'cancel'])->middleware('auth');
 Route::post('/bookings/changeState', [App\Http\Controllers\Bookings\BookingsChangeStateController::class, 'changeState'])->middleware('auth');
 Route::get('/bookings/changeState', [App\Http\Controllers\Bookings\BookingsChangeStateController::class, 'changeState'])->middleware('auth');
-
 
 // Extra information
 Route::get('/preinformation', [App\Http\Controllers\Extrainfo\PreinfoChangeStateController::class, 'preinfo'])->middleware('auth');

@@ -266,8 +266,7 @@ b, strong {
   position: fixed;
   top: calc(56px + 15px);
   z-index: 99999;
-  -webkit-box-shadow: 0 0 35px 0px rgba(0, 0, 0, 0.44);
-          box-shadow: 0 0 35px 0px rgba(0, 0, 0, 0.44);
+
   left: 15px;
   border-radius: 0;
   border: 1px solid #ddd;
@@ -6293,11 +6292,11 @@ table tbody .border-bottom-info td {
 .pcoded .pcoded-container {
   position: relative;
   background: #f3f3f3;
-  -webkit-box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
-          box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08); }
+   }
 .pcoded .pcoded-header {
   position: relative;
-  display: block; }
+  display: block;
+}
 .pcoded .pcoded-navbar {
   display: block;
   -webkit-box-shadow: 1px 0px 20px 0px rgba(69, 90, 100, 0.08);
