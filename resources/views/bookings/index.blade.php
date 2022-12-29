@@ -1,11 +1,9 @@
 @extends('layouts.dashboard')
 @section('content')
-
-
     <div class="card">
         <div class="card-header">
             @hasrole('Resident')
-            Mis reservas
+            <p style="font-size: 30px" class="text-center text-xl-center">Mis reservas</p>
             @endhasrole
             @hasrole('Administrator')
             Reservas
@@ -13,28 +11,17 @@
         </div>
         <div class="card-body container-fluid">
             <div class="justify-content-center" >
-                <p style="font-size: 20px">Seleccione un servicio:</p>
-                <div class="col-auto mt-5">
-                    <div style="width: 100%; padding-left: -10px;">
-                        <div class="table-responsive">
-                            <table id="datatable" class="table dt-responsive display nowrap" width="100%" cellspacing="0">
-
-                            <tbody>
-                                @foreach($services as $service)
-                                    <tr>
-                                        <td style="text-align: center">
-                                            <a style="width:40%; padding: 15px; margin:0px; background-color:#B74438 !important;"  class="btn btn-danger" href="/detailBooking/{{$service->id}}">{{ $service->title }}</a>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                <p style="font-size: 20px" class="text-center">Seleccione un servicio:</p>
+                <div class="col-auto">
+                        <div class="row">
+                            @foreach($services as $service)
+                              <div class="col-md-3">
+                                <a style="width:220px; padding:10px; margin:10px;border-radius: 20px;"  class="btn btn-primary" href="/detailBooking/{{$service->id}}">{{ $service->title }}</a>
+                              </div>
+                            @endforeach
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-
 @endsection

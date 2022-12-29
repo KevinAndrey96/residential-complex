@@ -1,34 +1,34 @@
 @extends('layouts.dashboard')
 @section('content')
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        @if(Session::has('updaservsuccess'))
+    @if(Session::has('updaservsuccess'))
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <div class="alert alert-success" role="alert">
                 {{ Session::get('updaservsuccess') }}
             </div>
-        @endif
-    </div>
+        </div>
+    @endif
     <div class="card">
-        <div class="card-header">
-            Servicios
+        <div class="card-header text-center">
+            <h3 class="p-2">Servicio</h3>
         </div>
         <div class="card-body container-fluid">
             <div class="justify-content-center" >
-                <div style="width: 100%; padding-left: -10px;">
-                    <div class="col-auto mt-5">
+                <div class="col-auto mt-2">
+                    <div>
                         <div class="table-responsive">
                             <table id="datatable" class="table table-striped table-hover dt-responsive display nowrap" width="100%" cellspacing="0">
                                 <thead class="thead-light">
                                 <tr>
                                     <th style="text-align: center; padding:10px;">Imagen</th>
-                                    <th style="text-align: center; padding:10px;">Título</th>
-                                    <th style="text-align: center; padding:10px;">Descripción</th>
-                                    <th style="text-align: center; padding:10px;">Capacidad</th>
-                                    <th style="text-align: center; padding:10px;">Franja</th>
-                                    <th style="text-align: center; padding:10px;">Hora de inicio</th>
-                                    <th style="text-align: center; padding:10px;">Hora de cierre</th>
-                                    <th style="text-align: center; padding:10px;">Estado</th>
-                                    <th style="text-align: center; padding:10px;">Días Hábiles</th>
-                                    <th style="text-align: center; padding:10px;">Acción</th>
+                                    <th style="padding:10px;" class="text-center text-md-center align-middle">Título</th>
+                                    <th style="padding:10px;" class="text-center text-md-center align-middle">Descripción</th>
+                                    <th style="padding:10px;" class="text-center text-md-center align-middle">Capacidad</th>
+                                    <th style="padding:10px;" class="text-center text-md-center align-middle">Franja</th>
+                                    <th style="padding:10px;" class="text-center text-md-center align-middle">Hora de inicio</th>
+                                    <th style="padding:10px;" class="text-center text-md-center align-middle">Hora de cierre</th>
+                                    <th style="padding:10px;" class="text-center text-md-center align-middle">Estado</th>
+                                    <th style="padding:10px;" class="text-center text-md-center align-middle">Días Hábiles</th>
+                                    <th style="padding:10px;" class="text-center text-md-center align-middle">Acción</th>
                                 </tr>
                                 <tbody>
                                     @foreach( $services as $service)
@@ -37,13 +37,13 @@
                                             <a class="service" href="https://portal.portoamericas.com{{$service->gallery}}">
                                                 <img class="" style="width: 150px; border-radius: 5%;"  onError="this.onerror=null;this.src='/assets/images/imagen-fallo.jpg';" src="https://portal.portoamericas.com{{$service->gallery}}">
                                             </a></td>
-                                        <td style="text-align: center; padding:10px;"> {{ $service->title }}</td>
-                                        <td style="text-align: center; padding:10px;"> {{ $service->description }}</td>
-                                        <td style="text-align: center; padding:10px;"> {{ $service->capacity }}</td>
-                                        <td style="text-align: center; padding:10px;"> {{ $service->strip }} minutos</td>
-                                        <td style="text-align: center; padding:10px;"> {{ $service->start }}</td>
-                                        <td style="text-align: center; padding:10px;"> {{ $service->final }}</td>
-                                        <td style="text-align: center; padding:10px;">
+                                        <td style="padding:10px;" class="text-center text-md-center align-middle"> {{ $service->title }}</td>
+                                        <td style="padding:10px;" class="text-center text-md-center align-middle"> {{ $service->description }}</td>
+                                        <td style="padding:10px;" class="text-center text-md-center align-middle"> {{ $service->capacity }}</td>
+                                        <td style="padding:10px;" class="text-center text-md-center align-middle"> {{ $service->strip }} minutos</td>
+                                        <td style="padding:10px;" class="text-center text-md-center align-middle"> {{ $service->start }}</td>
+                                        <td style="padding:10px;" class="text-center text-md-center align-middle"> {{ $service->final }}</td>
+                                        <td style="padding:10px;" class="text-center text-md-center align-middle">
                                             @if($service->state)
                                                 Habilitado
                                             @else

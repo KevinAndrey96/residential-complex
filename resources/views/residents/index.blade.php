@@ -1,6 +1,5 @@
 @extends('layouts.dashboard')
 @section('content')
-
         @if(Session::has('usedApt'))
             <div class="alert alert-success" role="alert">
                 {{ Session::get('usedApt') }}
@@ -28,39 +27,40 @@
         @endif
 
     <div class="card">
-        <div class="card-header">
-            Residentes
+        <div class="card-header text-center">
+            <h3 class="p-2">Residentes</h3>
         </div>
         <div class="card-body container-fluid">
             <div class="justify-content-center" >
-                <div style="width: 100%; padding-left: -10px;">
-                <div class="col-auto mt-5">
+                <div class="col-auto mt-2">
+                <div>
                     <div class="table-responsive">
-                        <table id="datatable" class="table table-striped table-hover dt-responsive display nowrap" width="100%" cellspacing="0">
+                        <table id="datatable" class="table table-striped table-hover dt-responsive display nowrap"
+                               width="100%" cellspacing="0">
                         <thead class="thead-light">
                         <tr>
                             <th style="text-align: center; padding:10px;">Id</th>
-                            <th style="text-align: center; padding:10px;">Nombre</th>
-                            <th style="text-align: center; padding:10px;">Telefono</th>
-                            <th style="text-align: center; padding:10px;">Email</th>
-                            <th style="text-align: center; padding:10px;">Torre</th>
-                            <th style="text-align: center; padding:10px;">Apartamento</th>
-                            <th style="text-align: center; padding:10px;">Acción</th>
+                            <th style="padding:10px;" class="text-center text-md-center align-middle">Nombre</th>
+                            <th style="padding:10px;" class="text-center text-md-center align-middle">Telefono</th>
+                            <th style="padding:10px;" class="text-center text-md-center align-middle">Email</th>
+                            <th style="padding:10px;" class="text-center text-md-center align-middle">Torre</th>
+                            <th style="padding:10px;" class="text-center text-md-center align-middle">Apartamento</th>
+                            <th style="padding:10px;" class="text-center text-md-center align-middle">Acción</th>
                         </tr>
                         </thead>
                         <tbody>
                             @foreach($users as $user)
                                 @if($user->role == 'Resident')
                                     <tr>
-                                        <td style="text-align: center; padding:10px;">{{ $user->id }}</td>
-                                        <td style="text-align: center; padding:10px;">{{ $user->name }}</td>
-                                        <td style="text-align: center; padding:10px;">{{ $user->phone }}</td>
-                                        <td style="text-align: center; padding:10px;">{{ $user->email }}</td>
-                                        <td style="text-align: center; padding:10px;">{{ $user->resident->tower }}</td>
-                                        <td style="text-align: center; padding:10px;">{{ $user->resident->apt }}</td>
+                                        <td style="padding:10px;" class="text-center text-md-center align-middle">{{ $user->id }}</td>
+                                        <td style="padding:10px;" class="text-center text-md-center align-middle">{{ $user->name }}</td>
+                                        <td style="padding:10px;" class="text-center text-md-center align-middle">{{ $user->phone }}</td>
+                                        <td style="padding:10px;" class="text-center text-md-center align-middle">{{ $user->email }}</td>
+                                        <td style="padding:10px;" class="text-center text-md-center align-middle">{{ $user->resident->tower }}</td>
+                                        <td style="padding:10px;" class="text-center text-md-center align-middle">{{ $user->resident->apt }}</td>
                                         <td style="text-align: center;">
 
-                                            <div id="endis" style="display: block; margin:3px;" >
+                                            <div id="endis">
                                                 @if($user->resident->status == 'Habilitado')
                                                     <input type="checkbox" data-onstyle="success"
                                                            checked
@@ -78,18 +78,23 @@
                                                            onchange="getStatus({{$user->id}})">
                                                 @endif
                                             </div>
-
-
                                             <div class="row justify-content-center">
-                                                <a href="/extrainfo/index/{{$user->id}}" style="margin:3px; width:13px !important;" alt="Información extra" class="btn btn-primary  form-control"><i class="fas fa-book-reader"></i></a>
-                                                <a href="/residents/edit/{{$user->id}}" style="margin:3px; width:13px !important;" alt="Editar" class="btn btn-warning form-control"><i class="far fa-edit"></i></a>
-                                                    <form method="POST" action="/residents/delete">
-                                                        @csrf
-                                                        <input type="hidden" name="id" value={{ $user->id }}>
-                                                        <button style="margin:3px; width:13px !important;" class="btn btn-danger form-control" title="Borrar" type="submit" onclick="return confirm('Si borra el residente el apartamento de este se reseteara y no tendrá dueño, esta seguro?');"><i class="fas fa-exclamation-triangle"></i></button>
-
-                                                    </form>
-                                                </div>
+                                                <a style="color:darkblue;" data-toggle="tooltip" title="Información extra" href="/extrainfo/index/{{$user->id}}">
+                                                    <span title="Editar" class="material-symbols-outlined text-center mt-3 ml-3">quick_reference</span>
+                                                </a>
+                                                <a style="color:green;" data-toggle="tooltip" title="Editar" alt="Editar" href="/residents/edit/{{$user->id}}">
+                                                    <span title="Editar" class="material-symbols-outlined text-center mt-3 ml-3">edit</span>
+                                                </a>
+                                                <form class="mt-1" method="POST" action="/residents/delete">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value={{ $user->id }}>
+                                                    <button type="submit" data-toggle="tooltip" title="Eliminar"
+                                                            value="Eliminar" class="btn btn-link"
+                                                            onclick="return confirm('Si borra el residente el apartamento de este se reseteara y no tendrá dueño, esta seguro?');">
+                                                        <span style="color: red" class="material-symbols-outlined">delete</span>
+                                                    </button>
+                                                </form>
+                                            </div>
                                         </td>
                                     </tr>
                                 @endif

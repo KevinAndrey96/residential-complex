@@ -1,104 +1,107 @@
 @extends('layouts.dashboard')
 @section('content')
-
-
-
 <div class="card">
-    <div class="card-header">
+    <div class="card-header text-center">
         @hasrole('Superadmin')
-        Administradores - Recepcionistas
+        <h3 class="p-2">Administradores - Recepcionistas</h3>
         @endrole
         @hasrole('Administrator')
-        Recepcionistas
+        <h3 class="p-2">Recepcionistas</h3>
         @endrole
     </div>
     <div class="card-body container-fluid">
         <div class="justify-content-center" >
-            <div style="width: 100%; padding-left: -10px;">
-            <div class="col-auto mt-5">
+            <div class="col-auto mt-2">
+              <div>
                 <div class="table-responsive">
-                <table id="datatable" class="table table-striped table-hover dt-responsive display nowrap" width="100%" cellspacing="0">
-                    <thead class="thead-light">
-                        <tr>
-                            <th style="text-align: center; padding:10px;">Id</th>
-                            <th style="text-align: center; padding:10px;">Nombre</th>
-                            <th style="text-align: center; padding:10px;">Telefono</th>
-                            <th style="text-align: center; padding:10px;">Email</th>
-                            <th style="text-align: center; padding:10px;">Documento</th>
-                            @hasrole('Superadmin')
-                            <th style="text-align: center; padding:10px;">Rol</th>
-                            @endrole
-                            <th style="text-align: center; padding:10px;">Acción</th>
-                        </tr>
-                    </thead>
-                    <tbody class="justify-content-center text-center">
-                    @hasrole('Superadmin')
-                    @foreach($users as $user)
-                        @if($user->adminrecep->document && $user->role)
-                                <tr>
-                                <td style="text-align: center; padding:10px;">{{$user->id}}</td>
-                                <td style="text-align: center; padding:10px;">{{$user->name}}</td>
-                                <td style="text-align: center; padding:10px;">{{$user->phone}}</td>
-                                <td style="text-align: center; padding:10px;">{{$user->email}}</td>
-                                <td style="text-align: center; padding:10px;">{{$user->adminrecep->document}}</td>
-                                <td style="text-align: center; padding:10px;">
-                                @if ($user->role == 'Administrator')
-                                    Administrador
-                                @else
-                                    Recepcionista
-                                @endif
-                                </td>
-                                <td style="text-align: center; padding:10px;">
-                                    <div class="btn-group">
-                                        <a style="margin:3px; width:50%; color:white;" class="btn btn-warning btn-block" href="/adminrecep/edit/{{$user->id}}">Editar</a>
-                                        <form method="POST" action="/adminrecep/delete">
-                                            @csrf
-                                            <input type="hidden" name="id" value={{ $user->id }}>
-                                            <input style="margin:3px; width:50%;" class="btn btn-danger btn-block" type="submit" onclick="return confirm('¿Esta seguro que quiere borrar este usuario?');" value ="Eliminar">
-                                        </form>
-                                    </div>
-                                </td>
-
+                    <table id="datatable" class="table table-striped table-hover dt-responsive display nowrap" width="100%" cellspacing="0">
+                        <thead class="thead-light">
+                            <tr>
+                                <th style="padding:10px;" class="">Id</th>
+                                <th style="padding:10px;" class="text-center text-md-center align-middle">Nombre</th>
+                                <th style="padding:10px;" class="text-center text-md-center align-middle">Telefono</th>
+                                <th style="padding:10px;" class="text-center text-md-center align-middle">Email</th>
+                                <th style="padding:10px;" class="text-center text-md-center align-middle">Documento</th>
+                                @hasrole('Superadmin')
+                                <th style="padding:10px;" class="text-center text-md-center align-middle">Rol</th>
+                                @endrole
+                                <th style="padding:10px;" class="text-center text-md-center align-middle">Acción</th>
                             </tr>
+                        </thead>
+                        <tbody>
+                        @hasrole('Superadmin')
+                        @foreach($users as $user)
+                            @if($user->adminrecep->document && $user->role)
+                                    <tr>
+                                    <td style="padding:10px;" class="text-center text-md-center align-middle">{{$user->id}}</td>
+                                    <td style="padding:10px;" class="text-center text-md-center align-middle">{{$user->name}}</td>
+                                    <td style="padding:10px;" class="text-center text-md-center align-middle">{{$user->phone}}</td>
+                                    <td style="padding:10px;" class="text-center text-md-center align-middle">{{$user->email}}</td>
+                                    <td style="padding:10px;" class="text-center text-md-center align-middle">{{$user->adminrecep->document}}</td>
+                                    <td style="padding:10px;" class="text-center text-md-center align-middle">
+                                    @if ($user->role == 'Administrator')
+                                        Administrador
+                                    @else
+                                        Recepcionista
+                                    @endif
+                                    </td>
+                                    <td class="text-center text-md-center align-middle">
+                                        <div class="">
+                                            <a style="color:green;" href="/adminrecep/edit/{{$user->id}}">
+                                                <span title="Editar" class="material-symbols-outlined text-center">drive_file_rename_outline</span></a>
+                                            <form method="POST" action="/adminrecep/delete">
+                                                @csrf
+                                                <input type="hidden" name="id" value={{ $user->id }}>
+                                                <button style="border-radius: 50px;" type="submit" value="Eliminar" class="btn btn-link"
+                                                        onclick="return confirm('¿Esta seguro que quiere borrar este usuario?');">
+                                                    <span style="color: red" class="material-symbols-outlined" title="Eliminar" >delete</span>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+
+                                </tr>
+
+                                @endif
+                            @endforeach
+                        @endrole
+                        @hasrole('Administrator')
+                        @foreach($users as $user)
+                            @if($user->adminrecep->document && $user->role && $user->role == 'Receptionist')
+                                <tr>
+                                    <td style="padding:10px;" class="text-center text-md-center align-middle">{{$user->id}}</td>
+                                    <td style="padding:10px;" class="text-center text-md-center align-middle">{{$user->name}}</td>
+                                    <td style="padding:10px;" class="text-center text-md-center align-middle">{{$user->phone}}</td>
+                                    <td style="padding:10px;" class="text-center text-md-center align-middle">{{$user->email}}</td>
+                                    <td style="padding:10px;" class="text-center text-md-center align-middle">{{$user->adminrecep->document}}</td>
+                                    <td style="padding:10px;" class="text-center text-md-center align-middle">
+                                        <div>
+                                            <a style="color:green;" href="/adminrecep/edit/{{$user->id}}">
+                                                <span title="Editar" class="material-symbols-outlined text-center">drive_file_rename_outline</span>
+                                            </a>
+                                            <form method="POST" action="/adminrecep/delete">
+                                                @csrf
+                                                <input type="hidden" name="id" value={{ $user->id }}>
+                                                <button style="border-radius: 50px;" type="submit" value="Eliminar" class="btn btn-link"
+                                                        onclick="return confirm('¿Esta seguro que quiere borrar este usuario?');">
+                                                    <span style="color: red" class="material-symbols-outlined" title="Eliminar"  >delete</span>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+
+                                </tr>
 
                             @endif
                         @endforeach
-                    @endrole
-                    @hasrole('Administrator')
-                    @foreach($users as $user)
-                        @if($user->adminrecep->document && $user->role && $user->role == 'Receptionist')
-                            <tr>
-                                <td style="text-align: center; padding:10px;">{{$user->id}}</td>
-                                <td style="text-align: center; padding:10px;">{{$user->name}}</td>
-                                <td style="text-align: center; padding:10px;">{{$user->phone}}</td>
-                                <td style="text-align: center; padding:10px;">{{$user->email}}</td>
-                                <td style="text-align: center; padding:10px;">{{$user->adminrecep->document}}</td>
-                                <td style="text-align: center; padding:10px;">
-                                    <div class="btn-group">
-                                        <a style="margin:3px; width:50%; color:white;" class="btn btn-warning btn-block" href="/adminrecep/edit/{{$user->id}}">Editar</a>
-                                        <form method="POST" action="/adminrecep/delete">
-                                            @csrf
-                                            <input type="hidden" name="id" value={{ $user->id }}>
-                                            <input style="margin:3px; width:50%;" class="btn btn-danger btn-block" type="submit" onclick="return confirm('¿Esta seguro que quiere borrar este usuario?');" value ="Eliminar">
-                                        </form>
-                                    </div>
-                                </td>
+                        @endrole
 
-                            </tr>
-
-                        @endif
-                    @endforeach
-                    @endrole
-
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             </div>
         </div>
     </div>
 </div>
-
-
-
 @endsection

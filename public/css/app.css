@@ -20,7 +20,7 @@
   --white: #fff;
   --gray: #6c757d;
   --gray-dark: #343a40;
-  --primary: #3490dc;
+  --primary: #e20613;
   --secondary: #6c757d;
   --success: #38c172;
   --info: #6cb2eb;
@@ -44,7 +44,7 @@
 }
 
 html {
-  font-family: sans-serif;
+  font-family: "Nunito", sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -177,7 +177,7 @@ pre,
 code,
 kbd,
 samp {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: "Nunito", sans-serif;
   font-size: 1em;
 }
 
@@ -2438,28 +2438,28 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #3490dc;
-  border-color: #3490dc;
+  background-color: #e20613;
+  border-color: #ec747d;
 }
 .btn-primary:hover {
   color: #fff;
-  background-color: #227dc7;
-  border-color: #2176bd;
+  background-color: #e52a35;
+  border-color: #96040e;
 }
 .btn-primary:focus, .btn-primary.focus {
   color: #fff;
-  background-color: #227dc7;
-  border-color: #2176bd;
+  background-color: #e20613;
+  border-color: #ec747d;
   box-shadow: 0 0 0 0.2rem rgba(82, 161, 225, 0.5);
 }
 .btn-primary.disabled, .btn-primary:disabled {
   color: #fff;
-  background-color: #3490dc;
+  background-color: #e20613;
   border-color: #3490dc;
 }
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: #2176bd;
+  background-color: #e20613;
   border-color: #1f6fb2;
 }
 .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus {
@@ -2677,24 +2677,24 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-primary {
-  color: #3490dc;
+  color: #e20613;
   border-color: #3490dc;
 }
 .btn-outline-primary:hover {
   color: #fff;
-  background-color: #3490dc;
+  background-color: #e20613;
   border-color: #3490dc;
 }
 .btn-outline-primary:focus, .btn-outline-primary.focus {
   box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0.5);
 }
 .btn-outline-primary.disabled, .btn-outline-primary:disabled {
-  color: #3490dc;
+  color: #e20613;
   background-color: transparent;
 }
 .btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active, .show > .btn-outline-primary.dropdown-toggle {
   color: #fff;
-  background-color: #3490dc;
+  background-color: #e20613;
   border-color: #3490dc;
 }
 .btn-outline-primary:not(:disabled):not(.disabled):active:focus, .btn-outline-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-primary.dropdown-toggle:focus {
