@@ -59,9 +59,7 @@
                                             </form>
                                         </div>
                                     </td>
-
                                 </tr>
-
                                 @endif
                             @endforeach
                         @endrole

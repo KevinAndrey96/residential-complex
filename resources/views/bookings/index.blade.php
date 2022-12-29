@@ -3,10 +3,10 @@
     <div class="card">
         <div class="card-header">
             @hasrole('Resident')
-            <p style="font-size: 30px" class="text-center text-xl-center">Mis reservas</p>
+            <h3 class="p-2 text-center">Mis reservas</h3>
             @endhasrole
             @hasrole('Administrator')
-            Reservas
+            <h3 class="p-2 text-center">Reservas</h3>
             @endhasrole
         </div>
         <div class="card-body container-fluid">

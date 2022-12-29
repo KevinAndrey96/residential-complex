@@ -1,12 +1,12 @@
 @extends('layouts.dashboard')
 @section('content')
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        @if(Session::has('residentSuccess'))
+    @if(Session::has('residentSuccess'))
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <div class="alert alert-success" role="alert">
                 {{ Session::get('residentSuccess') }}
             </div>
-        @endif
-    </div>
+        </div>
+    @endif
     <div class="card">
         <div class="card-header text-center">
             <h3 class="p-2">Editar residente</h3>

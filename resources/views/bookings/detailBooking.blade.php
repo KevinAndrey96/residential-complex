@@ -29,7 +29,9 @@
                                 <tr>
                                     <th style=" padding:10px;" class="text-center text-md-center align-middle">Número de reserva</th>
                                     @hasanyrole('Administrator|Receptionist')
+                                    @if(isset($booking->user->name) ) {{$booking->user->name}}
                                     <th style=" padding: 10px 30px" class="text-center text-md-center align-middle">Residente</th>
+                                    @endif
                                     @endhasrole
                                     <th style=" padding: 10px 30px" class="text-center text-md-center align-middle">N° Personas</th>
                                     <th style=" padding: 10px 30px" class="text-center text-md-center align-middle">Día</th>
@@ -49,7 +51,9 @@
                                     <tr>
                                         <td class="text-center text-md-center align-middle"> {{ $booking->id }}</td>
                                         @hasanyrole('Administrator|Receptionist')
+                                        @if(isset($booking->user->name) ) {{$booking->user->name}}
                                         <td class="text-center text-md-center align-middle"> {{ $booking->user->name }}</td>
+                                        @endif
                                         @endhasrole
                                         <td class="text-center text-md-center align-middle">{{ $booking->quantity }}</td>
                                         <td class="text-center text-md-center align-middle">

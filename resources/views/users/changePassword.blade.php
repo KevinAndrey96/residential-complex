@@ -10,23 +10,26 @@
             {{ Session::get('changePasswordFail') }}
         </div>
     @endif
-
     <div class="card">
-        <div class="card-header">
-            Cambiar contraseña
+        <div class="card-header text-center">
+            <h3 class="p-2">Cambiar contraseña</h3>
         </div>
         <div class="card-body">
             <form method="POST" action="/changePassword">
                 @csrf
-                <div class="form-group">
-                    <label for="oldPassword">Escriba su antigua contraseña:</label>
-                    <input type="password" class="form-control" name="oldPassword" required>
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label for="oldPassword">Escriba su antigua contraseña:</label>
+                        <input type="password" class="form-control" name="oldPassword" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="newPassword">Escriba su nueva contraseña:</label>
+                        <input type="password" class="form-control" name="newPassword" required>
+                    </div>
+                    <div class="col-md-4 text-center mt-4">
+                        <input type="submit" class="btn btn-primary btn-round align-middle" value="Cambiar contraseña">
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="newPassword">Escriba su nueva contraseña:</label>
-                    <input type="password" class="form-control" name="newPassword" required>
-                </div>
-                <input style="float:right" type="submit" class="btn btn-danger" value="Cambiar contraseña">
             </form>
 
         </div>

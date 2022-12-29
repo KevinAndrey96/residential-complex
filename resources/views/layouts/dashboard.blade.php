@@ -119,26 +119,6 @@
                                           </div>
                                       </div>
                                   </li>
-                                  <li class="waves-effect waves-light">
-                                      <div class="media">
-                                          <img class="d-flex align-self-center img-radius" src="/assets/images/persona.png" alt="Generic placeholder image">
-                                          <div class="media-body">
-                                              <h5 class="notification-user">Joseph William</h5>
-                                              <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-                                              <span class="notification-time">30 minutes ago</span>
-                                          </div>
-                                      </div>
-                                  </li>
-                                  <li class="waves-effect waves-light">
-                                      <div class="media">
-                                          <img class="d-flex align-self-center img-radius" src="/assets/images/persona.png" alt="Generic placeholder image">
-                                          <div class="media-body">
-                                              <h5 class="notification-user">Sara Soudein</h5>
-                                              <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-                                              <span class="notification-time">30 minutes ago</span>
-                                          </div>
-                                      </div>
-                                  </li>
                               </ul>
                           </li>
                           <li class="user-profile header-notification">
@@ -309,9 +289,15 @@
                           <div class="pcoded-navigation-label text-center mt-4" data-i18n="nav.category.navigation">
                               <p style="color: #96040e; font-size: 15px; font-weight: bold;" class="text-center">Menú</p>
                           </div>
+
                           <ul class="pcoded-item pcoded-left-item ">
-                              <li class="text-center">
-                                  <a style="font-size: 15px;" href="/bookings" class="waves-effect waves-dark text-center">Reservaciones</a>
+                              <li>
+                                <a href="/bookings">
+                                    <span style="margin-right: 25px;" class="material-symbols-outlined align-middle">
+                                        book_online
+                                    </span>
+                                      Reservaciones
+                                  </a>
                               </li>
                           </ul>
                       </div>

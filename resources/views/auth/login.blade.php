@@ -2,10 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Login Porto Americas</title>
-    <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn work if you view the page via file:// -->
-    <!--[if lt IE 10]>
+    <title>Login - Porto Americas</title>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
       <![endif]-->
@@ -20,7 +17,9 @@
 
       <link rel="icon" href="assets/images/logo.ico" type="image/x-icon">
       <!-- Google font-->
-      <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
       <!-- Required Fremwork -->
       <link rel="stylesheet" type="text/css" href="/dash/bootstrap.min.css">
       <!-- waves.css -->
@@ -35,61 +34,7 @@
       <link rel="stylesheet" type="text/css" href="/dash/style.css">
   </head>
 
-  <body themebg-pattern="theme2">
-  <!-- Pre-loader start -->
-
-  <!--<div class="theme-loader">
-      <div class="loader-track">
-          <div class="preloader-wrapper">
-              <div class="spinner-layer spinner-blue">
-                  <div class="circle-clipper left">
-                      <div class="circle"></div>
-                  </div>
-                  <div class="gap-patch">
-                      <div class="circle"></div>
-                  </div>
-                  <div class="circle-clipper right">
-                      <div class="circle"></div>
-                  </div>
-              </div>
-              <div class="spinner-layer spinner-red">
-                  <div class="circle-clipper left">
-                      <div class="circle"></div>
-                  </div>
-                  <div class="gap-patch">
-                      <div class="circle"></div>
-                  </div>
-                  <div class="circle-clipper right">
-                      <div class="circle"></div>
-                  </div>
-              </div>
-
-              <div class="spinner-layer spinner-yellow">
-                  <div class="circle-clipper left">
-                      <div class="circle"></div>
-                  </div>
-                  <div class="gap-patch">
-                      <div class="circle"></div>
-                  </div>
-                  <div class="circle-clipper right">
-                      <div class="circle"></div>
-                  </div>
-              </div>
-
-              <div class="spinner-layer spinner-green">
-                  <div class="circle-clipper left">
-                      <div class="circle"></div>
-                  </div>
-                  <div class="gap-patch">
-                      <div class="circle"></div>
-                  </div>
-                  <div class="circle-clipper right">
-                      <div class="circle"></div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>-->
+  <body style="background-color: rgba(224,33,44,0.98); background-image: url(public/assets/images/logo_blanco_pa.png)">
   <section class="login-block">
     <!-- Container-fluid starts -->
     <div class="container">
@@ -98,8 +43,8 @@
                 <!-- Authentication card start -->
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-                        <div class="text-center">
-                            <img src="/assets/images/logo.png" alt="logo.png" style="width:90px; height:30; border-radius: 5px; margin: 10px;">
+                        <div class="text-center p-5">
+                            <img src="/assets/images/logo_blanco_pa.png" alt="logo.png" style="width:21%; height:auto;">
                         </div>
                         <div class="auth-box card">
                             <div class="card-block">
@@ -109,60 +54,59 @@
                                     </div>
                                 </div>
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Correo electrónico') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" style="background-color: white !important" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8 text-center">
+                                <label for="email" style="color: #e20613;" class="h6">{{ __('Correo electrónico') }}</label>
+                                <input id="email" type="email" style="background-color: white !important" class="form-control
+                                @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"
+                                       required autocomplete="email" autofocus>
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
+                            <div class="col-md-2"></div>
                         </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
+                        <div class="form-group row text-center">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8 text-center">
+                                <label for="password" style="color: #e20613;" class="h6">{{ __('Contraseña') }}</label>
+                                <input id="password" type="password" class="form-control @error('password') is-invalid
+                                @enderror" name="password" required autocomplete="current-password">
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
+                            <div class="col-md-2"></div>
                         </div>
-
                         <div class="row m-t-25 text-center">
                             <div class="col-12">
                                 <div class="checkbox-fade fade-in-primary d-">
                                     <label>
                                         <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                        <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
+                                        <span class="cr"><i class="cr-icon icofont icofont-ui-check"></i></span>
                                         <span class="text-inverse">Recordarme</span>
                                     </label>
                                 </div>
                             </div>
                         </div>
                         <div style="clear: both;"></div>
-
                         <div class=" form-group row mb-0" style="margin:20px;">
                             <div class="col-md-4 offset-md-4">
                                 <center>
-                                <button type="submit" class="btn" style="background-color: #B74438; color:white;">
+                                <button type="submit" class="btn btn-danger btn-round" style="color:white;">
                                     {{ __('Ingresar') }}
                                 </button>
                                 </center>
                             </div>
                         </div>
-
-                        <div class="form-group row " style="margin-top: 6px;">
-                            <div class="col-md-6 offset-md-3 text-center">
+                        <div class="form-group row mt-2" >
+                            <div class="col-md-12 text-center">
                                 @if (Route::has('password.request'))
-                                    <a class="btn" style="color: #B74438" href="{{ route('password.request') }}">
+                                    <a class="btn btn-link" style="color: #e20613;" href="{{ route('password.request') }}">
                                         {{ __('¿Olvidaste tu contraseña?') }}
                                     </a>
                                 @endif
