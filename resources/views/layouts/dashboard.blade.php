@@ -66,7 +66,7 @@
                               </div>
                           </div>
                       </div>
-                      <div style="margin: 10px auto;">
+                      <div style="margin: 11px auto;">
                       <a href="/home">
                           <img style="width: 95px;" class="img-fluid img-responsive center-block" src="/assets/images/logo_blanco_pa.png" alt="Theme-Logo" />
                       </a>
@@ -86,23 +86,13 @@
                                   <div class="input-group">
                                       <span class="input-group-addon search-close"><i class="ti-close"></i></span>
                                       <input type="text" class="form-control">
-                                      <!--<span class="input-group-addon search-btn"><i class="ti-search"></i></span>-->
                                   </div>
                               </div>
                           </li>
-                          <!--
-                          <li>
-                              <a href="#!" onclick="javascript:toggleFullScreen()" class="waves-effect waves-light">
-                                  <i class="ti-fullscreen"></i>
-                              </a>
-                          </li>
-                          -->
                       </ul>
                       <ul  class="nav-right">
                           <li class="header-notification">
                               <a href="#!" class="waves-effect waves-light">
-                                 <!--<i class="ti-bell"></i>-->
-                                  <!--<span class="badge bg-c-red"></span>-->
                               </a>
                               <ul class="show-notification">
                                   <li>
