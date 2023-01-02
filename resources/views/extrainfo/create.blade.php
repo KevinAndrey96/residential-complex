@@ -612,7 +612,7 @@
                         </div>
                         <div class="col-md-12 text-center">
                             <input type="hidden" name="residenttype" value="{{$firstdata->resident_type}}">
-                            <input style="padding: 10px 30px; border-radius: 30px;" type="submit" class="btn btn-primary" value="Enviar">
+                            <input style="padding: 10px 30px;" type="submit" class="btn btn-primary btn-round" value="Enviar">
                         </div>
                       </div>
                     </form>

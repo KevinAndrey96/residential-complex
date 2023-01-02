@@ -12,73 +12,75 @@
     @endif
 
     <div class="card">
-        <div class="card-header">
-            Añadir medio de transporte
+        <div class="card-header text-center">
+            <h3 class="p-2">Añadir medio de transporte</h3>
         </div>
         <div class="card-body">
-
             <form method="POST" action="/transports/store">
                 @csrf
-                <div class="form-group">
-                    <label for="selectTransport">¿Que medio de transporte quiere añadir?</label>
-                    <select class="form-control" name="selectTransport" id="selectTransport" onchange="showTransport()">
-                        <option disabled selected></option>
-                        <option value="motorcycle">Motocicleta</option>
-                        <option value="car">Carro</option>
-                        <option value="bicycle">Bicicleta</option>
-                    </select>
-                </div>
-                <div style="display: none" class="form-group" id="divColor">
-                    <label for="color">Color: </label>
-                    <input class="form-control" type="text" name="color" id="color" required>
-                </div>
-                <div style="display:none" id="divMotoCar" >
-                    <div class="form-group">
-                        <label for="brand">Marca: </label>
-                        <input class="form-control" type="text" name="brand" id="brand" required>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label for="selectTransport">Nuevo medio de transporte </label>
+                        <select class="form-control" name="selectTransport" id="selectTransport" onchange="showTransport()">
+                            <option disabled selected></option>
+                            <option value="motorcycle">Motocicleta</option>
+                            <option value="car">Carro</option>
+                            <option value="bicycle">Bicicleta</option>
+                        </select>
                     </div>
-                <div class="form-group">
-                    <label for="plaque">Placa: </label>
-                    <input class="form-control" type="text" name="plaque" id="plaque" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="model">Modelo: </label>
-                    <input class="form-control" type="text" name="model" id="model" required>
-                </div>
-                <div class="form-group">
-                    <label for="parkingnum">Número de parqueadero: </label>
-                    <input class="form-control" type="text" name="parkingnum" id="parkingnum" required>
-                </div>
-                <div class="form-group">
-                    <label for="ownparking">¿El parqueadero es propio? </label>
-                    <select class="form-control" name="ownparking" id="ownparking" onchange="parkingOwner()" required>
-                        <option value="yes">Si</option>
-                        <option value="no">No</option>
-                    </select>
-                </div>
-                <div style="display: none" class="form-group" id="divOwner" >
-                    <label for="owner">Nombre del dueño del parqueadero </label>
-                    <input class="form-control" type="text" name="owner" id="owner">
-                </div>
-                </div>
-                <div id="divBicycle" style="display: none">
-                    <div class="form-group">
-                        <label for="numserie">Número de serie:</label>
-                        <input class="form-control" type="number" name="numserie" id="numserie" min="1" required>
+                    <div style="display: none" class="form-group col-md-2" id="divColor">
+                        <label for="color">Color</label>
+                        <input class="form-control" type="text" name="color" id="color" required>
                     </div>
-                    <div class="form-group">
-                        <label for="bicyclerack">Número de bicicletero: </label>
-                        <input class="form-control" type="number" name="bicyclerack" id="bicyclerack" min="1" required>
+                    <div lass="form-group col-md-6" style="display:none" id="divMotoCar" >
+                        <div class="form-group col-md-2">
+                            <label for="brand">Marca</label>
+                            <input class="form-control" type="text" name="brand" id="brand" required>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="plaque">Placa</label>
+                            <input class="form-control" type="text" name="plaque" id="plaque" required>
+                        </div>
+                        <div class="form-group col-md-1">
+                            <label for="model">Modelo</label>
+                            <input class="form-control" type="text" name="model" id="model" required>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="parkingnum">N° parqueadero</label>
+                            <input class="form-control" type="text" name="parkingnum" id="parkingnum" required>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="ownparking">¿Parqueadero propio?</label>
+                            <select class="form-control" name="ownparking" id="ownparking" onchange="parkingOwner()" required>
+                                <option value="yes">Si</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                        <div style="display: none" class="form-group col-md-3" id="divOwner" >
+                            <label for="owner">Nombre del dueño del parqueadero </label>
+                            <input class="form-control" type="text" name="owner" id="owner">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="bicycleperiod">Periodo de uso del bicicletero(en meses)</label>
-                        <input class="form-control" type="number" name="bicycleperiod" id="bicycleperiod" min="1" required>
+                    <div class="form-group col-md-6" id="divBicycle" style="display: none">
+                        <div class="form-group col-md-3">
+                            <label for="numserie">N° serie</label>
+                            <input class="form-control" type="number" name="numserie" id="numserie" min="1" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="bicyclerack">N° bicicletero</label>
+                            <input class="form-control" type="number" name="bicyclerack" id="bicyclerack" min="1" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="bicycleperiod">Periodo mensual de uso</label>
+                            <input class="form-control" type="number" name="bicycleperiod" id="bicycleperiod" min="1" required>
+                        </div>
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <input type="hidden" name="user_id" id="user_id" value="{{$id}}">
+                        <input type="hidden" name="type" id="type" value="">
+                        <input style="padding: 10px 30px;" type="submit" class="btn btn-primary btn-round" value="Añadir">
                     </div>
                 </div>
-                <input type="hidden" name="user_id" id="user_id" value="{{$id}}">
-                <input type="hidden" name="type" id="type" value="">
-                <input style="float:right; background-color:#B74438;" type="submit" class="btn btn-danger" value="Añadir">
             </form>
         </div>
     </div>
