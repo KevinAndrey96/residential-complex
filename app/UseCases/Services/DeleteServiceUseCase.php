@@ -13,7 +13,10 @@ class DeleteServiceUseCase implements DeleteServiceUseCaseInterface
 {
     public function handle(Request $request):Bool
     {
-        Service::destroy($request->input('id'));
+        $service = Service::find($request->input('id'));
+        $service->is_deleted = 1;
+        $service->save();
         return true;
+
     }
 }

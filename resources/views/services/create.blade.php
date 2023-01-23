@@ -5,6 +5,7 @@
             <h3 class="p-2">Crear Servicio</h3>
         </div>
         <div class="card-body">
+            {{print_r($errors)}}
             <form action="/services/store" method="POST" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <div class="row">
@@ -75,7 +76,7 @@
                     </div>
                     <div class="form-group col-md-2">
                         <label for="gallery">Galería de fotos</label>
-                        <input class="form-control" type="file" name="gallery" id="gallery" required>
+                        <input class="form-control" type="file" name="gallery[]" id="gallery" multiple required>
                     </div>
                     <div class="col-md-12 text-center">
                         <input type="hidden" name="status" value="Habilitado">

@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\Request as RequestAlias;
 
 class StoreServiceUseCase implements StoreServiceUseCaseInterface
 {
@@ -62,30 +63,29 @@ class StoreServiceUseCase implements StoreServiceUseCaseInterface
             $service->sunday = false;
         };
         $service->save();
-        if ($request->hasFile('gallery')) {
-            $pathName = Sprintf('service_images/%s.png', $service->id);
-            Storage::disk('public')->put($pathName, file_get_contents($request->file('gallery')));
+        $gallery = $request->gallery;
+        for ($i = 0; $i < count($gallery); $i++) {
+            $modifiedServiceTittle = str_replace(' ', '-', $service->title).$i;
+            $pathName = 'services/'.$modifiedServiceTittle.'.png';
+            Storage::disk('public')->put($pathName, file_get_contents($gallery[$i]));
             $client = new Client();
-            $url = "http://portal.portoamericas.com/upload.php";
-            $client->request('POST', $url, [
+            $url = "https://portal.portoamericas.com/upload.php";
+            $client->request(RequestAlias::METHOD_POST, $url, [
                 'multipart' => [
                     [
                         'name' => 'image',
                         'contents' => fopen(
-                            Storage::disk('public')
-                                ->getDriver()
-                                ->getAdapter()
-                                ->getPathPrefix() . 'service_images/' . $service->id . '.png', 'r'),
+                            str_replace('\\', '/', Storage::path('public\services\\' .$modifiedServiceTittle . '.png')),'r'),
                     ],
                     [
                         'name' => 'path',
-                        'contents' => 'service_images'
+                        'contents' => 'services'
                     ]
                 ]
             ]);
+            $service->gallery .= '/storage/services/' . $modifiedServiceTittle . '.png;';
+            $service->save();
+            unlink(str_replace('\\', '/', storage_path('app/public/services/'.$modifiedServiceTittle.'.png')));
         }
-        $service->gallery = '/storage/service_images/'.$service->id.'.png';
-        $service->save();
-        //unlink(storage_path('app/public/service_images/'.$service->id));
     }
 }

@@ -17,7 +17,10 @@ class ServicesIndexController extends Controller
 
     public function index(Request $request)
     {
-        $services = $this->indexServiceUseCase->handle($request);
-        return view('services.index', compact('services'));
+        $servicesInfo = $this->indexServiceUseCase->handle($request);
+        $services = $servicesInfo[0];
+        $superArray = $servicesInfo[1];
+
+        return view('services.index', compact('services', 'superArray'));
     }
 }

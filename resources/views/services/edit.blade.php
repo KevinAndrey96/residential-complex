@@ -115,7 +115,7 @@
                     </div>
                     <div class="form-group col-md-2">
                         <label for="gallery">Galería de fotos</label>
-                        <input class="form-control" type="file" name="gallery" id="gallery">
+                        <input class="form-control" type="file" name="gallery[]" id="gallery" multiple>
                     </div>
                     <div class="col-md-12 text-center">
                         <input type="hidden" name="service_id" value="{{ $service->id }}">

@@ -17,7 +17,37 @@ class ServicesUpdateController extends Controller
 
     public function update(Request $request)
     {
-        $this->updateServiceUseCase->handle($request);
-        return redirect('/services')->with('updaservsuccess', 'Servicio modificado');
+        try {
+            /*
+            $fields = [
+                'title' => 'required|string',
+                'capacity' => 'required',
+                'strip' => 'required',
+                'start' => 'required|string',
+                'final' => 'required|string',
+                'state' => 'required|string',
+                'monday' => 'string',
+                'tuesday' => 'string',
+                'wednesday' => 'string',
+                'thursday' => 'string',
+                'friday' => 'string',
+                'saturday' => 'string',
+                'sunday' => 'string',
+                'description' => 'required|string',
+                'status' => 'required|string',
+                'role' => 'required|string',
+                'gallery.*' => 'mimes:jpeg,jpg,png'
+            ];
+
+            $message = [
+                'required' => ':attribute es requerido',
+            ];
+            $this->validate($request, $fields, $message);
+            */
+            $this->updateServiceUseCase->handle($request);
+            return redirect('/services')->with('updaservsuccess', 'Servicio modificado');
+        } catch(\exception $e) {
+            return redirect('/services');
+        }
     }
 }

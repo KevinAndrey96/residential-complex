@@ -16,7 +16,6 @@ class ServicesEditController extends Controller
     }
 
     public function edit(Request $request){
-
         $service = $this->editServiceUseCase->handle($request);
 
         return view('services.edit', compact('service'));
