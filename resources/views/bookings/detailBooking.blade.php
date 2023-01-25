@@ -90,7 +90,7 @@
                                                 <p style="color:darkred;margin-top:-8px;">Perdida</p>
                                             @elseif ($booking->state == 'En espera')
                                                 <span style="color:darkblue;" class="material-symbols-outlined" style="margin-top: 20px;">Refresh</span>
-                                                <p style="color:darkblue;margin-top:-8px;"></p>
+                                                <p style="color:darkblue;margin-top:-8px;">En espera</p>
                                             @endif
                                         </td>
                                         @hasrole('Resident')

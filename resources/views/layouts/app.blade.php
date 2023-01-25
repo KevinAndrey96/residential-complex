@@ -21,25 +21,22 @@
 </head>
 <body>
     <div id="app">
-        <nav style="background-color:#c45149 !important; color:white !important;" class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav style="background-color:#e20613 !important;" class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img style="width:70px; border-radius: 5%;" class="img-fluid img-responsive center-block" src="/assets/images/logo.png" alt="Theme-Logo" />
+                    <img style="width: 95px;" class="img-fluid img-responsive center-block" src="/assets/images/logo_blanco_pa.png" alt="Theme-Logo" />
                 </a>
-
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler" style="border-color:#e20613;  background-color: #e20613;"
+                        type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
                     </ul>
-
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto text-center">
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -47,7 +44,6 @@
                                     <a style="color:white" class="nav-link" href="{{ route('login') }}">{{ __('Ingresar') }}</a>
                                 </li>
                             @endif
-
                             @if (Route::has('register'))
                                 <!--<li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
@@ -58,14 +54,12 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
-
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Cerrar sesión') }}
                                     </a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
@@ -76,7 +70,6 @@
                 </div>
             </div>
         </nav>
-
         <main class="py-4">
             @yield('content')
         </main>
