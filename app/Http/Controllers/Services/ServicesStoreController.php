@@ -22,7 +22,7 @@ class ServicesStoreController extends Controller
     public function store(Request $request)
     {
         //return $request;
-        
+
             $fields = [
                 'title' => 'required|string',
                 'capacity' => 'required',
@@ -30,13 +30,13 @@ class ServicesStoreController extends Controller
                 'start' => 'required|string',
                 'final' => 'required|string',
                 'state' => 'required|string',
-                'monday' => 'required|string',
-                'tuesday' => 'required|string',
-                'wednesday' => 'required|string',
-                'thursday' => 'required|string',
-                'friday' => 'required|string',
-                'saturday' => 'required|string',
-                'sunday' => 'required|string',
+                'monday' => 'string',
+                'tuesday' => 'string',
+                'wednesday' => 'string',
+                'thursday' => 'string',
+                'friday' => 'string',
+                'saturday' => 'string',
+                'sunday' => 'string',
                 'description' => 'required|string',
                 'status' => 'required|string',
                 'role' => 'required|string',

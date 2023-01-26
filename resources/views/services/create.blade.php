@@ -5,7 +5,6 @@
             <h3 class="p-2">Crear Servicio</h3>
         </div>
         <div class="card-body">
-            {{print_r($errors)}}
             <form action="/services/store" method="POST" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <div class="row">

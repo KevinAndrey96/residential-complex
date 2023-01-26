@@ -37,7 +37,7 @@
                                 @else
                                     value="disable"
                                 @endif
-                                selected disabled>
+                                selected>
                                 @if($service->state == 1)
                                     Habilitado
                                 @else

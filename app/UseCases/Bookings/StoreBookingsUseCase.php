@@ -20,7 +20,8 @@ class StoreBookingsUseCase implements StoreBookingsUseCaseInterface
     {
         $service = Service::find($request->input('service_id'));
         $dateTimeNow = Carbon::now();
-        $dateTime = Carbon::createFromFormat('Y-m-d H:i', $request->date.' '. $request->hour);
+        //$dateTime = Carbon::createFromFormat('Y-m-d H:i', $request->date.' '. $request->hour);
+        $dateTime = Carbon::parse($request->date.' '. $request->hour);
         $date = Carbon::createFromFormat('Y-m-d', $request->date);
         $day = strtolower(date('l', strtotime($request->date)));
         $alert = Array();

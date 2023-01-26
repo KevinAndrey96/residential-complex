@@ -19,8 +19,10 @@ class BookingsCreateController extends Controller
 
     public function create()
     {
-        $services = $this->createBookingsUseCase->handle();
-        //return $services[0];
-        return view('bookings.create', compact('services'));
+        $servicesInfo = $this->createBookingsUseCase->handle();
+        $services = $servicesInfo[0];
+        $superArray = $servicesInfo[1];
+
+        return view('bookings.create', compact('services', 'superArray'));
     }
 }

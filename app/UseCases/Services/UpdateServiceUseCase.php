@@ -16,7 +16,7 @@ class UpdateServiceUseCase implements UpdateServiceUseCaseInterface
 {
     public function handle(Request $request)
     {
-       $service = Service::where('title', 'like', $request->input('title'))->first();
+       $service = Service::find($request->input('service_id'));
        $service->title = $request->input('title');
        $service->description = $request->input('description');
        $service->capacity = $request->input('capacity');
