@@ -17,7 +17,9 @@
     <div class="card">
         <div class="card-header text-center">
             <h3 class="p-2">Reservas realizadas</h3>
+            <!--
             <a style=" border-radius: 50px;" class="btn btn-outline-success" href="/updateBookingStates">Actualizar estados</a>
+            -->
         </div>
         <div class="card-body container-fluid">
             <div class="justify-content-center" >
@@ -29,9 +31,7 @@
                                 <tr>
                                     <th style=" padding:10px;" class="text-center text-md-center align-middle">Número de reserva</th>
                                     @hasanyrole('Administrator|Receptionist')
-                                    @if(isset($booking->user->name) ) {{$booking->user->name}}
                                     <th style=" padding: 10px 30px" class="text-center text-md-center align-middle">Residente</th>
-                                    @endif
                                     @endhasrole
                                     <th style=" padding: 10px 30px" class="text-center text-md-center align-middle">N° Personas</th>
                                     <th style=" padding: 10px 30px" class="text-center text-md-center align-middle">Día</th>
@@ -51,9 +51,11 @@
                                     <tr>
                                         <td class="text-center text-md-center align-middle"> {{ $booking->id }}</td>
                                         @hasanyrole('Administrator|Receptionist')
-                                        @if(isset($booking->user->name) ) {{$booking->user->name}}
-                                        <td class="text-center text-md-center align-middle"> {{ $booking->user->name }}</td>
-                                        @endif
+                                        <td class="text-center text-md-center align-middle">
+                                            @if (isset($booking->user->name))
+                                                {{ $booking->user->name }}
+                                            @endif
+                                        </td>
                                         @endhasrole
                                         <td class="text-center text-md-center align-middle">{{ $booking->quantity }}</td>
                                         <td class="text-center text-md-center align-middle">
