@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Console\\Commands\\CancelBookings' => $baseDir . '/app/Console/Commands/CancelBookings.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Adminreceps\\AdminrecepsCreateController' => $baseDir . '/app/Http/Controllers/Adminreceps/AdminrecepsCreateController.php',

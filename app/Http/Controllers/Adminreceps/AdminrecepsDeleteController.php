@@ -10,7 +10,10 @@ class AdminrecepsDeleteController extends Controller
 {
     public function delete(Request $request)
     {
-        User::destroy($request->id);
+        $user = User::find($request->input('id'));
+        $user->is_deleted = 1;
+        $user->save();
+
         return redirect()->back();
     }
 }

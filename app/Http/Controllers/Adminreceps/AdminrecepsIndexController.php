@@ -11,7 +11,7 @@ class AdminrecepsIndexController extends Controller
 {
     public function index()
     {
-        $users = User::all();
+        $users = User::where('is_deleted', 0)->get();
         return view('adminreceps.index', compact('users'));
     }
 }

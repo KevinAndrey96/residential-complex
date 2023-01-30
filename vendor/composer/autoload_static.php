@@ -549,6 +549,7 @@ class ComposerStaticInita721b251d6b5513be0efac37f17d9085
     );
 
     public static $classMap = array (
+        'App\\Console\\Commands\\CancelBookings' => __DIR__ . '/../..' . '/app/Console/Commands/CancelBookings.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Adminreceps\\AdminrecepsCreateController' => __DIR__ . '/../..' . '/app/Http/Controllers/Adminreceps/AdminrecepsCreateController.php',

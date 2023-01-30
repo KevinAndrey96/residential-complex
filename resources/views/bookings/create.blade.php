@@ -51,7 +51,7 @@
             <div class="justify-content-center" >
                 @if(Auth::user()->resident->status == 'Deshabilitado')
                     <div class="col-auto mt-2">
-                        <h3 style="color:#ff0000">
+                        <h3 style="color:#ff0000;" class="text-center">
                             Estimado residente usted no puede hacer uso de los servicios de clubhouse
                         </h3>
                     </div>

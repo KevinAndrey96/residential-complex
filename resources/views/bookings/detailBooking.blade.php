@@ -142,6 +142,7 @@
     </div>
 
     <script>
+        setTimeout("location.reload()", 30000);
         function getState(id)
         {
 
