@@ -16,11 +16,11 @@ class BookingsDetailBookingController extends Controller
 
         if (Auth::user()->hasRole('Resident')) {
             $bookings = Booking::where('service_id', '=', $service->id)
-                                ->where('user_id', '=', Auth::user()->id)->get()->sortByDesc('date');
+                                ->where('user_id', '=', Auth::user()->id)->orderBy('date', 'asc')->get();
             return view('bookings.detailBooking', compact('bookings'));
         }
 
-        $bookings = Booking::where('service_id', '=', $service->id)->get()->sortByDesc('date');
+        $bookings = Booking::where('service_id', '=', $service->id)->orderBy('date', 'asc')->get();
         /*
         foreach ($bookings as $booking) {
             $datetimeNow = Carbon::now();

@@ -119,7 +119,7 @@
                     </div>
                     <div class="col-md-12 text-center">
                         <input type="hidden" name="service_id" value="{{ $service->id }}">
-                        <input class="btn btn-primary btn-round" style="width:100px;"type="submit" value="Modificar">
+                        <input class="btn btn-success btn-round" style="width:100px;"type="submit" value="Modificar">
                     </div>
                 </div>
             </form>
