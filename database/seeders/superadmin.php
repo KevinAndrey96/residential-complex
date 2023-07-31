@@ -16,11 +16,11 @@ class superadmin extends Seeder
     public function run()
     {
         $user = new User();
-        $user->name = 'cristian';
+        $user->name = 'superadmin';
         $user->phone = 12321312;
-        $user->email = 'cristian@cristian.com';
+        $user->email = 'superadmin@gmail.com';
         $user->role = 'Superadmin';
-        $user->password = bcrypt('cristian');
+        $user->password = bcrypt('superadmin');
         $user->save();
 
         /* Seeders de roles */
@@ -28,17 +28,6 @@ class superadmin extends Seeder
         Role::create(['name' => 'Administrator']);
         Role::create(['name' => 'Receptionist']);
         Role::create(['name' => 'Resident']);
-        $superadmin = User::find(1);
-        $superadmin->assignRole('Superadmin');
-
-
-
-
-
-
-
-
-
-
+        $user->assignRole('Superadmin');
     }
 }

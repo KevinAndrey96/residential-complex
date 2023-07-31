@@ -27,7 +27,7 @@
                     <div class="col-md-12 text-center">
                         <input type="hidden" name="state" id="state" value="Reservada">
                         <input type="hidden" name="service_id" id="service_id" value="{{ $service->id }}">
-                        <input class="btn btn-primary align-middle btn-round" style="width:100px;" type="submit" value="Reservar">
+                        <input class="btn btn-success align-middle btn-round" style="width:100px;" type="submit" value="Reservar">
                     </div>
                 </div>
             </form>

@@ -89,7 +89,7 @@ class StoreBookingsUseCase implements StoreBookingsUseCaseInterface
                             $subject = "Reservación de servicio";
                             $text = 'Sr o Sra '.Auth::user()->name.' se ha reservado el servicio de '.$service->name.' para el dia '.$request->date.
                                     ' a las '.$request->hour. ', tenga en cuenta que la maxima cantidad de personas que puede llevar es '.$request->input('quantity').
-                                    ', porfavor llegar tiempo o si no perdera el servicio.';
+                                    ', porfavor llegar a tiempo o si no perdera el servicio.';
                             Mail::to(Auth::user()->email)->send(new GeneralMail($subject, $text));
                             return $alert;
                         }

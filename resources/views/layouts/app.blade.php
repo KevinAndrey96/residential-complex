@@ -21,12 +21,12 @@
 </head>
 <body>
     <div id="app">
-        <nav style="background-color:#e20613 !important;" class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav style="background-color: red" class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img style="width: 95px;" class="img-fluid img-responsive center-block" src="/assets/images/logo_blanco_pa.png" alt="Theme-Logo" />
+                    <img style="width: 50px;" class="img-fluid img-responsive center-block" src="{{getenv('APP_URL').'/'.App\Models\Setting::find(1)->logo}}" alt="Theme-Logo" />
                 </a>
-                <button class="navbar-toggler" style="border-color:#e20613;  background-color: #e20613;"
+                <button class="navbar-toggler" style="border-color:{{App\Models\Setting::find(1)->principal_color}};  background-color: {{App\Models\Setting::find(1)->principal_color}};"
                         type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

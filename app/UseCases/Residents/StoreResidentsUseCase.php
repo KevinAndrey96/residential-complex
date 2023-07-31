@@ -24,6 +24,7 @@ class StoreResidentsUseCase implements StoreResidentsUseCaseInterface
                 }
             }
         }
+
         $user =  new User();
         $user->name = $request->name;
         $user->phone = $request->phone;
@@ -31,16 +32,13 @@ class StoreResidentsUseCase implements StoreResidentsUseCaseInterface
         $user->role = $request->role;
         $user->password = Hash::make($request->phone);
         $user->save();
-        $user = User::where('email', 'like', $request->email)->first();
         $resident = new Resident();
-        $resident->tower = $request->tower;
-        $resident->apt = $request->apt;
-        $resident->status = $request->status;
+        $resident->tower = $request->input('tower');
+        $resident->apt = $request->input('apt');
+        $resident->status = $request->input('status');
         $resident->user_id = $user->id;
         $resident->save();
         $user->assignRole('Resident');
         return false;
-
-
     }
 }

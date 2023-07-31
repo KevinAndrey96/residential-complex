@@ -69,7 +69,7 @@ class StoreServiceUseCase implements StoreServiceUseCaseInterface
             $pathName = 'services/'.$modifiedServiceTittle.'.png';
             Storage::disk('public')->put($pathName, file_get_contents($gallery[$i]));
             $client = new Client();
-            $url = "https://portal.portoamericas.com/upload.php";
+            $url = getenv('URL_UPLOADER');
             $client->request(RequestAlias::METHOD_POST, $url, [
                 'multipart' => [
                     [

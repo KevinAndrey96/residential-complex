@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Login - Porto Americas</title>
+    <title>Login - {{App\Models\Setting::find(1)->name}}</title>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
       <![endif]-->
@@ -15,7 +15,7 @@
       <meta name="author" content="codedthemes" />
       <!-- Favicon icon -->
 
-      <link rel="icon" href="assets/images/logo.ico" type="image/x-icon">
+      <link rel="icon" href="{{getenv('APP_URL').'/'.App\Models\Setting::find(1)->logo}}" type="image/x-icon">
       <!-- Google font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +34,7 @@
       <link rel="stylesheet" type="text/css" href="/dash/style.css">
   </head>
 
-  <body style="background-color: rgba(224,33,44,0.98); background-image: url(public/assets/images/logo_blanco_pa.png)">
+  <body style="background-color:{{App\Models\Setting::find(1)->principal_color}}; background-image: url(public/assets/images/logo_blanco_pa.png)">
   <section class="login-block">
     <!-- Container-fluid starts -->
     <div class="container">
@@ -43,8 +43,8 @@
                 <!-- Authentication card start -->
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-                        <div class="text-center p-5">
-                            <img src="/assets/images/logo_blanco_pa.png" alt="logo.png" style="width:21%; height:auto;">
+                        <div class="text-center">
+                            <img src="{{getenv('APP_URL').'/'.App\Models\Setting::find(1)->logo}}" alt="logo.png" style="width:15%; height:auto;">
                         </div>
                         <div class="auth-box card">
                             <div class="card-block">
@@ -56,7 +56,7 @@
                         <div class="form-group row">
                             <div class="col-md-2"></div>
                             <div class="col-md-8 text-center">
-                                <label for="email" style="color: #e20613;" class="h6">{{ __('Correo electrónico') }}</label>
+                                <label for="email" style="color: {{App\Models\Setting::find(1)->principal_color}};" class="text-successful h6">{{ __('Correo electrónico') }}</label>
                                 <input id="email" type="email" style="background-color: white !important" class="form-control
                                 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"
                                        required autocomplete="email" autofocus>
@@ -71,7 +71,7 @@
                         <div class="form-group row text-center">
                             <div class="col-md-2"></div>
                             <div class="col-md-8 text-center">
-                                <label for="password" style="color: #e20613;" class="h6">{{ __('Contraseña') }}</label>
+                                <label for="password" style="color:{{App\Models\Setting::find(1)->principal_color}}" class="h6">{{ __('Contraseña') }}</label>
                                 <input id="password" type="password" class="form-control @error('password') is-invalid
                                 @enderror" name="password" required autocomplete="current-password">
                                 @error('password')
@@ -97,7 +97,7 @@
                         <div class=" form-group row mb-0" style="margin:20px;">
                             <div class="col-md-4 offset-md-4">
                                 <center>
-                                <button type="submit" class="btn btn-danger btn-round" style="color:white;">
+                                <button type="submit" class="btn btn-success btn-round" style="color:white;">
                                     {{ __('Ingresar') }}
                                 </button>
                                 </center>
@@ -106,7 +106,7 @@
                         <div class="form-group row mt-2" >
                             <div class="col-md-12 text-center">
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" style="color: #e20613;" href="{{ route('password.request') }}">
+                                    <a class="btn btn-link" style="color:{{App\Models\Setting::find(1)->principal_color}}" href="{{ route('password.request') }}">
                                         {{ __('¿Olvidaste tu contraseña?') }}
                                     </a>
                                 @endif

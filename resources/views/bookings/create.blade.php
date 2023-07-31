@@ -47,8 +47,8 @@
         <div class="card-header text-center">
             <h3 class="p-2">Servicios de clubhouse</h3>
         </div>
-        <div class="card-body container-fluid">
-            <div class="justify-content-center" >
+        <div class="card-body">
+            <div class="container-fluid justify-content-center" >
                 @if(Auth::user()->resident->status == 'Deshabilitado')
                     <div class="col-auto mt-2">
                         <h3 style="color:#ff0000;" class="text-center">
@@ -57,7 +57,8 @@
                     </div>
                 @else
                     <div class="col-auto">
-                    <table class="table table-responsive datatable" id="datatable">
+                        <div class="table-responsive" >
+                    <table class="table table-striped table-hover dt-responsive display nowrap" id="datatable">
                         <thead class="thead-light">
                         <tr>
                             <th class="text-center" style="padding: 10px;">Estado
@@ -152,6 +153,7 @@
                         @endfor
                         </tbody>
                     </table>
+                        </div>
                 </div>
                 @endif
             </div>

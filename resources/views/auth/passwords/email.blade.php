@@ -34,7 +34,7 @@
                             </div>
                             <div class="form-group col-md-12 mb-0 text-center">
                                 <div class=" ">
-                                    <button type="submit" style="border-radius: 25px;" class="btn btn-primary btn-round">
+                                    <button type="submit" style="border-radius: 25px;" class="btn btn-success btn-round">
                                         {{ __('Recuperar contraseña') }}
                                     </button>
                                 </div>

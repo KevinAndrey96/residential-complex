@@ -46,7 +46,7 @@ Route::group(['middleware' => ['auth', 'isUserDeleted']], static function() {
     /* Setting */
     Route::get('/setting/create', [App\Http\Controllers\Settings\SettingsCreateController::class, 'create']);
     Route::post('/setting/store', [App\Http\Controllers\Settings\SettingsStoreController::class, 'store']);
-    Route::get('/setting', [App\Http\Controllers\Settings\SettingsIndexController::class, 'index']);
+    Route::get('/setting', [App\Http\Controllers\Settings\SettingsIndexController::class, 'index'])->name('setting.index');
     Route::post('/setting/edit', [App\Http\Controllers\Settings\SettingsEditController::class, 'edit']);
     Route::post('/setting/update', [App\Http\Controllers\Settings\SettingsUpdateController::class, 'update']);
     Route::post('/setting/delete', [App\Http\Controllers\Settings\SettingsDeleteController::class, 'delete']);

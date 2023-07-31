@@ -16,7 +16,7 @@
                         <div class="row">
                             @foreach($services as $service)
                               <div class="col-md-3">
-                                <a style="width:220px; padding:10px; margin:10px;border-radius: 20px;"  class="btn btn-primary" href="/detailBooking/{{$service->id}}">{{ $service->title }}</a>
+                                <a style="width:220px; padding:10px; margin:10px;border-radius: 20px;"  class="btn btn-success" href="/detailBooking/{{$service->id}}">{{ $service->title }}</a>
                               </div>
                             @endforeach
                         </div>

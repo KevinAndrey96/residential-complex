@@ -42,8 +42,8 @@
                 <label for="password">Contraseña</label>
                 <input class="form-control" type="password" name="password" id="password" required>
             </div>
-            <div class="col-md-2 text-center mt-4">
-                <input class="btn btn-primary align-middle btn-round" type="submit" value="Agregar">
+            <div class="col-md-12 text-center ms-auto me-auto mt-4">
+                <input class="btn btn-success align-middle btn-round" type="submit" value="Agregar">
             </div>
           </div>
         </form>

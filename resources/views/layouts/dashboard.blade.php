@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Porto Américas</title>
+    <title>{{App\Models\Setting::find(1)->name}}</title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesnt work if you view the page via file: -->
     <!--[if lt IE 10]>
@@ -17,7 +17,7 @@
       <meta name="keywords" content="bootstrap, bootstrap admin template, admin theme, admin dashboard, dashboard template, admin template, responsive" />
       <meta name="author" content="codedthemes" />
       <!-- Favicon icon -->
-      <link rel="icon" href="/assets/images/logo.ico" type="image/x-icon">
+      <link rel="icon" href="{{getenv('APP_URL').'/'.App\Models\Setting::find(1)->logo}}" type="image/x-icon">
     <!-- Google font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,7 +49,7 @@
 <body>
   <div id="pcoded" class="pcoded">
       <div class="pcoded-container navbar-wrapper">
-          <nav style="background-color: #e20613; padding: 5px 0px" class="navbar header-navbar pcoded-header" header-theme="theme2">
+          <nav style="background-color: {{App\Models\Setting::find(1)->principal_color}}; padding: 5px 0px" class="navbar header-navbar pcoded-header" header-theme="theme2">
               <div class="navbar-wrapper">
                   <div class="navbar-logo">
                       <a class="mobile-menu waves-effect waves-light" id="mobile-collapse" href="#!">
@@ -68,7 +68,7 @@
                       </div>
                       <div style="margin: 11px auto;">
                       <a href="/home">
-                          <img style="width: 95px;" class="img-fluid img-responsive center-block" src="/assets/images/logo_blanco_pa.png" alt="Theme-Logo" />
+                          <img style="width: 50px;" class="img-fluid img-responsive center-block" src="{{getenv('APP_URL').'/'.App\Models\Setting::find(1)->logo}}" alt="Theme-Logo" />
                       </a>
                       </div>
                       <a class="mobile-options waves-effect waves-light">
@@ -178,6 +178,12 @@
                                   <a href="/adminrecep/create" >
                                       <span style="margin-right: 25px;" class="material-symbols-outlined align-middle">person_add</span>
                                       Crear administrador
+                                  </a>
+                              </li>
+                              <li class="">
+                                  <a href="{{route('setting.index')}}" >
+                                      <span style="margin-right: 25px;" class="material-symbols-outlined align-middle">settings</span>
+                                      Configuración
                                   </a>
                               </li>
                           </ul>
@@ -348,8 +354,8 @@
                           <div class="page-block">
                               <div class="row align-items-center">
                                   <div class="col-md-12">
-                                      <div class="page-header-title text-center">
-                                          <h5 style="margin-bottom: -1px;">Porto Américas</h5>
+                                      <div class="page-header-title text-center mt-3">
+                                          <h5 style="margin-bottom: -1px;">{{App\Models\Setting::find(1)->name}}</h5>
                                           <p class="m-b-0">
                                             @hasrole('Superadmin')
                                               Bienvenido Super Administrador

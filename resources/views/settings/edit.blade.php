@@ -23,10 +23,12 @@
                         <label for="num_tower">Numero de torres</label>
                         <input class="form-control" type="number" name="num_tower" id="num_tower"  min="1" value="{{$setting->num_tower}}" required>
                     </div>
+                    <!--
                     <div class="form-group col-md-4">
                         <label for="num_int">Numero de interiores</label>
                         <input class="form-control" type="number" name="num_int" id="num_int"  min="1" value="{{$setting->num_int}}" required>
                     </div>
+                    -->
                     <div class="form-group col-md-4">
                         <label for="num_apt">Numero de apartamentos</label>
                         <input class="form-control" type="number" name="num_apt" id="num_apt"  min="1" value="{{$setting->num_apt}}" required>
@@ -35,6 +37,23 @@
                         <label for="logo">Logo</label>
                         <input class="form-control" type="file" name="logo" id="logo"  min="1">
                     </div>
+                    <div class="form-group col-md-4">
+                        <label for="exampleColorInput" class="form-label">Color principal</label>
+                        <input type="color" class="form-control form-control-color" id="exampleColorInput" name="principal_color" value="{{$setting->principal_color}}" title="Choose your color">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="second_color" class="form-label">Color secundario</label>
+                        <input type="color" class="form-control form-control-color" id="exampleColorInput" name="second_color" value="{{$setting->second_color}}" title="Choose your color">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="third_color" class="form-label">Tercer color</label>
+                        <input type="color" class="form-control form-control-color" id="exampleColorInput" name="third_color" value="{{$setting->third_color}}" title="Choose your color">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="fourth_color" class="form-label">Cuarto color</label>
+                        <input type="color" class="form-control form-control-color" id="exampleColorInput" name="fourth_color" value="{{$setting->fourth_color}}" title="Choose your color">
+                    </div>
+
                     <div class="form-group col-md-4">
                         <label for="glossary">Glosario</label>
                         <textarea class="form-control" name="glossary" id="glossary" >{{$setting->glossary}}</textarea>

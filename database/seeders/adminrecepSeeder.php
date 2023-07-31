@@ -16,13 +16,12 @@ class adminrecepSeeder extends Seeder
     public function run()
     {
         $user = new User();
-        $user->name = 'juan';
+        $user->name = 'administrator';
         $user->phone = 3242343;
-        $user->email = 'juan@juan.com';
+        $user->email = 'administrator@gmail.com';
         $user->role = 'Administrator';
-        $user->password = bcrypt('juan');
+        $user->password = bcrypt(3242343);
         $user->save();
-        $user = User::where('email', 'like',  'juan@juan.com')->first();
         $adminrecep = new Adminrecep();
         $adminrecep->document = 2132332;
         $adminrecep->user_id = $user->id;

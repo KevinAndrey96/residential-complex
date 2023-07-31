@@ -66,7 +66,7 @@
                         </div>
                     </div>
                     <div class="col-md-2 text-center mb-1">
-                        <button style="border-radius: 50px;" type="submit" value="Siguiente" class="btn btn-primary">
+                        <button style="border-radius: 50px;" type="submit" value="Siguiente" class="btn btn-success">
                             Siguiente
                         </button>
                     </div>
