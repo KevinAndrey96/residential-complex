@@ -78,12 +78,16 @@
                                         <td class="text-center text-md-center align-middle">{{ $booking->date }}</td>
                                         <td class="text-center text-md-center align-middle">{{ $booking->hour }}</td>
                                         <td class="text-center text-md-center align-middle">
-                                            @if ($booking->state == 'Reservada')
-                                                <span style="color:green;" class="material-symbols-outlined" style="margin-top: 20px;">check_circle</span>
-                                                <p style="color:green; margin-top: -8px;">Reservado</p>
-                                            @elseif ($booking->state == 'Tomada')
+
+                                        @if ($booking->state == 'Reservada')
                                                 <span style="color:royalblue;" class="material-symbols-outlined" style="margin-top: 20px;">do_not_disturb_on</span>
-                                                <p style="color:royalblue;margin-top:-8px;">Tomada</p>
+                                                <p style="color:royalblue;margin-top:-8px;">Reservada</p>
+                                            @elseif ($booking->state == 'Autorizada')
+                                                <span style="color:green;" class="material-symbols-outlined" style="margin-top: 20px;">do_not_disturb_on</span>
+                                                <p style="color:green; margin-top: -8px;">Autorizada</p>
+                                            @elseif ($booking->state == 'Tomada')
+                                                <span style="color:green;" class="material-symbols-outlined" style="margin-top: 20px;">check_circle</span>
+                                                <p style="color:green; margin-top: -8px;">Tomada</p>
                                             @elseif ($booking->state == 'Cancelada')
                                                 <span style="color:red;" class="material-symbols-outlined" style="margin-top: 20px;">close</span>
                                                 <p style="color:red;margin-top:-8px;">Cancelada</p>
@@ -113,15 +117,26 @@
                                         @endhasrole
                                         @hasanyrole('Administrator|Receptionist')
                                         <td s class="text-center text-md-center align-middle">
-                                            @if ( $booking->state == 'Reservada' || $booking->state == 'En espera' )
-                                            <div class="">
-                                                <select class="form-control-sm" name="state{{ $booking->id }}" id="state{{ $booking->id }}"  onchange="getState({{ $booking->id }})">
-                                                    <option value="Tomada" selected disabled></option>
-                                                    <option value="En espera">En espera</option>
-                                                    <option value="Tomada">Tomada</option>
-                                                </select>
-                                            </div>
+                                            @hasrole('Receptionist')
+                                            @if ( $booking->state == 'Autorizada' )
+                                                <input type="checkbox" data-onstyle="success"
+                                                       data-off="Tomada"
+                                                       data-size="xs"
+                                                       data-toggle="toggle"
+                                                       name="togglestatus{{$booking->id}}" id="togglestatus{{$booking->id}}"
+                                                       onchange="getState({{$booking->id}})">
                                             @endif
+                                            @endhasrole
+                                            @hasrole('Administrator')
+                                            @if($booking->state == 'Reservada')
+                                                <input type="checkbox" data-onstyle="success"
+                                                       data-off="Autorizar"
+                                                       data-size="xs"
+                                                       data-toggle="toggle"
+                                                       name="togglestatus{{$booking->id}}" id="togglestatus{{$booking->id}}"
+                                                       onchange="getState({{$booking->id}})">
+                                            @endif
+                                            @endhasrole
                                         </td>
                                         @endhasrole
                                     </tr>
@@ -145,18 +160,32 @@
         setTimeout("location.reload()", 30000);
         function getState(id)
         {
-
-            stateSelect = document.getElementById('state'+id);
+            stateToggle = document.getElementById('togglestatus'+id);
             newState = document.getElementById('newState');
             bookingID = document.getElementById('bookingID');
             form = document.getElementById('form-state');
-            newState.value = stateSelect.value;
+
+            @if (Auth::user()->role == 'Administrator')
+                if (stateToggle) {
+                        newState.value = 'Autorizada';
+                }
+            @endif
+
+                @if (Auth::user()->role == 'Receptionist')
+                    if (stateToggle) {
+                        newState.value = 'Tomada';
+                    }
+                @endif
+
             bookingID.value = id;
             form.submit();
-            console.log(newState.value);
 
+            //console.log(stateSelect);
+
+            //console.log(newState.value);
         }
     </script>
+
 
 
 

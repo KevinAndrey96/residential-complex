@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Adminreceps;
 
 use App\Http\Controllers\Controller;
 use App\UseCases\Contracts\StoreAdminrecepsUseCaseInterface;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class AdminrecepsStoreController extends Controller
@@ -19,15 +18,20 @@ class AdminrecepsStoreController extends Controller
 
     /**
      * @param Request $request
-     * @return RedirectResponse
      */
-    public function __invoke(Request $request): RedirectResponse
+    public function __invoke(Request $request)
     {
-        $this->storeAdminrecepsUseCase->handle($request);
+        $alreadyExist = $this->storeAdminrecepsUseCase->handle($request);
+
+        if (! $alreadyExist) {
 
         if ($request->input('role') == 'Receptionist') {
-            return back()->with('adminrecepSuccess', 'Recepcionista registrado');
+            return redirect('/adminrecep')->with('adminrecepSuccess', 'Recepcionista registrado');
         }
-        return redirect()->back()->with('adminrecepSuccess', 'Administrador registrado');
+
+        return redirect('/adminrecep')->with('adminrecepSuccess', 'Administrador registrado');
+        }
+
+        return redirect('/adminrecep')->with('adminrecepAlreadyExist', 'El usuario ya esta registrado');
     }
 }

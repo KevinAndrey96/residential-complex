@@ -1,5 +1,15 @@
 @extends('layouts.dashboard')
 @section('content')
+    @if(Session::has('adminrecepSuccess'))
+        <div class="alert alert-success" role="alert">
+            {{ Session::get('adminrecepSuccess') }}
+        </div>
+    @endif
+    @if (Session::has('adminrecepAlreadyExist'))
+        <div class="alert alert-danger" role="alert">
+            {{ Session::get('adminrecepAlreadyExist') }}
+        </div>
+    @endif
 <div class="card">
     <div class="card-header text-center">
         @hasrole('Superadmin')

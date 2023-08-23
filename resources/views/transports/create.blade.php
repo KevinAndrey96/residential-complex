@@ -78,7 +78,7 @@
                     <div class="col-md-12 text-center">
                         <input type="hidden" name="user_id" id="user_id" value="{{$id}}">
                         <input type="hidden" name="type" id="type" value="">
-                        <input style="padding: 10px 30px;" type="submit" class="btn btn-primary btn-round" value="Añadir">
+                        <input style="padding: 10px 30px;" type="submit" class="btn btn-success btn-round" value="Añadir">
                     </div>
                 </div>
             </form>

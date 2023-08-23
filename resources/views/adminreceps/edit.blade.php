@@ -58,7 +58,7 @@
                 </div>
                 <div class="col-md-2 text-center mt-4">
                     <input type="hidden" name="id" value="{{ $id }}">
-                    <input class="btn btn-primary align-middle btn-round" style="width:100px;" type="submit" value="Modificar">
+                    <input class="btn btn-success align-middle btn-round" style="width:100px;" type="submit" value="Modificar">
                 </div>
             </div>
         </form>

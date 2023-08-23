@@ -28,29 +28,20 @@ class StoreBookingsUseCase implements StoreBookingsUseCaseInterface
         $persons = 6;
         $quantity = 0;
 
-        $nameFail = 'dayFail';
-        $descFail = 'No hay servicio de '.$service->title.' para el día que seleccionó';
-        $alert[0] = $nameFail;
-        $alert[1] = $descFail;
+        $alert[0] = 'dayFail';
+        $alert[1] = 'No hay servicio de '.$service->title.' para el día que seleccionó';
+
         if ($service->$day == 1) {
-            $nameFail = 'dateFail';
-            $descFail = 'Fecha o hora errónea';
-            $alert[0] = $nameFail;
-            $alert[1] = $descFail;
+            $alert[0] = 'dateFail';
+            $alert[1] = 'Fecha o hora errónea';
             $numBookings = 0;
 
             if ($dateTime->gt($dateTimeNow)) {
-                $nameFail = 'limitPerDayFail';
-                $descFail = 'Ya tiene una reservación de '.$service->title.' para ese día';
-                $alert[0] = $nameFail;
-                $alert[1] = $descFail;
-                $mybookings = Booking::where('date', '=', $request->input('date'))
+                $alert[0] = 'limitPerDayFail';
+                $alert[1] = 'Ya tiene una reservación de '.$service->title.' para ese día';
+                $numBookings = Booking::where('date', '=', $request->input('date'))
                     ->where('user_id', '=', Auth::user()->id)
-                    ->where('service_id', '=', $service->id)->get();
-
-                foreach ($mybookings as $mybooking){
-                    $numBookings++;
-                }
+                    ->where('service_id', '=', $service->id)->count();
 
                 if ($numBookings == 0) {
                     $bookings = Booking::where('date', '=', $request->input('date'))
@@ -62,16 +53,13 @@ class StoreBookingsUseCase implements StoreBookingsUseCaseInterface
                     }
 
                     $newQuantity = $quantity + $request->input('quantity');
-                    $nameFail = 'quantityFail';
-                    $descFail = 'Se supera la capacidad del servicio para esa franja de tiempo (quedan ' . $service->capacity - $quantity . ' cupos)';
-                    $alert[0] = $nameFail;
-                    $alert[1] = $descFail;
-                    if ($service->capacity >= $newQuantity) {
+                    $alert[0] = 'quantityFail';
+                    $alert[1] =  'Se supera la capacidad del servicio para esa franja de tiempo (quedan ' . $service->capacity - $quantity . ' cupos)';
 
-                        $nameFail = 'personsFail';
-                        $descFail = 'Puede apartar como máximo ' . $persons . ' cupos';
-                        $alert[0] = $nameFail;
-                        $alert[1] = $descFail;
+                    if ($service->capacity >= $newQuantity) {
+                        $alert[0] = 'personsFail';
+                        $alert[1] = 'Puede apartar como máximo ' . $persons . ' cupos';
+
                         if ($request->input('quantity') <= $persons) {
                             $booking = new Booking();
                             $booking->quantity = $request->input('quantity');
@@ -82,10 +70,8 @@ class StoreBookingsUseCase implements StoreBookingsUseCaseInterface
                             $booking->user_id = Auth::user()->id;
                             $booking->service_id = $service->id;
                             $booking->save();
-                            $nameFail = 'bookingSuccess';
-                            $descFail = 'Reservación hecha';
-                            $alert[0] = $nameFail;
-                            $alert[1] = $descFail;
+                            $alert[0] = 'bookingSuccess';
+                            $alert[1] = 'Reservación hecha';
                             $subject = "Reservación de servicio";
                             $text = 'Sr o Sra '.Auth::user()->name.' se ha reservado el servicio de '.$service->title.' para el dia '.$request->date.
                                     ' a las '.$request->hour. ', tenga en cuenta que la maxima cantidad de personas que puede llevar es '.$request->input('quantity').

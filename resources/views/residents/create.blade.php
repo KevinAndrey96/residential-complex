@@ -38,7 +38,7 @@
                     <div class="col-md-12 text-center">
                         <input type="hidden" name="status" value="Habilitado">
                         <input type="hidden" name="role" value="Resident">
-                        <input class="btn btn-primary btn-round" style="width:100px;" type="submit" value="Agregar">
+                        <input class="btn btn-success btn-round" style="width:100px;" type="submit" value="Agregar">
                     </div>
                </div>
             </form>

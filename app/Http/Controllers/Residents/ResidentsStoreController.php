@@ -9,6 +9,7 @@ use App\Models\User;
 use App\UseCases\Contracts\Residents\StoreResidentsUseCaseInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Psy\Readline\Hoa\Exception;
 
 class ResidentsStoreController extends Controller
 {
@@ -20,13 +21,18 @@ class ResidentsStoreController extends Controller
 
     public function store(Request $request)
     {
-        $occupied = $this->storeResidentsUseCase->handle($request);
+        try {
+            $occupied = $this->storeResidentsUseCase->handle($request);
 
-        if ($occupied) {
-            return redirect('/residents')->with('residentFail', 'Apartamento ya en uso');
+            if ($occupied) {
+                return redirect('/residents')->with('residentFail', 'Apartamento ya en uso');
+            }
+
+            return redirect('/residents')->with('residentSuccess', 'Residente Registrado');
+        } catch(Exception $e) {
+
+            return redirect('/residents')->with('residentDuplicate', 'Ya existe un usuario registrado con ese correo');
         }
-
-        return redirect('/residents')->with('residentSuccess', 'Residente Registrado');
     }
 
 }

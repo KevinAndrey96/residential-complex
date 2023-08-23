@@ -27,7 +27,7 @@
                         <input type="password" class="form-control" name="newPassword" required>
                     </div>
                     <div class="col-md-4 text-center mt-4">
-                        <input type="submit" class="btn btn-primary btn-round align-middle" value="Cambiar contraseña">
+                        <input type="submit" class="btn btn-success btn-round align-middle" value="Cambiar contraseña">
                     </div>
                 </div>
             </form>

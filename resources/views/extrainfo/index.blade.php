@@ -93,7 +93,7 @@
                 <div class="justify-content-center" >
                         <div class="col-auto mt-5">
                         <div class="row">
-                            <a style="margin:15px; float: left; background-color:#B74438 !important;" class="btn btn-danger" href="/habitants/create/{{$user->id}}">Crear habitante</a>
+                            <a style="margin:15px; float: left; background-color:#B74438 !important;" class="btn btn-success" href="/habitants/create/{{$user->id}}">Crear habitante</a>
                         </div>
                         <table class="table table-bordered table-responsive justify-content-center dataTable" id="datatable" cellspacing="0">
                             <thead>
@@ -118,7 +118,7 @@
                                     <td>{{$habitant->kinship}}</td>
                                     <td>
                                         <div class="btn-group">
-                                            <a style="margin:3px; width:50%; color:white;"  class="btn btn-danger btn-block" href="/habitants/delete/{{$habitant->id}}" onclick="return confirm('¿Esta seguro que quiere borrar este habitante?')">Eliminar</a>
+                                            <a style="margin:3px; width:50%; color:white;"  class="btn btn-success btn-block" href="/habitants/delete/{{$habitant->id}}" onclick="return confirm('¿Esta seguro que quiere borrar este habitante?')">Eliminar</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -134,7 +134,7 @@
                 <div class="justify-content-center" >
                     <div class="col-auto mt-5">
                         <div class="row">
-                            <a style="margin:15px; float: left; background-color:#B74438 !important;" class="btn btn-danger" href="/transports/create/{{$user->id}}">Añadir medio de transporte</a>
+                            <a style="margin:15px; float: left; background-color:#B74438 !important;" class="btn btn-success" href="/transports/create/{{$user->id}}">Añadir medio de transporte</a>
                         </div>
                         <table class="table table-bordered table-responsive justify-content-center" id="datatable1" >
                             <thead>
@@ -226,7 +226,7 @@
                                     </td>
                                     <td>
                                         <div class="btn-group">
-                                            <a style="margin:3px; width:50%; color:white;"  class="btn btn-danger btn-block" href="/transports/delete/{{$transport->id}}" onclick="return confirm('¿Esta seguro que quiere eliminar este medio de transporte?')">Eliminar</a>
+                                            <a style="margin:3px; width:50%; color:white;"  class="btn btn-success btn-block" href="/transports/delete/{{$transport->id}}" onclick="return confirm('¿Esta seguro que quiere eliminar este medio de transporte?')">Eliminar</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -242,7 +242,7 @@
                 <div class="justify-content-center" >
                     <div class="col-auto mt-5">
                         <div class="row">
-                            <a style="margin:15px; float: left; background-color:#B74438 !important;" class="btn btn-danger" href="/pets/create/{{$user->id}}">Crear mascota</a>
+                            <a style="margin:15px; float: left; background-color:#B74438 !important;" class="btn btn-success" href="/pets/create/{{$user->id}}">Crear mascota</a>
                         </div>
                         <table class="table table-bordered table-responsive justify-content-center" id="datatable2" cellspacing="0">
                             <thead>
@@ -301,7 +301,7 @@
                                     </td>
                                     <td>
                                         <div class="btn-group">
-                                            <a style="margin:3px; width:50%; color:white;"  class="btn btn-danger btn-block" href="/pets/delete/{{$pet->id}}" onclick="return confirm('¿Esta seguro que quiere borrar esta mascota?')">Eliminar</a>
+                                            <a style="margin:3px; width:50%; color:white;"  class="btn btn-success btn-block" href="/pets/delete/{{$pet->id}}" onclick="return confirm('¿Esta seguro que quiere borrar esta mascota?')">Eliminar</a>
                                         </div>
                                     </td>
                                 </tr>

@@ -1,2 +1,2 @@
 <?php
-symlink('/home/portoamericas/portoamericas/storage/app/public', '/home/portoamericas/portal.portoamericas.com/storage');
+symlink('/home/reservadetoscana/reservadetoscana/storage/app/public', '/home/reservadetoscana/portal.reservadetoscana.com/storage');

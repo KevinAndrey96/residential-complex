@@ -42,17 +42,30 @@ class CancelBookings extends Command
         date_default_timezone_set('America/Bogota');
 
         $bookings = Booking::where('state', 'Reservada')
-            ->orWhere('state', 'En espera')
+            ->orWhere('state', 'Autorizada')
             ->orderBy('date', 'desc')
             ->orderBy('hour', 'desc')
             ->get();
 
+        $dateTimeNow = Carbon::now();
+
         foreach ($bookings as $booking) {
-            $dateTimeNow = Carbon::now();
-            $dateTime = Carbon::parse($booking->date.' '. $booking->hour)->addMinute($booking->service->strip)->format('Y-m-d H:i');
-            if ($dateTimeNow->gt($dateTime)) {
-                $booking->state = 'Perdida';
-                $booking->save();
+            if ($booking->state == 'Autorizada') {
+                $dateTime = Carbon::parse($booking->date . ' ' . $booking->hour)->addMinute($booking->service->strip)->format('Y-m-d H:i');
+                if ($dateTimeNow->gt($dateTime)) {
+                    $booking->state = 'Perdida';
+                    $booking->save();
+                }
+            }
+
+            if ($booking->state == 'Reservada') {
+                $authorizationDate =  Carbon::parse($booking->updated_at);
+                $diffHours = intval($authorizationDate->diffInHours($dateTimeNow));
+
+                if ($diffHours >= 24) {
+                    $booking->state = 'Cancelada';
+                    $booking->save();
+                }
             }
         }
     }

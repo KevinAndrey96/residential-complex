@@ -99,7 +99,7 @@
                                     </td>
                                     <td class="text-center text-md-center align-middle">
                                         <a class="service" href="#" data-toggle="modal" data-target="#serviceModal{{$services[$i]->id}}">
-                                            <img class="" style="width: 150px; border-radius: 5%;"  onError="this.onerror=null;this.src='/assets/images/imagen-fallo.jpg';" src="https://portal.portoamericas.com{{$superArray[$i][0]}}">
+                                            <img class="" style="width: 150px; border-radius: 5%;"  onError="this.onerror=null;this.src='/assets/images/imagen-fallo.jpg';" src="https://portal.reservadetoscana.com{{$superArray[$i][0]}}">
                                         </a>
                                     </td>
                                     <td class="text-center text-md-center align-middle"><p style="font-family: Roboto, sans-serif; font-size: 17px;
@@ -128,11 +128,11 @@
                                                 <div id="carouselServiceControls{{$services[$i]->id}}" class="carousel slide" data-ride="carousel">
                                                     <div class="carousel-inner" style="width:100%; border:none;">
                                                         <div class="carousel-item active">
-                                                            <img class="d-block w-100 rounded img-fluid" src="https://portal.portoamericas.com{{$superArray[$i][0]}}">
+                                                            <img class="d-block w-100 rounded img-fluid" src="https://portal.reservadetoscana.com{{$superArray[$i][0]}}">
                                                         </div>
                                                         @for ($j = 1; $j < count($superArray[$i])-1; $j++)
                                                             <div class="carousel-item">
-                                                                <img class="d-block w-100 rounded img-fluid" src="https://portal.portoamericas.com{{$superArray[$i][$j]}}">
+                                                                <img class="d-block w-100 rounded img-fluid" src="https://portal.reservadetoscana.com{{$superArray[$i][$j]}}">
                                                             </div>
                                                         @endfor
                                                     </div>

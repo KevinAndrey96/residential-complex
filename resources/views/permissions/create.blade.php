@@ -24,7 +24,7 @@
                                 <input class="form-control" type="text" name="name_permission" id="name_permission" required>
                             </div>
                             <div class="col-md-6 text-center">
-                                <input class="btn btn-primary btn-round mt-4 align-middle" style="width:300px;" type="submit" value="Agregar">
+                                <input class="btn btn-success btn-round mt-4 align-middle" style="width:300px;" type="submit" value="Agregar">
                             </div>
                         </div>
                     </form>

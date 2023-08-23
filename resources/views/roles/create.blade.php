@@ -46,7 +46,7 @@
                         </div>
                         <div class="col-md-12 text-center">
                             <input type="hidden" id="cart" name="cart">
-                            <input class="btn btn-primary btn-round align-middle mt-4" type="submit" value="Agregar">
+                            <input class="btn btn-success btn-round align-middle mt-4" type="submit" value="Agregar">
                         </div>
                     </div>
                 </form>

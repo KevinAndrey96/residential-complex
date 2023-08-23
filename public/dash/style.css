@@ -8651,7 +8651,7 @@ body.menu-bottom #collapse-menu {
   background-color: #448aff;
   border-color: #448aff; }
 
-.show > .btn-primary.dropdown-toggle, .sweet-alert .show > button.dropdown-toggle.confirm, .wizard > .actions .show > a.dropdown-toggle {
+.show > .btn-success.dropdown-toggle, .sweet-alert .show > button.dropdown-toggle.confirm, .wizard > .actions .show > a.dropdown-toggle {
   background-color: #e20613 !important;
   border-color: #0764ff;
   -webkit-box-shadow: none;
@@ -8720,28 +8720,28 @@ body.menu-bottom #collapse-menu {
   border-bottom: 1px solid #0275d8; }
 
 /**====== Basic-Buttons css Start ======**/
-.btn-primary, .sweet-alert button.confirm, .wizard > .actions a {
+.btn-success, .sweet-alert button.confirm, .wizard > .actions a {
   background-color: rgba(226, 6, 19, 0.91);
   border-color: #ec747d;
   color: #fff;
   cursor: pointer;
   -webkit-transition: all ease-in 0.3s;
   transition: all ease-in 0.3s; }
-  .btn-primary:hover, .sweet-alert button.confirm:hover, .wizard > .actions a:hover {
+  .btn-success:hover, .sweet-alert button.confirm:hover, .wizard > .actions a:hover {
     background-color: rgb(150, 4, 14);
     border-color:  #ec747d; }
-  .btn-primary:active, .sweet-alert button.confirm:active, .wizard > .actions a:active {
+  .btn-success:active, .sweet-alert button.confirm:active, .wizard > .actions a:active {
     background-color: rgba(226, 6, 19, 0.91) !important;
     border-color:  #ec747d;
     -webkit-box-shadow: none;
             box-shadow: none;
     color: #fff; }
-  .btn-primary:focus, .sweet-alert button.confirm:focus, .wizard > .actions a:focus {
+  .btn-success:focus, .sweet-alert button.confirm:focus, .wizard > .actions a:focus {
     -webkit-box-shadow: none;
             box-shadow: none;
     color: #fff;
     background-color: rgb(255, 0, 15); }
-  .btn-primary.disabled, .sweet-alert button.disabled.confirm, .wizard > .actions a.disabled {
+  .btn-success.disabled, .sweet-alert button.disabled.confirm, .wizard > .actions a.disabled {
     background-color: rgba(68, 138, 255, 0.5);
     border-color: rgba(68, 138, 255, 0.5); }
 
@@ -9034,9 +9034,9 @@ body.menu-bottom #collapse-menu {
       left: 0;
       right: 0; }
 
-.btn-primary.btn-mat, .sweet-alert button.btn-mat.confirm, .wizard > .actions a.btn-mat {
+.btn-success.btn-mat, .sweet-alert button.btn-mat.confirm, .wizard > .actions a.btn-mat {
   background-color: #448aff; }
-  .btn-primary.btn-mat:before, .sweet-alert button.btn-mat.confirm:before, .wizard > .actions a.btn-mat:before {
+  .btn-success.btn-mat:before, .sweet-alert button.btn-mat.confirm:before, .wizard > .actions a.btn-mat:before {
     background-color: #0764ff; }
 
 .btn-warning.btn-mat {
@@ -9098,7 +9098,7 @@ body.menu-bottom #collapse-menu {
 
 /**====== Button-Size css end ======**/
 /**====== Badges-button css start ======**/
-.btn-primary .badge, .sweet-alert button.confirm .badge, .wizard > .actions a .badge {
+.btn-success .badge, .sweet-alert button.confirm .badge, .wizard > .actions a .badge {
   color: #448aff;
   background-color: #fff; }
 
@@ -10820,8 +10820,8 @@ label.txt-ellipsis {
       float: right; }
   .j-pro .j-divider-text span {
     color: #222; }
-  .j-pro .btn-primary.disabled, .j-pro .sweet-alert button.disabled.confirm, .sweet-alert .j-pro button.disabled.confirm, .j-pro .wizard > .actions a.disabled, .wizard > .actions .j-pro a.disabled,
-  .j-pro .btn-primary:disabled,
+  .j-pro .btn-success.disabled, .j-pro .sweet-alert button.disabled.confirm, .sweet-alert .j-pro button.disabled.confirm, .j-pro .wizard > .actions a.disabled, .wizard > .actions .j-pro a.disabled,
+  .j-pro .btn-success:disabled,
   .j-pro .sweet-alert button.confirm:disabled,
   .sweet-alert .j-pro button.confirm:disabled,
   .j-pro .wizard > .actions a:disabled,
@@ -10928,7 +10928,7 @@ label.txt-ellipsis {
     margin-bottom: 15px; }
   .j-forms .label {
     margin-bottom: 15px; }
-  .j-forms .btn-primary:disabled, .j-forms .sweet-alert button.confirm:disabled, .sweet-alert .j-forms button.confirm:disabled, .j-forms .wizard > .actions a:disabled, .wizard > .actions .j-forms a:disabled {
+  .j-forms .btn-success:disabled, .j-forms .sweet-alert button.confirm:disabled, .sweet-alert .j-forms button.confirm:disabled, .j-forms .wizard > .actions a:disabled, .wizard > .actions .j-forms a:disabled {
     background-color: #d6d6d6;
     border-color: #d6d6d6; }
   .j-forms .radio-toggle,
@@ -15660,7 +15660,7 @@ pre.line-numbers > code {
 
   .mob-product-btn {
     text-align: center; }
-    .mob-product-btn .btn-primary, .mob-product-btn .sweet-alert button.confirm, .sweet-alert .mob-product-btn button.confirm, .mob-product-btn .wizard > .actions a, .wizard > .actions .mob-product-btn a {
+    .mob-product-btn .btn-success, .mob-product-btn .sweet-alert button.confirm, .sweet-alert .mob-product-btn button.confirm, .mob-product-btn .wizard > .actions a, .wizard > .actions .mob-product-btn a {
       margin-right: 0;
       display: block;
       margin: 10px auto; } }

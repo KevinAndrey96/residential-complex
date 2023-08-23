@@ -15,5 +15,5 @@ interface StoreAdminrecepsUseCaseInterface
      * @param Request $request
      * @return void
      */
-    public function handle(Request $request): void;
+    public function handle(Request $request): bool;
 }

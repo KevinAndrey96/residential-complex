@@ -104,7 +104,7 @@
                         <div class="text-center text-danger col-md-6">
                             <p style="font-size:13px; font-style: italic;">
                                 La presente información es solicitada con el fin de identificar los grupos poblacionales
-                                (NNA- Adultos mayores-etc) dentro del Conjunto Residencial PortoAméricas, complete la
+                                (NNA- Adultos mayores-etc) dentro del Conjunto Residencial, complete la
                                 información de integrantes del núcleo familiar que vivan en la propiedad.
                             </p>
                         </div>
@@ -582,20 +582,21 @@
                         </div>
                           <div class="col-md-1"></div>
                         <div class="form-group col-md-10 mt-4">
+                            <!--
                             <p style="font-size:10px; font-style: italic; color:black; text-align: justify;">
                                 <b>AUTORIZACIÓN PARA TRATAMIENTO DE DATOS PERSONALES:</b> Autorizo de manera libre, voluntaria, previa,
-                                explícita, informada e inequívoca a CONJUNTO RESIDENCIAL PORTOAMERICAS P.H para que en los términos
+                                explícita, informada e inequívoca a CONJUNTO RESIDENCIAL reservadetoscana P.H para que en los términos
                                 legalmente establecidos realice la recolección, almacenamiento, uso, circulación, supresión y en general,
                                 el tratamiento de los datos personales que he procedido a entregar o que entregaré, en virtud de las relaciones legales,
                                 contractuales, comerciales y/o de cualquier otra que surja, en desarrollo y ejecución de los
                                 fines descritos en el contrato suscrito. Dicha autorización, para adelantar el tratamiento de mis
                                 datos personales, se extiende durante la totalidad del tiempo en el que pueda llegar a consolidarse un
-                                vínculo o este persista por cualquier circunstancia con CONJUNTO RESIDENCIAL PORTOAMERICAS P.H y con posterioridad al
+                                vínculo o este persista por cualquier circunstancia con CONJUNTO RESIDENCIAL reservadetoscana P.H y con posterioridad al
                                 finiquito del mismo, siempre que tal tratamiento se encuentre relacionado con las finalidades para
                                 las cuales los datos personales, fueron inicialmente suministrados. En ese sentido, declaro conocer que los
                                 datos personales objeto del tratamiento, serán utilizados específicamente para las finalidades establecidas en
-                                la Política de Tratamiento de Datos del CONJUNTO RESIDENCIAL PORTOAMERICAS P.H y que adicionalmente CONJUNTO
-                                RESIDENCIAL PORTOAMERICAS P.H podrán: Realizar las consultas, reportes y actualizaciones necesarias en diferentes
+                                la Política de Tratamiento de Datos del CONJUNTO RESIDENCIAL reservadetoscana P.H y que adicionalmente CONJUNTO
+                                RESIDENCIAL reservadetoscana P.H podrán: Realizar las consultas, reportes y actualizaciones necesarias en diferentes
                                 listas restrictivas y bancos de datos del comportamiento y crédito comercial, hábitos de pago, manejo
                                 de las cuenta(s) bancaria(s) y en general el cumplimiento de las obligaciones pecuniarias.
                                 De igual forma, declaro que me han sido informados y conozco los derechos que el ordenamiento legal y la
@@ -606,13 +607,14 @@
                                 previa solicitud, respecto del uso que le ha dado a mis datos personales. -Presentar ante la Superintendencia de Industria y Comercio quejas por infracciones al régimen de protección de datos personales.
                                 -Revocar la autorización y/o solicitar la supresión del dato personal cuando en el tratamiento no se respeten los principios, derechos y garantías constitucionales y legales.
                                 -Acceder en forma gratuita a mis datos personales que hayan sido objeto de Tratamiento. Finalmente, manifiesto conocer que en los casos en que requiera ejercer los derechos anteriormente mencionados,
-                                la respectiva solicitud la puedo realizar a través de los mecanismos dispuestos para tal fin por el CONJUNTO RESIDENCIAL PORTOAMERICAS P.H , mediante el correo portoamericasph@gmail.com o correspondencia
+                                la respectiva solicitud la puedo realizar a través de los mecanismos dispuestos para tal fin por el CONJUNTO RESIDENCIAL reservadetoscana P.H , mediante el correo reservadetoscanaph@gmail.com o correspondencia
                                 a la dirección Av Cra 68 #5-17 en Bogotá D.C.
                             </p>
+                            -->
                         </div>
                         <div class="col-md-12 text-center">
                             <input type="hidden" name="residenttype" value="{{$firstdata->resident_type}}">
-                            <input style="padding: 10px 30px;" type="submit" class="btn btn-primary btn-round" value="Enviar">
+                            <input style="padding: 10px 30px;" type="submit" class="btn btn-success btn-round" value="Enviar">
                         </div>
                       </div>
                     </form>

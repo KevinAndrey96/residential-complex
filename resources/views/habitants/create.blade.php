@@ -39,7 +39,7 @@
                     </div>
                     <div class="col-md-12 text-center">
                         <input type="hidden" name="user_id" value={{$id}}>
-                        <input style="padding: 10px 30px;" type="submit" class="btn btn-primary btn-round" value="Guardar">
+                        <input style="padding: 10px 30px;" type="submit" class="btn btn-success btn-round" value="Guardar">
                     </div>
                 </div>
             </form>

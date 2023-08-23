@@ -60,7 +60,7 @@
                     </div>
                     <div class="col-md-12 text-center">
                         <input type="hidden" name="id" value="{{ $setting->id }}">
-                        <input class="btn btn-primary btn-round align-middle mt-4" style="width:100px;" type="submit" value="Modificar">
+                        <input class="btn btn-success btn-round align-middle mt-4" style="width:100px;" type="submit" value="Modificar">
                     </div>
                 </div>
             </form>

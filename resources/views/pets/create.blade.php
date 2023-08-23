@@ -77,7 +77,7 @@
                         </div>
                     <div class="col-md-12 text-center">
                     <input type="hidden" name="user_id" value="{{$id}}">
-                    <input type="submit" class="btn btn-primary btn-round mt-4 text-center" value="Guardar">
+                    <input type="submit" class="btn btn-success btn-round mt-4 text-center" value="Guardar">
                     </div>
                 </div>
             </form>

@@ -40,7 +40,7 @@
                         <input type="hidden" name="user_id" value={{ $user->id }}>
                         <input type="hidden" name="status" value="Habilitado">
                         <input type="hidden" name="role" value="Resident">
-                        <input class="btn btn-primary btn-round" style="width:100px;" type="submit" value="Modificar">
+                        <input class="btn btn-success btn-round" style="width:100px;" type="submit" value="Modificar">
                     </div>
                 </div>
             </form>

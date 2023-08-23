@@ -41,7 +41,7 @@
                     <textarea class="form-control" name="glossary" id="glossary"></textarea>
                 </div>
                 <div>
-                    <input class="btn btn-primary btn-round align-middle mt-4" style="width:100px;" type="submit" value="Agregar">
+                    <input class="btn btn-success btn-round align-middle mt-4" style="width:100px;" type="submit" value="Agregar">
                 </div>
             </div>
         </form>

@@ -35,7 +35,7 @@ class HomeController extends Controller
             return redirect('/bookings');
         }
         if (Auth::user()->role == 'Resident') {
-            return redirect('/bookings');
+            return redirect('/bookings/create');
         }
 
 

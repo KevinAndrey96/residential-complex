@@ -32,8 +32,13 @@ class StoreAdminrecepsUseCase implements StoreAdminrecepsUseCaseInterface
      * @param Request $request
      * @return Request
      */
-    public function handle(Request $request):void
+    public function handle(Request $request):bool
     {
+        $user = User::where('email', $request->input('email'))->first();
+        if (isset($user)) {
+            return true;
+        }
+
         $user =  new User();
         $user->name = $request->name;
         $user->phone = $request->phone;
@@ -52,5 +57,7 @@ class StoreAdminrecepsUseCase implements StoreAdminrecepsUseCaseInterface
         } else {
             $user->assignRole('Receptionist');
         }
+
+        return false;
     }
 }
