@@ -176,7 +176,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         //Use case service provider
-        App\Providers\UseCasesServicesProvider::class
+        App\Providers\UseCasesServicesProvider::class,
+        App\Providers\RepositoriesServicesProvider::class,
 
     ],
 

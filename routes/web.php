@@ -109,4 +109,9 @@ Route::group(['middleware' => ['auth', 'isUserDeleted']], static function() {
 //update booking states
     Route::get('/updateBookingStates', [App\Http\Controllers\Bookings\BookingsUpdateStatesController::class, 'updateStates']);
 
+    //Payments
+    Route::get('/payments', App\Http\Controllers\Payments\IndexPaymentsController::class)->name('payments.index');
+    Route::get('/payments-create', App\Http\Controllers\Payments\CreatePaymentsController::class)->name('payments.create');
+    Route::post('/payments-store', App\Http\Controllers\Payments\StorePaymentsController::class)->name('payments.store');
+
 });

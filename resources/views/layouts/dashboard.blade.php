@@ -18,6 +18,12 @@
       <meta name="author" content="codedthemes" />
       <!-- Favicon icon -->
       <link rel="icon" href="{{getenv('APP_URL').'/'.App\Models\Setting::find(1)->logo}}" type="image/x-icon">
+    <!-- Required Jquery -->
+    <script type="text/javascript" src="/js/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui/jquery-ui.min.js "></script>
+    <script type="text/javascript" src="/js/popper.js/popper.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap/js/bootstrap.min.js "></script>
+    <script type="text/javascript" src="/dash/pages/widget/excanvas.js "></script>
     <!-- Google font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,7 +50,16 @@
     <link rel="stylesheet" type="text/css" href="/dash/style.css">
       <link href="/js/datatables/datatables/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
-  </head>
+
+    <!--Datatables-->
+
+    <!-- Page level plugins -->
+    <script src="/js/datatables/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="/js/datatables/datatables/js/dataTables.bootstrap4.min.js"></script>
+<!--Material icons-->
+    <link href="https://cdn.jsdelivr.net/npm/material-icons@1.13.11/iconfont/material-icons.min.css" rel="stylesheet">
+
+</head>
   <!-- Pre-loader end -->
 <body>
   <div id="pcoded" class="pcoded">
@@ -257,6 +272,12 @@
                                       Reservaciones
                                   </a>
                               </li>
+                              <li>
+                                  <a href="{{route('payments.index')}}"><span style="margin-right: 25px;"
+                                                             class="material-symbols-outlined align-middle">Wallet</span>
+                                      Cartera
+                                  </a>
+                              </li>
                           </ul>
                       </div>
                   </nav>
@@ -442,12 +463,7 @@
     <![endif]-->
     <!-- Warning Section Ends -->
 
-    <!-- Required Jquery -->
-    <script type="text/javascript" src="/js/jquery/jquery.min.js"></script>
-    <script type="text/javascript" src="/js/jquery-ui/jquery-ui.min.js "></script>
-    <script type="text/javascript" src="/js/popper.js/popper.min.js"></script>
-    <script type="text/javascript" src="/js/bootstrap/js/bootstrap.min.js "></script>
-    <script type="text/javascript" src="/dash/pages/widget/excanvas.js "></script>
+
     <!-- waves js -->
     <script src="/dash/pages/waves/js/waves.min.js"></script>
     <!-- jquery slimscroll js -->
@@ -473,11 +489,9 @@
     <script type="text/javascript" src="/dash/pages/dashboard/custom-dashboard.js"></script>
     <script type="text/javascript" src="/js/script.js "></script>
 
-    <!--Datatables-->
-
-    <!-- Page level plugins -->
-    <script src="/js/datatables/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="/js/datatables/datatables/js/dataTables.bootstrap4.min.js"></script>
+  <!--Bootstrap select-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 
 
 
@@ -504,7 +518,10 @@
             responsive: true,
             "aaSorting": []
         } );
+
+        $('.my-select').selectpicker();
     } );
+
     $(document).ready(function() {
         $('#datatable1').DataTable( {
             "language": {

@@ -17,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/get-certain-payments', App\Http\Controllers\Payments\GetCertainPaymentsController::class)->name('payments.get-certain');

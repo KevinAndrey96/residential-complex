@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(adminrecepSeeder::class);
         //$this->call(ServiceSeeder::class);
         $this->call(ResidentSeeder::class);
+        $this->call(PaymentSeeder::class);
     }
 }
