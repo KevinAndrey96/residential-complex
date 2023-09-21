@@ -50,6 +50,7 @@
     <link rel="stylesheet" type="text/css" href="/dash/style.css">
       <link href="/js/datatables/datatables/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+    <!--New toggle-->
 
     <!--Datatables-->
 
@@ -58,7 +59,6 @@
     <script src="/js/datatables/datatables/js/dataTables.bootstrap4.min.js"></script>
 <!--Material icons-->
     <link href="https://cdn.jsdelivr.net/npm/material-icons@1.13.11/iconfont/material-icons.min.css" rel="stylesheet">
-
 </head>
   <!-- Pre-loader end -->
 <body>
@@ -276,6 +276,12 @@
                                   <a href="{{route('payments.index')}}"><span style="margin-right: 25px;"
                                                              class="material-symbols-outlined align-middle">Wallet</span>
                                       Cartera
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="{{route('parkings.index')}}"><span style="margin-right: 25px;"
+                                                                              class="material-symbols-outlined align-middle">directions_car</span>
+                                      Parqueaderos
                                   </a>
                               </li>
                           </ul>

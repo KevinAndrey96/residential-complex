@@ -114,4 +114,10 @@ Route::group(['middleware' => ['auth', 'isUserDeleted']], static function() {
     Route::get('/payments-create', App\Http\Controllers\Payments\CreatePaymentsController::class)->name('payments.create');
     Route::post('/payments-store', App\Http\Controllers\Payments\StorePaymentsController::class)->name('payments.store');
 
+    //Parking
+    Route::get('/parkings', App\Http\Controllers\Parkings\IndexParkingsController::class)->name('parkings.index');
+    Route::get('/parkings-create', App\Http\Controllers\Parkings\CreateParkingsController::class)->name('parkings.create');
+
+    //Parking spaces
+    Route::get('/parking-spaces/{id}', App\Http\Controllers\ParkingSpaces\IndexParkingSpacesController::class)->name('parkingSpaces.index');
 });
