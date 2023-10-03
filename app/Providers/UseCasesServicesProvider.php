@@ -17,6 +17,7 @@ use App\UseCases\Contracts\Residents\DeleteResidentsUseCaseInterface;
 use App\UseCases\Contracts\Residents\EditResidentsUseCaseInterface;
 use App\UseCases\Contracts\Residents\StoreResidentsUseCaseInterface;
 use App\UseCases\Contracts\Residents\UpdateResidentsUseCaseInterface;
+use App\UseCases\Contracts\Roles\SavePermissionAssignmentsRolesUseCaseInterface;
 use App\UseCases\Contracts\Services\DeleteServiceUseCaseInterface;
 use App\UseCases\Contracts\Services\EditServiceUseCaseInterface;
 use App\UseCases\Contracts\Services\IndexServiceUseCaseInterface;
@@ -28,6 +29,7 @@ use App\UseCases\Residents\DeleteResidentsUseCase;
 use App\UseCases\Residents\EditResidentsUseCase;
 use App\UseCases\Residents\StoreResidentsUseCase;
 use App\UseCases\Residents\UpdateResidentsUseCase;
+use App\UseCases\Roles\SavePermissionAssignmentsRolesUseCase;
 use App\UseCases\Services\DeleteServiceUseCase;
 use App\UseCases\Services\EditServiceUseCase;
 use App\UseCases\Services\IndexServiceUseCase;
@@ -60,7 +62,8 @@ class UseCasesServicesProvider extends ServiceProvider
         StoreBookingsUseCaseInterface::class => StoreBookingsUseCase::class,
         IndexBookingsUseCaseInterface::class => IndexBookingsUseCase::class,
         ChangeStateBookingsUseCaseInterface::class => ChangeStateBookingsUseCase::class,
-        CancelBookingsUseCaseInterface::class => CancelBookingsUseCase::class
+        CancelBookingsUseCaseInterface::class => CancelBookingsUseCase::class,
+        SavePermissionAssignmentsRolesUseCaseInterface::class => SavePermissionAssignmentsRolesUseCase::class
     ];
 
     /**

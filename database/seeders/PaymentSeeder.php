@@ -14,6 +14,7 @@ class PaymentSeeder extends Seeder
      */
     public function run()
     {
+        /*
         $payment = new Payment();
         $payment->year = '2021';
         $payment->month = '08';
@@ -69,7 +70,6 @@ class PaymentSeeder extends Seeder
         $payment->month = '09';
         $payment->user_id = 17;
         $payment->save();
-
-
+    */
     }
 }

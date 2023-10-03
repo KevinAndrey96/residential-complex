@@ -12,6 +12,12 @@ use Spatie\Permission\Traits\HasRoles;
 /**
  * @method static where(string $string, string $string1, mixed $id)
  * @method static find(mixed $input)
+ * @property mixed|string $name
+ * @property mixed|string $document
+ * @property mixed|string $phone
+ * @property mixed|string $email
+ * @property mixed|string $password
+ * @property mixed|string $role
  */
 class User extends Authenticatable
 {
@@ -51,7 +57,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
+    /**
+     * @var mixed|string
+     */
 
 
     public function adminrecep()

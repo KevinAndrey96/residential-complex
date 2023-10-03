@@ -2,21 +2,39 @@
 
 namespace App\Repositories\ParkingSpaces;
 
+use App\Models\Parking;
 use App\Models\ParkingSpace;
 use App\Repositories\Contracts\ParkingSpaces\ParkingSpaceRepositoryInterface;
 
 class ParkingSpaceRepository implements ParkingSpaceRepositoryInterface
 {
-    public function save(int $parkingID, $num): bool
+    public function save(int $parkingID, string $num, ?string $type, ?int $status, ?int $enabled): ParkingSpace
     {
         $parkingSpace = new ParkingSpace();
-        $parkingSpace->num = intval($num);
+        $parkingSpace->num = $num;
+
+        $parkingSpace->type = 'car';
+
+        if (! is_null($type)) {
+            $parkingSpace->type = $type;
+        }
+
         $parkingSpace->status = 0;
+
+        if (! is_null($status)) {
+            $parkingSpace->status = $status;
+        }
+
         $parkingSpace->enabled = 1;
+
+        if (! is_null($enabled)) {
+            $parkingSpace->enabled = $enabled;
+        }
+
         $parkingSpace->parking_id = $parkingID;
         $parkingSpace->save();
 
-        return true;
+        return $parkingSpace;
     }
 
     public function getAllOrderedByNumAsc(): \Illuminate\Database\Eloquent\Collection|array
@@ -50,6 +68,15 @@ class ParkingSpaceRepository implements ParkingSpaceRepositoryInterface
     public function getRegisterByID(int $id)
     {
         return ParkingSpace::find($id);
+    }
+
+    public function update(ParkingSpace $parkingSpace, string $num, string $type): bool
+    {
+        $parkingSpace->num = $num;
+        $parkingSpace->type = $type;
+        $parkingSpace->save();
+
+        return true;
     }
 
 

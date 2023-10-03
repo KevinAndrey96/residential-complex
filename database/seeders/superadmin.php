@@ -23,11 +23,6 @@ class superadmin extends Seeder
         $user->password = bcrypt('superadmin');
         $user->save();
 
-        /* Seeders de roles */
-        Role::create(['name' => 'Superadmin']);
-        Role::create(['name' => 'Administrator']);
-        Role::create(['name' => 'Receptionist']);
-        Role::create(['name' => 'Resident']);
         $user->assignRole('Superadmin');
     }
 }

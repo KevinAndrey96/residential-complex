@@ -30,7 +30,7 @@ class StoreParkingsController extends Controller
         $parkings = $this->parkingRepository->getAll();
 
         for ($i = 1; $i <= $capacity; $i++) {
-            $this->parkingSpaceRepository->save($parkingID, $i);
+            $this->parkingSpaceRepository->save($parkingID, $i, null, null, null);
         }
 
         return datatables()->collection($parkings)->toJson();

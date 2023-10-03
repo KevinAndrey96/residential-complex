@@ -6,8 +6,8 @@
                 <div class="card my-4">
                     <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                         <div class="bg-success shadow-primary border-radius-lg pt-1 pb-0">
-                            <h6 class="text-white text-center text-capitalize  mx-6 ">
-                                Parqueaderos <a href="#" id="btn-add" class="btn" ><i style="color: white; margin-top: 13px;" class="material-icons opacity-10 p-0">add</i></a>
+                            <h6 class="text-white text-center text-capitalize my-2">
+                                Parqueaderos @if (auth()->user()->can('create-parking-lot'))<a href="#" id="btn-add" class="btn" ><i style="color: white;" class="material-icons opacity-10 p-0">add</i></a>@endif
                             </h6>
                         </div>
                         <div class="card-body px-0 pb-2">
@@ -97,11 +97,7 @@
                                 <label for="name">Nombre</label>
                                 <input class="form-control" type="text" name="name" id="nameEdit" required>
                             </div>
-                            <div class="form-group col-md-6">
-                                <label for="name">Capacidad</label>
-                                <input class="form-control" type="number" min="1" name="capacityEdit" step="1" id="capacityEdit" required>
-                            </div>
-                            <div class="col-md-12 d-flex justify-content-center mt-2">
+                            <div class="col-md-6 d-flex justify-content-center mt-4">
                                 <div class="form-group col-md-6 d-flex justify-content-center">
                                     <select class="my-select" id="typeEdit" name="type" aria-label="select example" data-header="Tipo">
                                         <option value="open">Aire libre</option>
@@ -142,6 +138,7 @@
                             }
                     }},
                     {data: 'id', render: function(data, type, row) {
+                            @if (Auth::user()->role == 'Administrator')
                             return '<div class="d-flex justify-content-center">' +
                                         '<div class="d-inline">' +
                                             '<a style="color: green;" href="#" title="Editar" class="btn btn-link px-1 mb-0" onclick="setEditFields('+data+')">' +
@@ -153,7 +150,16 @@
                                             '<i style="color: darkblue; font-size: 25px !important;" class="material-icons opacity-10">' +
                                             'directions_car</i></a>'+
                                         '</div>'+
-                                    '</div>'
+                                    '</div>';
+                            @elseif (Auth::user()->role == 'Watchman')
+                            return '<div class="d-flex justify-content-center">' +
+                                        '<div class="d-inline">' +
+                                            '<a style="color: darkblue;" href="/parking-spaces/'+data+'" title="Plazas de estacionamiento" class="btn btn-link px-1 mb-0">' +
+                                            '<i style="color: darkblue; font-size: 25px !important;" class="material-icons opacity-10">' +
+                                            'directions_car</i></a>'+
+                                        '</div>'+
+                                    '</div>';
+                            @endif
                         }}
                 ],
                 "bDestroy": true
@@ -193,18 +199,28 @@
                                 }
                         }},
                         {data: 'id', render: function(data, type, row) {
-                                return '<div class="d-flex justify-content-center">' +
+                                @if (Auth::user()->role == 'Administrator')
+                                    return '<div class="d-flex justify-content-center">' +
                                     '<div class="d-inline">' +
                                     '<a style="color: green;" href="#" title="Editar" class="btn btn-link px-1 mb-0" onclick="setEditFields('+data+')">' +
                                     '<i style="color: green; font-size: 25px !important;" class="material-icons opacity-10">' +
                                     'edit</i></a>'+
                                     '</div>'+
                                     '<div class="d-inline">' +
-                                    '<a style="color: darkblue;" href="#" title="Plazas de estacionamiento" class="btn btn-link px-1 mb-0" onclick="setEditFields('+data+')">' +
+                                    '<a style="color: darkblue;" href="/parking-spaces/'+data+'" title="Plazas de estacionamiento" class="btn btn-link px-1 mb-0">' +
                                     '<i style="color: darkblue; font-size: 25px !important;" class="material-icons opacity-10">' +
                                     'directions_car</i></a>'+
                                     '</div>'+
-                                    '</div>'
+                                    '</div>';
+                                @elseif (Auth::user()->role == 'Watchman')
+                                    return '<div class="d-flex justify-content-center">' +
+                                    '<div class="d-inline">' +
+                                    '<a style="color: darkblue;" href="/parking-spaces/'+data+'" title="Plazas de estacionamiento" class="btn btn-link px-1 mb-0">' +
+                                    '<i style="color: darkblue; font-size: 25px !important;" class="material-icons opacity-10">' +
+                                    'directions_car</i></a>'+
+                                    '</div>'+
+                                    '</div>';
+                                @endif
                             }}
 
                     ],
@@ -221,7 +237,7 @@
             $('#btn-upload').on('click', function() {
                 var data = {
                     name: $('#nameEdit').val(),
-                    capacity: $('#capacityEdit').val(),
+                    //capacity: $('#capacityEdit').val(),
                     type: $('#typeEdit').val(),
                     id: $('#parkingID').val(),
                 };
@@ -247,18 +263,28 @@
                                 }
                             }},
                         {data: 'id', render: function(data, type, row) {
-                                return '<div class="d-flex justify-content-center">' +
+                                @if (Auth::user()->role == 'Administrator')
+                                    return '<div class="d-flex justify-content-center">' +
                                     '<div class="d-inline">' +
                                     '<a style="color: green;" href="#" title="Editar" class="btn btn-link px-1 mb-0" onclick="setEditFields('+data+')">' +
                                     '<i style="color: green; font-size: 25px !important;" class="material-icons opacity-10">' +
                                     'edit</i></a>'+
                                     '</div>'+
                                     '<div class="d-inline">' +
-                                    '<a style="color: darkblue;" href="#" title="Plazas de estacionamiento" class="btn btn-link px-1 mb-0" onclick="setEditFields('+data+')">' +
+                                    '<a style="color: darkblue;" href="/parking-spaces/'+data+'" title="Plazas de estacionamiento" class="btn btn-link px-1 mb-0">' +
                                     '<i style="color: darkblue; font-size: 25px !important;" class="material-icons opacity-10">' +
                                     'directions_car</i></a>'+
                                     '</div>'+
-                                    '</div>'
+                                    '</div>';
+                                @elseif (Auth::user()->role == 'Watchman')
+                                    return '<div class="d-flex justify-content-center">' +
+                                    '<div class="d-inline">' +
+                                    '<a style="color: darkblue;" href="/parking-spaces/'+data+'" title="Plazas de estacionamiento" class="btn btn-link px-1 mb-0">' +
+                                    '<i style="color: darkblue; font-size: 25px !important;" class="material-icons opacity-10">' +
+                                    'directions_car</i></a>'+
+                                    '</div>'+
+                                    '</div>';
+                                @endif
                             }}
                     ],
                     success: function(response) {
@@ -279,7 +305,7 @@
                 type: 'GET',
                 success: function(data) {
                     $('#nameEdit').val(data.name);
-                    $('#capacityEdit').val(data.capacity);
+                    //$('#capacityEdit').val(data.capacity);
                     $('#typeEdit').val('').prop('selected', true);
                     $('#typeEdit').val(data.type).prop('selected', true);
                     $('#parkingID').val(data.id);

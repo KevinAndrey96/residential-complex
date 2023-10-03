@@ -17,10 +17,14 @@ class ParkingRepository implements ParkingRepositoryInterface
         return Parking::find($id);
     }
 
-    public function update(Parking $parking, string $name, int $capacity, string $type): bool
+    public function update(Parking $parking, string $name, ?int $capacity, string $type): bool
     {
         $parking->name = $name;
-        $parking->capacity = $capacity;
+
+        if (! is_null($capacity)) {
+            $parking->capacity = $capacity;
+        }
+
         $parking->type = $type;
         $parking->save();
 
@@ -36,5 +40,14 @@ class ParkingRepository implements ParkingRepositoryInterface
         $parking->save();
 
         return $parking;
+    }
+
+
+    public function increaseCapacity(Parking $parking): bool
+    {
+        $parking->capacity++;
+        $parking->save();
+
+        return true;
     }
 }

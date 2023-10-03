@@ -14,6 +14,6 @@ class WatchmanRoleSeeder extends Seeder
      */
     public function run()
     {
-        Role::create(['name' => 'Watchman']);
+
     }
 }

@@ -59,6 +59,8 @@
     <script src="/js/datatables/datatables/js/dataTables.bootstrap4.min.js"></script>
 <!--Material icons-->
     <link href="https://cdn.jsdelivr.net/npm/material-icons@1.13.11/iconfont/material-icons.min.css" rel="stylesheet">
+<!--jQuery UI-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css" rel="stylesheet">
 </head>
   <!-- Pre-loader end -->
 <body>
@@ -159,7 +161,7 @@
 
           <div class="pcoded-main-container">
               <div style="background-color: #181818;" class="">
-                  @hasrole('Superadmin')
+
                   <nav class="pcoded-navbar">
                       <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
                       <div class="pcoded-inner-navbar main-menu">
@@ -184,197 +186,198 @@
                               <p style="color: #96040e; font-size: 15px; font-weight: bold;" class="text-center">Menú</p>
                           </div>
                           <ul class="pcoded-item pcoded-left-item">
-                            <li>
-                                <a href="/adminrecep"><span style="margin-right: 25px;" class="material-symbols-outlined align-middle">group</span>
-                                    Ver administradores
-                                </a>
-                            </li>
-                              <li class="">
-                                  <a href="/adminrecep/create" >
-                                      <span style="margin-right: 25px;" class="material-symbols-outlined align-middle">person_add</span>
-                                      Crear administrador
-                                  </a>
-                              </li>
-                              <li class="">
-                                  <a href="{{route('setting.index')}}" >
-                                      <span style="margin-right: 25px;" class="material-symbols-outlined align-middle">settings</span>
-                                      Configuración
-                                  </a>
-                              </li>
-                          </ul>
+                              @if (auth()->user()->can('show-administrators'))
+                                  <li>
+                                      <a href="/adminrecep"><span style="margin-right: 25px;" class="material-symbols-outlined align-middle">group</span>
+                                          Ver administradores
+                                      </a>
+                                  </li>
+                              @endif
+                              @if (auth()->user()->can('create-administrator'))
+                                  <li class="">
+                                      <a href="/adminrecep/create" >
+                                          <span style="margin-right: 25px;" class="material-symbols-outlined align-middle">person_add</span>
+                                          Crear administrador
+                                      </a>
+                                  </li>
+                                  @endif
+                                  @if (auth()->user()->can('roles-and-permissions'))
+                                      <li class="d-flex">
+                                          <a href="#" data-toggle="collapse" data-target="#submenu-roles" aria-expanded="false" aria-controls="collapseExample" id="roles">
+                                              <span style="margin-right: 25px;" class="material-symbols-outlined align-middle" >key</span>
+                                              Roles y permisos <span class="material-symbols-outlined align-middle">stat_minus_1</span>
+                                          </a>
+                                      </li>
+                                      <div id="submenu-roles" class="collapse" data-bs-parent="#roles">
+                                          <ul class="submenu-list list-unstyled ml-5 mt-1">
+                                              <li class="nav-item">
+                                                  <a class="nav-link d-flex p-0" href="{{route('roles.index')}}">
+                                                      <div class="text-center ms-2 d-inline align-items-center justify-content-center">
+                                                          <i class="material-icons opacity-10">arrow_right</i>
+                                                      </div>
+                                                      <span class="nav-link-text d-inline ms-3">Ver Roles</span>
+                                                  </a>
+                                              </li>
+                                              <li class="nav-item">
+                                                  <a class="nav-link d-flex p-0" href="{{route('permissions.index')}}">
+                                                      <div class="text-center ms-2 mt-0d-inline align-items-center justify-content-center">
+                                                          <i class="material-icons opacity-10">arrow_right</i>
+                                                      </div>
+                                                      <span class="nav-link-text d-inline ms-3">Ver Permisos</span>
+                                                  </a>
+                                              </li>
+                                              <li class="nav-item">
+                                                  <a class="nav-link d-flex p-0" href="/profit/users">
+                                                      <div class="text-center ms-2 mt-0d-inline align-items-center justify-content-center">
+                                                          <i class="material-icons opacity-10">arrow_right</i>
+                                                      </div>
+                                                      <span class="nav-link-text d-inline ms-3">Asignar permisos</span>
+                                                  </a>
+                                              </li>
+                                          </ul>
+                                      </div>
+                                  @endif
+                                  @if (auth()->user()->can('settings'))
+                                      <li class="">
+                                          <a href="{{route('setting.index')}}" >
+                                            <span style="margin-right: 25px;" class="material-symbols-outlined align-middle">settings</span>
+                                                Configuración
+                                          </a>
+                                      </li>
+                                  @endif
+                                  @if (auth()->user()->can('show-residents'))
+                                      <li>
+                                          <a href="/residents"><span style="margin-right: 25px;"
+                                                                     class="material-symbols-outlined align-middle">group</span>
+                                              Ver residentes
+                                          </a>
+                                      </li>
+                                  @endif
+                                  @if (auth()->user()->can('create-resident'))
+                                      <li>
+                                          <a href="/residents/create"><span style="margin-right: 25px;"
+                                                                            class="material-symbols-outlined align-middle">group_add</span>
+                                              Crear residentes
+                                          </a>
+                                      </li>
+                                  @endif
+                                  @if (auth()->user()->can('show-receptionists'))
+                                      <li>
+                                          <a href="/adminrecep"><span style="margin-right: 25px;"
+                                                                      class="material-symbols-outlined align-middle">person_search</span>
+                                              Ver recepcionistas
+                                          </a>
+                                      </li>
+                                  @endif
+                                  @if (auth()->user()->can('create-receptionist'))
+                                      <li>
+                                          <a href="/receptionists/create"><span style="margin-right: 25px;"
+                                                                                class="material-symbols-outlined align-middle">person_add</span>
+                                              Crear recepcionistas
+                                          </a>
+                                      </li>
+                                  @endif
+                                  @if (auth()->user()->can('create-watchman'))
+                                      <li>
+                                          <a href="{{route('watchman.create')}}"><span style="margin-right: 25px;"
+                                                                                       class="material-symbols-outlined align-middle">group</span>
+                                              Crear celador
+                                          </a>
+                                      </li>
+                                  @endif
+                                  @if (auth()->user()->can('show-watchman'))
+                                      <li>
+                                          <a href="{{route('watchman.index')}}"><span style="margin-right: 25px;"
+                                                                                      class="material-symbols-outlined align-middle">group</span>
+                                              Ver celadores
+                                          </a>
+                                      </li>
+                                  @endif
+                                  @if (auth()->user()->can('show-services'))
+                                      <li>
+                                          <a href="/services"><span style="margin-right: 25px;"
+                                                                    class="material-symbols-outlined align-middle">inbox_customize</span>
+                                              Ver servicios
+                                          </a>
+                                      </li>
+                                  @endif
+                                  @if (auth()->user()->can('create-service'))
+                                      <li>
+                                          <a href="/services/create"><span style="margin-right: 25px;"
+                                                                           class="material-symbols-outlined align-middle">add_photo_alternate</span>
+                                              Crear servicios
+                                          </a>
+                                      </li>
+                                  @endif
+                                  @if (Auth::user()->role !== 'Resident' && auth()->user()->can('show-bookings'))
+                                      <li>
+                                          <a href="/bookings"><span style="margin-right: 25px;"
+                                                                    class="material-symbols-outlined align-middle">book_online</span>
+                                              Reservaciones
+                                          </a>
+                                      </li>
+                                  @endif
+                                  @if (auth()->user()->can('show-payments'))
+                                      <li>
+                                          <a href="{{route('payments.index')}}"><span style="margin-right: 25px;"
+                                                                                      class="material-symbols-outlined align-middle">Wallet</span>
+                                              Cartera
+                                          </a>
+                                      </li>
+                                  @endif
+                                  @if (auth()->user()->can('show-parking-lots'))
+                                      <li>
+                                          <a href="{{route('parkings.index')}}"><span style="margin-right: 25px;"
+                                                                                      class="material-symbols-outlined align-middle">directions_car</span>
+                                              Parqueaderos
+                                          </a>
+                                      </li>
+                                  @endif
+                                  @if (Auth::user()->role == 'Resident' && auth()->user()->can('show-bookings'))
+                                      <li class="">
+                                          <a href="/bookings">
+                                              <span style="margin-right: 25px;" class="material-symbols-outlined align-middle">book_online</span>
+                                              Mis reservas
+                                          </a>
+                                      </li>
+                                  @endif
+                                  @if (auth()->user()->can('create-booking'))
+                                      <li class="">
+                                          <a href="/bookings/create">
+                                              <span style="margin-right: 25px;" class="material-symbols-outlined align-middle">event_seat</span>
+                                              Reservar
+                                          </a>
+                                      </li>
+                                  @endif
+                                  @if (auth()->user()->can('show-my-payments'))
+                                      <li class="">
+                                          <a href="{{route('payments.myPayments')}}">
+                                              <span style="margin-right: 25px;" class="material-symbols-outlined align-middle">receipt_long</span>
+                                              Mis pagos
+                                          </a>
+                                      </li>
+                                  @endif
+                                  @if (auth()->user()->can('show-extra-info'))
+                                      @if (Auth::user()->extrainfo == null)
+                                          <li class="">
+                                              <a href="/preinformation">
+                                                  <span style="margin-right: 25px;" class="material-symbols-outlined align-middle">quick_reference</span>
+                                                  Información extra
+                                              </a>
+                                          </li>
+                                      @endif
+                                  @endif
+
+                                </ul>
                         </div>
                     </nav>
-                  @endhasrole
-                  @hasrole('Administrator')
-                  <nav class="pcoded-navbar">
-                      <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
-                      <div class="pcoded-inner-navbar main-menu">
-                          <div class="">
-                              <div style="background-color: white;" class="main-menu-header">
-                                  <img class="img-80 img-radius" src="/assets/images/persona.png" alt="User-Profile-Image">
-                                  <div class="user-details">
-                                      <span id="more-details">{{ Auth::user()->name }}<i class="fa fa-caret-down"></i></span>
-                                  </div>
-                              </div>
+                  <!--@hasrole('Administrator')-->
 
-                              <div class="main-menu-content">
-                                  <ul>
-                                      <li class="more-details">
-                                          <a href="auth-normal-sign-in.html" onclick="event.preventDefault();
-                                          document.getElementById('logout-form').submit();"><i class="ti-layout-sidebar-left"></i>Cerrar sesión</a>
-                                      </li>
-                                  </ul>
-                              </div>
-                          </div>
-                          <div class="pcoded-navigation-label text-center mt-4" data-i18n="nav.category.navigation">
-                              <p style="color: #96040e; font-size: 15px; font-weight: bold;" class="text-center">Menú</p>
-                          </div>
-                          <ul class="pcoded-item pcoded-left-item">
-                              <li>
-                                  <a href="/residents"><span style="margin-right: 25px;"
-                                      class="material-symbols-outlined align-middle">group</span>
-                                      Ver residentes
-                                  </a>
-                              </li>
-                              <li>
-                                  <a href="/residents/create"><span style="margin-right: 25px;"
-                                     class="material-symbols-outlined align-middle">group_add</span>
-                                     Crear residentes
-                                  </a>
-                              </li>
-                              <li>
-                                  <a href="/adminrecep"><span style="margin-right: 25px;"
-                                      class="material-symbols-outlined align-middle">person_search</span>
-                                      Ver recepcionistas
-                                  </a>
-                              </li>
-                              <li>
-                                  <a href="/receptionists/create"><span style="margin-right: 25px;"
-                                     class="material-symbols-outlined align-middle">person_add</span>
-                                     Crear recepcionistas
-                                  </a>
-                              </li>
-                              <li>
-                                  <a href="/services"><span style="margin-right: 25px;"
-                                      class="material-symbols-outlined align-middle">inbox_customize</span>
-                                      Ver servicios
-                                  </a>
-                              </li>
-                              <li>
-                                  <a href="/services/create"><span style="margin-right: 25px;"
-                                     class="material-symbols-outlined align-middle">add_photo_alternate</span>
-                                     Crear servicios
-                                  </a>
-                              </li>
-                              <li>
-                                  <a href="/bookings"><span style="margin-right: 25px;"
-                                      class="material-symbols-outlined align-middle">book_online</span>
-                                      Reservaciones
-                                  </a>
-                              </li>
-                              <li>
-                                  <a href="{{route('payments.index')}}"><span style="margin-right: 25px;"
-                                                             class="material-symbols-outlined align-middle">Wallet</span>
-                                      Cartera
-                                  </a>
-                              </li>
-                              <li>
-                                  <a href="{{route('parkings.index')}}"><span style="margin-right: 25px;"
-                                                                              class="material-symbols-outlined align-middle">directions_car</span>
-                                      Parqueaderos
-                                  </a>
-                              </li>
-                          </ul>
-                      </div>
-                  </nav>
-                  @endhasrole
-                  @hasrole('Receptionist')
-                  <nav class="pcoded-navbar">
-                      <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
-                      <div class="pcoded-inner-navbar main-menu">
-                          <div class="">
-                              <div style="background-color: white;" class="main-menu-header">
-                                  <img class="img-80 img-radius" src="/assets/images/persona.png" alt="User-Profile-Image">
-                                  <div class="user-details">
-                                      <span id="more-details">{{ Auth::user()->name }}<i class="fa fa-caret-down"></i></span>
-                                  </div>
-                              </div>
-
-                              <div class="main-menu-content">
-                                  <ul>
-                                      <li class="more-details">
-                                          <a href="auth-normal-sign-in.html" onclick="event.preventDefault();
-                                          document.getElementById('logout-form').submit();"><i class="ti-layout-sidebar-left"></i>Cerrar sesión</a>
-                                      </li>
-                                  </ul>
-                              </div>
-                          </div>
-                          <div class="pcoded-navigation-label text-center mt-4" data-i18n="nav.category.navigation">
-                              <p style="color: #96040e; font-size: 15px; font-weight: bold;" class="text-center">Menú</p>
-                          </div>
-
-                          <ul class="pcoded-item pcoded-left-item ">
-                              <li>
-                                <a href="/bookings">
-                                    <span style="margin-right: 25px;" class="material-symbols-outlined align-middle">
-                                        book_online
-                                    </span>
-                                      Reservaciones
-                                  </a>
-                              </li>
-                          </ul>
-                      </div>
-                  </nav>
-
-                  @endhasrole
-                  @hasrole('Resident')
-                  <nav class="pcoded-navbar">
-                      <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
-                      <div class="pcoded-inner-navbar main-menu">
-                          <div class="">
-                              <div style="background-color: white;" class="main-menu-header">
-                                  <img class="img-80 img-radius" src="/assets/images/persona.png" alt="User-Profile-Image">
-                                  <div class="user-details">
-                                      <span id="more-details">{{ Auth::user()->name }}<i class="fa fa-caret-down"></i></span>
-                                  </div>
-                              </div>
-
-                              <div class="main-menu-content">
-                                  <ul>
-                                      <li class="more-details">
-                                          <a href="auth-normal-sign-in.html" onclick="event.preventDefault();
-                                          document.getElementById('logout-form').submit();"><i class="ti-layout-sidebar-left"></i>Cerrar sesión</a>
-                                      </li>
-                                  </ul>
-                              </div>
-                          </div>
-
-                          <ul class="pcoded-item pcoded-left-item pt-5">
-                              <li class="">
-                                  <a href="/bookings">
-                                      <span style="margin-right: 25px;" class="material-symbols-outlined align-middle">book_online</span>
-                                      Mis reservas
-                                  </a>
-                              </li>
-                              <li class="">
-                                  <a href="/bookings/create">
-                                      <span style="margin-right: 25px;" class="material-symbols-outlined align-middle">event_seat</span>
-                                      Reservar
-                                  </a>
-                              </li>
-                              </li>
-                              @if (Auth::user()->extrainfo == null)
-                              <li class="">
-                                  <a href="/preinformation">
-                                      <span style="margin-right: 25px;" class="material-symbols-outlined align-middle">quick_reference</span>
-                                      Información extra
-                                  </a>
-                              </li>
-                              @endif
-                          </ul>
-                      </div>
-                  </nav>
-                  @endhasrole
+                  <!--@endhasrole-->
+                  <!--@hasrole('Receptionist')-->
+                  <!--@endhasrole-->
+                  <!--@hasrole('Resident')-->
+                  <!--@endhasrole-->
                   <div style="background-color: darkgray;" class="pcoded-content">
                       <!-- Page-header start -->
                       <div class="page-header">
@@ -398,6 +401,10 @@
 
                                               @hasrole('Resident')
                                                 Bienvenido Residente
+                                              @endrole
+
+                                              @hasrole('Watchman')
+                                              Bienvenido Celador
                                               @endrole
                                           </p>
                                       </div>

@@ -11,6 +11,11 @@ use Illuminate\Database\Eloquent\Model;
  * @property mixed $num_apt
  * @property mixed|string $logo
  * @property mixed $glossary
+ * @property int|mixed $num_int
+ * @property mixed $principal_color
+ * @property mixed|string $second_color
+ * @property mixed|string $third_color
+ * @property mixed|string $fourth_color
  */
 class Setting extends Model
 {

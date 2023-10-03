@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int|mixed $status
  * @property int|mixed $enabled
  * @property int|mixed $parking_id
+ * @property mixed|string $type
  */
 class ParkingSpace extends Model
 {

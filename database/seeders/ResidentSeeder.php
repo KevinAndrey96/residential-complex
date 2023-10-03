@@ -18,11 +18,10 @@ class ResidentSeeder extends Seeder
         $user = new User();
         $user->name = 'resident';
         $user->phone = 123123;
-        $user->email = 'resident@gmail.com';
+        $user->email = 'filip2460@gmail.com';
         $user->role = 'Resident';
-        $user->password = bcrypt(123123);
+        $user->password = bcrypt('filip2460');
         $user->save();
-        $user = User::where('email', 'like',  'natalia@natalia.com')->first();
         $resident = new Resident();
         $resident->tower = 30;
         $resident->apt = 402;

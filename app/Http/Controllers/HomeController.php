@@ -38,6 +38,10 @@ class HomeController extends Controller
             return redirect('/bookings/create');
         }
 
+        if (Auth::user()->role == 'Watchman') {
+            return redirect()->route('parkings.index');
+        }
+
 
         //return view('home');
     }

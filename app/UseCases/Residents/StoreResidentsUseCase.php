@@ -32,8 +32,6 @@ class StoreResidentsUseCase implements StoreResidentsUseCaseInterface
                 }
             }
 
-
-
             $user = new User();
             $user->name = $request->name;
             $user->phone = $request->phone;

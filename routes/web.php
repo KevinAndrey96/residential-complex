@@ -34,14 +34,6 @@ Route::group(['middleware' => ['auth', 'isUserDeleted']], static function() {
     Route::get('/adminrecep/edit/{id}', [App\Http\Controllers\Adminreceps\AdminrecepsEditController::class, 'edit']);
     Route::post('/adminrecep/update', [App\Http\Controllers\Adminreceps\AdminrecepsUpdateController::class, 'update']);
     Route::post('/adminrecep/delete', [App\Http\Controllers\Adminreceps\AdminrecepsDeleteController::class, 'delete']);
-    Route::get('/role/create', [App\Http\Controllers\Roles\RolesCreateController::class, 'create']);
-    Route::post('/role/store', [App\Http\Controllers\Roles\RolesStoreController::class, 'store']);
-    Route::post('/role/edit', [App\Http\Controllers\Roles\RolesStoreController::class, 'store']);
-    Route::post('/rol/delete', [App\Http\Controllers\Roles\RolesStoreController::class, 'store']);
-    Route::get('/role', [App\Http\Controllers\Roles\RolesIndexController::class, 'index']);
-    /* PERMISSIONS */
-    Route::get('/permission/create', [App\Http\Controllers\Permissions\PermissionsCreateController::class, 'create']);
-    Route::post('/permission/store', [App\Http\Controllers\Permissions\PermissionsStoreController::class, 'store']);
 
     /* Setting */
     Route::get('/setting/create', [App\Http\Controllers\Settings\SettingsCreateController::class, 'create']);
@@ -113,6 +105,8 @@ Route::group(['middleware' => ['auth', 'isUserDeleted']], static function() {
     Route::get('/payments', App\Http\Controllers\Payments\IndexPaymentsController::class)->name('payments.index');
     Route::get('/payments-create', App\Http\Controllers\Payments\CreatePaymentsController::class)->name('payments.create');
     Route::post('/payments-store', App\Http\Controllers\Payments\StorePaymentsController::class)->name('payments.store');
+    Route::get('/my-payments', App\Http\Controllers\Payments\MyPaymentsController::class)->name('payments.myPayments');
+
 
     //Parking
     Route::get('/parkings', App\Http\Controllers\Parkings\IndexParkingsController::class)->name('parkings.index');
@@ -120,4 +114,27 @@ Route::group(['middleware' => ['auth', 'isUserDeleted']], static function() {
 
     //Parking spaces
     Route::get('/parking-spaces/{id}', App\Http\Controllers\ParkingSpaces\IndexParkingSpacesController::class)->name('parkingSpaces.index');
+
+    //Roles
+    //Route::get('/role-create', App\Http\Controllers\Roles\CreateRolesController::class)->name('roles.create');
+    //Route::post('/role-edit', App\Http\Controllers\Roles\EditRolesController::class)->name('roles.edit');
+    //Route::post('/rol-delete', App\Http\Controllers\Roles\DeleteRolesController::class)->name('roles.delete');
+    Route::get('/roles', App\Http\Controllers\Roles\IndexRolesController::class)->name('roles.index');
+
+    //Permissions
+    //Route::get('/permission/create', App\Http\Controllers\Permissions\CreatePermissionsController::class)->name('permissions.create');
+    //Route::post('/permission/store', App\Http\Controllers\Permissions\StorePermissionsController::class)->name('permissions.store');
+    Route::get('/permissions', App\Http\Controllers\Permissions\IndexPermissionsController::class)->name('permissions.index');
+
+    //Watchman
+    Route::get('/watchman-create', App\Http\Controllers\Watchman\CreateWatchmanController::class)->name('watchman.create');
+    Route::post('/watchman-store', App\Http\Controllers\Watchman\StoreWatchmanController::class)->name('watchman.store');
+    Route::get('/watchman-index', App\Http\Controllers\Watchman\IndexWatchmanController::class)->name('watchman.index');
+    Route::get('/watchman-edit/{id}', App\Http\Controllers\Watchman\EditWatchmanController::class)->name('watchman.edit');
+    Route::post('/watchman-update', App\Http\Controllers\Watchman\UpdateWatchmanController::class)->name('watchman.update');
+
+    //Detail space occupations
+    Route::get('/detail-space-occupation-history/{id}', App\Http\Controllers\DetailSpaceOccupations\HistoryDetailSpaceOccupationsController::class)->name('detailSpaceOccupations.history');
+
+
 });

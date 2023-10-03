@@ -20,13 +20,26 @@ class adminrecepSeeder extends Seeder
         $user->phone = 3242343;
         $user->email = 'administrator@gmail.com';
         $user->role = 'Administrator';
-        $user->password = bcrypt(3242343);
+        $user->password = bcrypt('Administrator');
         $user->save();
         $adminrecep = new Adminrecep();
         $adminrecep->document = 2132332;
         $adminrecep->user_id = $user->id;
         $adminrecep->save();
         $user->assignRole('Administrator');
+
+        $user = new User();
+        $user->name = 'receptionist';
+        $user->phone = 5463567;
+        $user->email = 'receptionist@gmail.com';
+        $user->role = 'Receptionist';
+        $user->password = bcrypt('receptionist');
+        $user->save();
+        $adminrecep = new Adminrecep();
+        $adminrecep->document = 435345345;
+        $adminrecep->user_id = $user->id;
+        $adminrecep->save();
+        $user->assignRole('Receptionist');
 
     }
 }

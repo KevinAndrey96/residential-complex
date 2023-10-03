@@ -18,8 +18,6 @@ class EditParkingSpacesController extends Controller
 
     public function __invoke($id)
     {
-        $parkingSpace = $this->parkingSpaceRepository->getRegisterByID($id);
-
-
+        return $this->parkingSpaceRepository->getRegisterByID($id);
     }
 }
