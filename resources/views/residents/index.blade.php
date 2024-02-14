@@ -56,22 +56,32 @@
                                         <td style="padding:10px;" class="text-center text-md-center align-middle">{{ $user->name }}</td>
                                         <td style="padding:10px;" class="text-center text-md-center align-middle">{{ $user->phone }}</td>
                                         <td style="padding:10px;" class="text-center text-md-center align-middle">{{ $user->email }}</td>
-                                        <td style="padding:10px;" class="text-center text-md-center align-middle">{{ $user->resident->tower }}</td>
-                                        <td style="padding:10px;" class="text-center text-md-center align-middle">{{ $user->resident->apt }}</td>
+                                        <td style="padding:10px;" class="text-center text-md-center align-middle">{{ (isset($user->resident->tower)) ? $user->resident->tower : ''}}</td>
+                                        <td style="padding:10px;" class="text-center text-md-center align-middle">{{ (isset($user->resident->apt)) ? $user->resident->apt  : ''}}</td>
                                         <td style="text-align: center;">
 
                                             <div id="endis">
-                                                @if($user->resident->status == 'Habilitado')
+                                                @if(isset($user->resident->status))
+                                                    @if($user->resident->status == 'Habilitado')
+                                                        <input type="checkbox" data-onstyle="success"
+                                                               checked
+                                                               data-on="Habilitado"
+                                                               data-size="xs"
+                                                               data-toggle="toggle"
+                                                               name="togglestatus{{$user->id}}" id="togglestatus{{$user->id}}"
+                                                               onchange="getStatus({{$user->id}})">
+                                                    @elseif($user->resident->status == 'Deshabilitado')
+                                                        <input type="checkbox" data-onstyle="success"
+                                                               data-off="Deshabilitado"
+                                                               data-size="xs"
+                                                               data-toggle="toggle"
+                                                               name="togglestatus{{$user->id}}" id="togglestatus{{$user->id}}"
+                                                               onchange="getStatus({{$user->id}})">
+                                                    @endif
+                                                    @else
                                                     <input type="checkbox" data-onstyle="success"
                                                            checked
                                                            data-on="Habilitado"
-                                                           data-size="xs"
-                                                           data-toggle="toggle"
-                                                           name="togglestatus{{$user->id}}" id="togglestatus{{$user->id}}"
-                                                           onchange="getStatus({{$user->id}})">
-                                                @elseif($user->resident->status == 'Deshabilitado')
-                                                    <input type="checkbox" data-onstyle="success"
-                                                           data-off="Deshabilitado"
                                                            data-size="xs"
                                                            data-toggle="toggle"
                                                            name="togglestatus{{$user->id}}" id="togglestatus{{$user->id}}"

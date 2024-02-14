@@ -51,6 +51,9 @@ Route::group(['middleware' => ['auth', 'isUserDeleted']], static function() {
     Route::get('/residents/edit/{id}', [App\Http\Controllers\Residents\ResidentsEditController::class, 'edit']);
     Route::post('/residents/update', [App\Http\Controllers\Residents\ResidentsUpdateController::class, 'update']);
     Route::post('/residents/delete', [App\Http\Controllers\Residents\ResidentsDeleteController::class, 'delete']);
+    Route::get('/choose-residents', App\Http\Controllers\Residents\ResidentsChooseController::class);
+    Route::post('/residents-import', App\Http\Controllers\Residents\ResidentsImportController::class);
+
 
     /* Services */
     Route::get('/services/create', [App\Http\Controllers\Services\ServicesCreateController::class, 'create']);

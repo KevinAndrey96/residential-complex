@@ -23,16 +23,28 @@ class UpdateResidentsUseCase implements UpdateResidentsUseCaseInterface
         $resiout = Resident::where('user_id', '=', $userout->id)->first();
         $userout->update($newdatauser);
 
-        foreach ($users as $user) {
-            if ($user->role == 'Resident') {
-                if ($user->resident->tower == $request->input('tower') && $user->resident->apt == $request->input('apt')) {
+        if (isset($resiout)) {
+            foreach ($users as $user) {
+                if ($user->role == 'Resident') {
+
+                    if ($user->resident->tower == $request->input('tower') && $user->resident->apt == $request->input('apt')) {
                         return true;
+                    }
                 }
             }
+
+            $resiout->update($newdataresi);
+
+            return false;
         }
 
-        $resiout->update($newdataresi);
-        return false;
+        $resident = new Resident();
+        $resident->tower = $request->input('tower');
+        $resident->apt = $request->input('apt');
+        $resident->status = 'Habilitado';
+        $resident->user_id = $request->input('user_id');
+        $resident->save();
 
+        return false;
     }
 }

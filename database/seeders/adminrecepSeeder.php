@@ -20,7 +20,7 @@ class adminrecepSeeder extends Seeder
         $user->phone = 3242343;
         $user->email = 'administrator@gmail.com';
         $user->role = 'Administrator';
-        $user->password = bcrypt('Administrator');
+        $user->password = bcrypt('administrator');
         $user->save();
         $adminrecep = new Adminrecep();
         $adminrecep->document = 2132332;

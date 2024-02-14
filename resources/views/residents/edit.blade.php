@@ -29,11 +29,11 @@
                     </div>
                     <div class="form-group col-md-2">
                         <label for="tower">Torre</label>
-                        <input class="form-control" type="number" name="tower" id="tower" min="1" value="{{ $user->resident->tower }}" required>
+                        <input class="form-control" type="number" name="tower" id="tower" min="1" value="{{ (isset($user->resident->tower)) ? $user->resident->tower : '' }}" required>
                     </div>
                     <div class="form-group col-md-2">
                         <label for="apt">Apartamento</label>
-                        <input class="form-control" type="number" name="apt" id="apt" min="1" value="{{ $user->resident->apt }}" required>
+                        <input class="form-control" type="number" name="apt" id="apt" min="1" value="{{ (isset($user->resident->apt)) ? $user->resident->apt : '' }}" required>
                     </div>
                     <div class="col-md-12 text-center">
                         <!--<input type="hidden" name="password">-->

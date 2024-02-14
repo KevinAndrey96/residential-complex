@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 class ResidentsIndexController extends Controller
 {
     public function index(){
+        set_time_limit(2000);
+
         $users = User::where([['role', 'Resident'],
                             ['is_deleted',0]])->get();
 

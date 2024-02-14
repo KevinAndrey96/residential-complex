@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Httpful' => array($vendorDir . '/nategood/httpful/src'),
+    'HTMLPurifier' => array($vendorDir . '/ezyang/htmlpurifier/library'),
 );
