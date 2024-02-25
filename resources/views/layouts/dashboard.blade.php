@@ -261,14 +261,6 @@
                                           </a>
                                       </li>
                                   @endif
-                                  @if (auth()->user()->can('import-residents'))
-                                      <li>
-                                          <a href="/choose-residents"><span style="margin-right: 25px;"
-                                                                            class="material-symbols-outlined align-middle">publish</span>
-                                              Importar residentes
-                                          </a>
-                                      </li>
-                                  @endif
                                   @if (auth()->user()->can('show-receptionists'))
                                       <li>
                                           <a href="/adminrecep"><span style="margin-right: 25px;"
