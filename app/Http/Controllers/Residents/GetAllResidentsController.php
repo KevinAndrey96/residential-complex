@@ -22,7 +22,5 @@ class GetAllResidentsController extends Controller
         $residents = $this->residentRepository->getAllOfResidentsTable();
 
         return ResidentResource::collection($residents);
-
-        //return $residents;
     }
 }
