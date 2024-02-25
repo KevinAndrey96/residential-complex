@@ -6,3 +6,6 @@ fix: change booking states
 
 ## [Hotfix 1.0.3]
 fix: residents import
+
+## [Hotfix 1.0.4]
+fix: remove residents importer 

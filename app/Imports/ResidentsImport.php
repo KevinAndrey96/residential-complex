@@ -23,31 +23,36 @@ class ResidentsImport implements ToModel, WithStartRow
 
     public function model(array $row)
     {
-        $user = new User();
-        $user->name = strval($row[1]);
-        $user->phone = strval($row[4]);
-        $user->email= strval($row[2]);
-        $user->role = 'Resident';
-        $user->password = bcrypt(strval($row[4]));
-        $user->is_deleted = 0;
-        $user->save();
+        if ($row[0] != '' && $row[1] != '' && $row[2] != '') {
+
+            $user = new User();
+            $user->name = strval($row[1]);
+            $user->phone = strval($row[4]);
+            $user->email = strval($row[2]);
+            $user->role = 'Resident';
+            $user->password = bcrypt(strval($row[4]));
+            $user->is_deleted = 0;
+            $user->save();
 
 
-        $resident = new Resident();
+            $resident = new Resident();
 
-        if (strlen(strval($row[0])) <= 4) {
-            $resident->tower =  substr(strval($row[0]), 0, 1);
-            $resident->apt =  substr(strval($row[0]), 1, 3);
+            if (strlen(strval($row[0])) <= 4) {
+                $resident->tower = substr(strval($row[0]), 0, 1);
+                $resident->apt = substr(strval($row[0]), 1, 3);
 
+            }
+
+            if (strlen(strval($row[0])) > 4) {
+                $resident->tower = substr(strval($row[0]), 0, 1);
+                $resident->apt = substr(strval($row[0]), 1, 4);
+            }
+
+            $resident->status = 'Habilitado';
+            $resident->user_id = $user->id;
+            $resident->save();
+
+            $user->assignRole('Resident');
         }
-
-        if (strlen(strval($row[0])) > 4) {
-            $resident->tower =  substr(strval($row[0]), 0, 1);
-            $resident->apt =  substr(strval($row[0]), 1, 4);
-        }
-
-        $resident->status = 'Habilitado';
-        $resident->user_id = $user->id;
-        $user->assignRole('Resident');
     }
 }
