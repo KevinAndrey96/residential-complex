@@ -119,14 +119,9 @@ Route::group(['middleware' => ['auth', 'isUserDeleted']], static function() {
     Route::get('/parking-spaces/{id}', App\Http\Controllers\ParkingSpaces\IndexParkingSpacesController::class)->name('parkingSpaces.index');
 
     //Roles
-    //Route::get('/role-create', App\Http\Controllers\Roles\CreateRolesController::class)->name('roles.create');
-    //Route::post('/role-edit', App\Http\Controllers\Roles\EditRolesController::class)->name('roles.edit');
-    //Route::post('/rol-delete', App\Http\Controllers\Roles\DeleteRolesController::class)->name('roles.delete');
     Route::get('/roles', App\Http\Controllers\Roles\IndexRolesController::class)->name('roles.index');
 
     //Permissions
-    //Route::get('/permission/create', App\Http\Controllers\Permissions\CreatePermissionsController::class)->name('permissions.create');
-    //Route::post('/permission/store', App\Http\Controllers\Permissions\StorePermissionsController::class)->name('permissions.store');
     Route::get('/permissions', App\Http\Controllers\Permissions\IndexPermissionsController::class)->name('permissions.index');
 
     //Watchman
@@ -138,6 +133,15 @@ Route::group(['middleware' => ['auth', 'isUserDeleted']], static function() {
 
     //Detail space occupations
     Route::get('/detail-space-occupation-history/{id}', App\Http\Controllers\DetailSpaceOccupations\HistoryDetailSpaceOccupationsController::class)->name('detailSpaceOccupations.history');
+
+    //News
+    Route::get('/news', App\Http\Controllers\News\IndexNewsController::class)->name('news.index');
+    Route::get('/create-news', App\Http\Controllers\News\CreateNewsController::class)->name('news.create');
+    Route::post('/store-news', App\Http\Controllers\News\StoreNewsController::class)->name('news.store');
+    Route::get('/edit-news/{id}', App\Http\Controllers\News\EditNewsController::class)->name('news.edit');
+    Route::post('/update-news', App\Http\Controllers\News\UpdateNewsController::class)->name('news.update');
+    Route::get('/delete-news/{id}', App\Http\Controllers\News\DeleteNewsController::class)->name('news.delete');
+    Route::get('/show-news', App\Http\Controllers\News\ShowNewsController::class)->name('news.show');
 
 
 });

@@ -333,6 +333,14 @@
                                           </a>
                                       </li>
                                   @endif
+                                  @if (auth()->user()->can('show-news'))
+                                      <li>
+                                          <a href="{{route('news.index')}}"><span style="margin-right: 25px;"
+                                                                                      class="material-symbols-outlined align-middle">newspaper</span>
+                                              Noticias
+                                          </a>
+                                      </li>
+                                  @endif
                                   @if (Auth::user()->role == 'Resident' && auth()->user()->can('show-bookings'))
                                       <li class="">
                                           <a href="/bookings">
@@ -595,6 +603,11 @@
         });
     })
 </script>-->
+  <!--CKEditor-->
+  <script src="//cdn.ckeditor.com/4.17.1/full/ckeditor.js"></script>
+  <script>
+      CKEDITOR.replace('richText');
+  </script>
 </body>
 
 </html>

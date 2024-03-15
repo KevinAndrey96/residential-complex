@@ -12,6 +12,7 @@ use Spatie\Permission\Traits\HasRoles;
 /**
  * @method static where(string $string, string $string1, mixed $id)
  * @method static find(mixed $input)
+ * @method static get()
  * @property mixed|string $name
  * @property mixed|string $document
  * @property mixed|string $phone

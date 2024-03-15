@@ -11,10 +11,10 @@ use Maatwebsite\Excel\Concerns\WithHeadingRow;
 class ResidentsImport implements ToModel, WithStartRow
 {
     /**
-    * @param array $row
-    *
-    * @return \Illuminate\Database\Eloquent\Model|null
-    */
+     * @param array $row
+     *
+     * @return \Illuminate\Database\Eloquent\Model|null
+     */
 
     public function startRow(): int
     {
@@ -23,7 +23,15 @@ class ResidentsImport implements ToModel, WithStartRow
 
     public function model(array $row)
     {
-        if ($row[0] != '' && $row[1] != '' && $row[2] != '') {
+        $users = User::get();
+        $sameEmail = 0;
+
+        foreach ($users as $user) {
+            if ($user->email == strval($row[2]))
+            $sameEmail++;
+        }
+
+        if ($row[0] != '' && $row[1] != '' && $row[2] != '' && ! $sameEmail) {
 
             $user = new User();
             $user->name = strval($row[1]);
@@ -33,7 +41,6 @@ class ResidentsImport implements ToModel, WithStartRow
             $user->password = bcrypt(strval($row[4]));
             $user->is_deleted = 0;
             $user->save();
-
 
             $resident = new Resident();
 
