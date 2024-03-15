@@ -19,6 +19,7 @@ class Parking extends Model
     protected $fillable = [
         'name',
         'capacity',
-        'type'
+        'type',
+        'is_deleted'
     ];
 }

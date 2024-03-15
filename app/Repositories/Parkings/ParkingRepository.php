@@ -9,7 +9,7 @@ class ParkingRepository implements ParkingRepositoryInterface
 {
     public function getAll()
     {
-        return Parking::all();
+        return Parking::where('is_deleted', 0)->get();
     }
 
     public function getRegisterByID(int $id)

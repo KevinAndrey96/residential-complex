@@ -114,6 +114,8 @@ Route::group(['middleware' => ['auth', 'isUserDeleted']], static function() {
     //Parking
     Route::get('/parkings', App\Http\Controllers\Parkings\IndexParkingsController::class)->name('parkings.index');
     Route::get('/parkings-create', App\Http\Controllers\Parkings\CreateParkingsController::class)->name('parkings.create');
+    Route::get('/delete-parking/{id}', App\Http\Controllers\Parkings\DeleteParkingsController::class)->name('parkings.delete');
+
 
     //Parking spaces
     Route::get('/parking-spaces/{id}', App\Http\Controllers\ParkingSpaces\IndexParkingSpacesController::class)->name('parkingSpaces.index');

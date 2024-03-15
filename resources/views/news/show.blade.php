@@ -20,7 +20,7 @@
                                 <div class="col-md-10">
                                     <div class="row">
                                         @foreach ($news as $value)
-                                        <div class="col-md-12 mt-4 mb-3">
+                                        <div class="col-md-12 mt-4 mb-2">
                                             <p style="font-size: 12px;" class="text-uppercase">{{$value->author.' · '.$value->created_at}}</p>
                                             <h3 class="text-center">{{$value->title}}</h3>
                                             {!! $value->description !!}

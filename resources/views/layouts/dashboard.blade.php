@@ -317,11 +317,19 @@
                                           </a>
                                       </li>
                                   @endif
-                                  @if (auth()->user()->can('show-payments'))
+                                  @if (getenv('PAYMENTS') == 1 && auth()->user()->can('show-payments'))
                                       <li>
                                           <a href="{{route('payments.index')}}"><span style="margin-right: 25px;"
                                                                                       class="material-symbols-outlined align-middle">Wallet</span>
                                               Cartera
+                                          </a>
+                                      </li>
+                                  @endif
+                                  @if (auth()->user()->can('download-payments'))
+                                      <li>
+                                          <a href="{{route('payments.index')}}"><span style="margin-right: 25px;"
+                                                                                      class="material-symbols-outlined align-middle">Wallet</span>
+                                              Descargar cartera
                                           </a>
                                       </li>
                                   @endif
@@ -357,6 +365,7 @@
                                           </a>
                                       </li>
                                   @endif
+                                  <!--
                                   @if (auth()->user()->can('show-my-payments'))
                                       <li class="">
                                           <a href="{{route('payments.myPayments')}}">
@@ -365,6 +374,7 @@
                                           </a>
                                       </li>
                                   @endif
+                                  -->
                                   @if (auth()->user()->can('show-extra-info'))
                                       @if (Auth::user()->extrainfo == null)
                                           <li class="">

@@ -150,6 +150,11 @@
                                             '<i style="color: darkblue; font-size: 25px !important;" class="material-icons opacity-10">' +
                                             'directions_car</i></a>'+
                                         '</div>'+
+                                        '<div class="d-inline">' +
+                                        '<a style="color: darkred;" href="/delete-parking/'+data+'" title="Plazas de estacionamiento" class="btn btn-link px-1 mb-0" onclick="return confirm(`¿Está seguro que desea eliminar este parqueadero?`)">' +
+                                        '<i style="color: darkred; font-size: 25px !important;" class="material-icons opacity-10">' +
+                                        'delete</i></a>'+
+                                        '</div>'
                                     '</div>';
                             @elseif (Auth::user()->role == 'Watchman')
                             return '<div class="d-flex justify-content-center">' +
@@ -211,6 +216,11 @@
                                     '<i style="color: darkblue; font-size: 25px !important;" class="material-icons opacity-10">' +
                                     'directions_car</i></a>'+
                                     '</div>'+
+                                    '<div class="d-inline">' +
+                                    '<a style="color: darkred;" href="/delete-parking/'+data+'" title="Plazas de estacionamiento" class="btn btn-link px-1 mb-0" onclick="return confirm(`¿Está seguro que desea eliminar este parqueadero?`)">' +
+                                    '<i style="color: darkred; font-size: 25px !important;" class="material-icons opacity-10">' +
+                                    'delete</i></a>'+
+                                    '</div>'
                                     '</div>';
                                 @elseif (Auth::user()->role == 'Watchman')
                                     return '<div class="d-flex justify-content-center">' +
@@ -275,6 +285,11 @@
                                     '<i style="color: darkblue; font-size: 25px !important;" class="material-icons opacity-10">' +
                                     'directions_car</i></a>'+
                                     '</div>'+
+                                    '<div class="d-inline">' +
+                                    '<a style="color: darkred;" href="/delete-parking/'+data+'" title="Plazas de estacionamiento" class="btn btn-link px-1 mb-0" onclick="return confirm(`¿Está seguro que desea eliminar este parqueadero?`)">' +
+                                    '<i style="color: darkred; font-size: 25px !important;" class="material-icons opacity-10">' +
+                                    'delete</i></a>'+
+                                    '</div>'
                                     '</div>';
                                 @elseif (Auth::user()->role == 'Watchman')
                                     return '<div class="d-flex justify-content-center">' +
