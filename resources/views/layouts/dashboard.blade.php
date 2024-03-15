@@ -385,7 +385,14 @@
                                           </li>
                                       @endif
                                   @endif
-
+                                  @if (auth()->user()->can('download-coexistence-manual'))
+                                      <li class="">
+                                          <a target="_blank" href="{{getenv('APP_URL').'/docs/MANUAL-DE-CONVIVENCIA-RESERVA-DE-TOSCANA.pdf'}}">
+                                              <span style="margin-right: 25px;" class="material-symbols-outlined align-middle">download</span>
+                                              Descargar manual de convivencia
+                                          </a>
+                                      </li>
+                                  @endif
                                 </ul>
                         </div>
                     </nav>
