@@ -325,14 +325,6 @@
                                           </a>
                                       </li>
                                   @endif
-                                  @if (auth()->user()->can('download-payments'))
-                                      <li>
-                                          <a href="{{route('payments.index')}}"><span style="margin-right: 25px;"
-                                                                                      class="material-symbols-outlined align-middle">Wallet</span>
-                                              Descargar cartera
-                                          </a>
-                                      </li>
-                                  @endif
                                   @if (auth()->user()->can('show-parking-lots'))
                                       <li>
                                           <a href="{{route('parkings.index')}}"><span style="margin-right: 25px;"
@@ -384,6 +376,14 @@
                                               </a>
                                           </li>
                                       @endif
+                                  @endif
+                                  @if (auth()->user()->can('download-payments'))
+                                      <li>
+                                          <a target="_blank" href="{{getenv('APP_URL').'/docs/CARTERA.pdf'}}"><span style="margin-right: 25px;"
+                                                                                      class="material-symbols-outlined align-middle">download</span>
+                                              Descargar cartera
+                                          </a>
+                                      </li>
                                   @endif
                                   @if (auth()->user()->can('download-coexistence-manual'))
                                       <li class="">
