@@ -379,7 +379,7 @@
                                   @endif
                                   @if (auth()->user()->can('download-payments'))
                                       <li>
-                                          <a target="_blank" href="{{getenv('APP_URL').'/docs/CARTERA.pdf'}}"><span style="margin-right: 25px;"
+                                          <a target="_blank" href="{{getenv('APP_URL').'/docs/cartera.pdf'}}"><span style="margin-right: 25px;"
                                                                                       class="material-symbols-outlined align-middle">download</span>
                                               Descargar cartera
                                           </a>
@@ -387,7 +387,7 @@
                                   @endif
                                   @if (auth()->user()->can('download-coexistence-manual'))
                                       <li class="">
-                                          <a target="_blank" href="{{getenv('APP_URL').'/docs/MANUAL-DE-CONVIVENCIA-RESERVA-DE-TOSCANA.pdf'}}">
+                                          <a target="_blank" href="{{getenv('APP_URL').'/docs/manual.pdf'}}">
                                               <span style="margin-right: 25px;" class="material-symbols-outlined align-middle">download</span>
                                               Descargar manual de convivencia
                                           </a>

@@ -9,3 +9,6 @@ fix: residents import
 
 ## [Hotfix 1.0.4]
 fix: remove residents importer 
+
+## [Hotfix 1.0.5]
+fix: change name to manual and coexistence manual download urls
