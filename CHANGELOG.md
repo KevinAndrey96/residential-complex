@@ -12,3 +12,6 @@ fix: remove residents importer
 
 ## [Hotfix 1.0.5]
 fix: change name to manual and coexistence manual download urls
+
+## [Hotfix 1.0.6]
+fix: hide edit articles seeder

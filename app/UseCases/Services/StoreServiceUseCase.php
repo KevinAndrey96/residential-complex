@@ -64,6 +64,7 @@ class StoreServiceUseCase implements StoreServiceUseCaseInterface
         };
         $service->save();
         $gallery = $request->gallery;
+
         for ($i = 0; $i < count($gallery); $i++) {
             $modifiedServiceTittle = str_replace(' ', '-', $service->title).$i;
             $pathName = 'services/'.$modifiedServiceTittle.'.png';
