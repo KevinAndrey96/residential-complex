@@ -9,7 +9,7 @@
     @endif
     <div class="card">
         <div class="card-header text-center">
-            <h3 class="p-2">Editar celador</h3>
+            <h3 class="p-2">Editar Guardia de Seguridad</h3>
         </div>
         <div class="card-body">
             <form action="{{route('watchman.update')}}" method="POST" enctype="multipart/form-data">

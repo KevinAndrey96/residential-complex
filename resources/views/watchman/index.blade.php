@@ -32,7 +32,7 @@
     @endif
     <div class="card">
         <div class="card-header text-center">
-            Celadores
+            Guardias de Seguridad
         </div>
         <div class="card-body container-fluid">
             <div class="justify-content-center" >

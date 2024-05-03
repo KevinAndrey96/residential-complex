@@ -15,3 +15,6 @@ fix: change name to manual and coexistence manual download urls
 
 ## [Hotfix 1.0.6]
 fix: hide edit articles seeder
+
+## [Hotfix 1.0.7]
+fix: change name celador to Guardia de Seguridad

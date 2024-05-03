@@ -49,7 +49,7 @@ class StoreWatchmanController extends Controller
         $storedWatchman = $this->watchmanRepository->save($watchmanDTO);
 
         if ($storedWatchman) {
-            return redirect()->route('watchman.index')->with('successSave', 'Celador registrado');
+            return redirect()->route('watchman.index')->with('successSave', 'Guardia de Seguridad registrado');
         }
 
 

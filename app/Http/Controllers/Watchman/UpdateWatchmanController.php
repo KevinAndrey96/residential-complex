@@ -55,7 +55,7 @@ class UpdateWatchmanController extends Controller
         $updatedWatchman = $this->watchmanRepository->update($user, $watchmanDTO);
 
         if ($updatedWatchman) {
-            return redirect()->route('watchman.index')->with('successUpdate', 'Celador modificado');
+            return redirect()->route('watchman.index')->with('successUpdate', 'Guardia de Seguridad modificado');
         }
     }
 }

@@ -281,7 +281,7 @@
                                       <li>
                                           <a href="{{route('watchman.create')}}"><span style="margin-right: 25px;"
                                                                                        class="material-symbols-outlined align-middle">group</span>
-                                              Crear celador
+                                              Crear Guardia de Seguridad
                                           </a>
                                       </li>
                                   @endif
@@ -289,7 +289,7 @@
                                       <li>
                                           <a href="{{route('watchman.index')}}"><span style="margin-right: 25px;"
                                                                                       class="material-symbols-outlined align-middle">group</span>
-                                              Ver celadores
+                                              Ver Guardias de Seguridad
                                           </a>
                                       </li>
                                   @endif
@@ -429,7 +429,7 @@
                                               @endrole
 
                                               @hasrole('Watchman')
-                                              Bienvenido Celador
+                                              Bienvenido Guardia de Seguridad
                                               @endrole
                                           </p>
                                       </div>
